@@ -13,7 +13,7 @@ public enum DaniTechUIRootType
 public enum DaniTechUIType
 {
     DNSimplePopup,
-    DNMainUI,
+    MainUI,
     DNMyProfilePopup, // 신규UI추가 1) 새로운 UIType을 추가한다
     DNInventory,
     DNLoadingUI,
@@ -36,7 +36,7 @@ public static class DaniTechUIManagerExtension
     public static void ShowStartupUIOnGameStart(this DaniTechUIManager uiManager)
     {
         uiManager.OpenLoadingUI();
-        uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.DNMainUI);
+        uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         // 게임 로비 UI를 여기서 오픈해주자 -> uiManager.
         // MainUI도
     }
