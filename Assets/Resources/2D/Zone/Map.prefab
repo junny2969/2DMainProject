@@ -35,7 +35,7 @@ Transform:
   - {fileID: 491244012085868172}
   - {fileID: 6173828468641131940}
   - {fileID: 9197942784216258568}
-  - {fileID: 7974259508799320419}
+  - {fileID: 8179047412079223094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1770339204066351959
@@ -474,7 +474,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
   m_PrefabInstance: {fileID: 7054068346084079059}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &8136596283134270648
+--- !u!1001 &8052838257403596013
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -484,23 +484,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2039119099879299171, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_Radius
-      value: 6.1297226
-      objectReference: {fileID: 0}
-    - target: {fileID: 2039119099879299171, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
-      propertyPath: m_Offset.x
-      value: -3.8587742
+      value: 2.5210392
       objectReference: {fileID: 0}
     - target: {fileID: 2039119099879299171, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_Offset.y
-      value: -0.6609478
+      value: -0.9110391
       objectReference: {fileID: 0}
     - target: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.79
+      value: 3.11
       objectReference: {fileID: 0}
     - target: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.03
+      value: 2.67
       objectReference: {fileID: 0}
     - target: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_LocalPosition.z
@@ -536,27 +532,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3180363546269119021, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: _spawnSpotType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3180363546269119021, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: _startSpawnType
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3180363546269119021, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: _spawnObjectDataId
-      value: dropItem_gold_1
+      value: harv_apple_1
       objectReference: {fileID: 0}
     - target: {fileID: 6842466901107213727, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
       propertyPath: m_Name
-      value: SpawnSpot_FieldObject (4)
+      value: SpawnSpot_FieldObject (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
---- !u!4 &7974259508799320419 stripped
+--- !u!4 &8179047412079223094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
-  m_PrefabInstance: {fileID: 8136596283134270648}
+  m_PrefabInstance: {fileID: 8052838257403596013}
   m_PrefabAsset: {fileID: 0}

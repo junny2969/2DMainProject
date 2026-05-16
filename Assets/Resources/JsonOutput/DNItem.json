@@ -48,5 +48,25 @@
     "MaxStackCount": 20,
     "SellingPrice": 100,
     "IconPath": "Icon/Icon_Item_Box_1"
+  },
+  {
+    "Id": "Item_Carrot_1",
+    "Name": "당근",
+    "Description": "과제 실습용 당근, 이번엔 작동했으면 좋겠다",
+    "ItemType": "Normal",
+    "Grade": "Normal",
+    "MaxStackCount": 50,
+    "SellingPrice": 80,
+    "IconPath": "Icon/Icon_Item_Equip_Hat_1"
+  },
+  {
+    "Id": "Item_Apple_1",
+    "Name": "사과",
+    "Description": "과제 제출용 당근, 작동하겟지..?",
+    "ItemType": "Normal",
+    "Grade": "Normal",
+    "MaxStackCount": 50,
+    "SellingPrice": 70,
+    "IconPath": "Icon/Icon_Item_Apple_1"
   }
 ]

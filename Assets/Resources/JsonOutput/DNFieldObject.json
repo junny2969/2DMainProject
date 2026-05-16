@@ -37,5 +37,31 @@
     "DropItemDataId": "Item_Potato_1",
     "IconPath": null,
     "PrefabPath": "2DPrefab/Harvest_Potato"
+  },
+  {
+    "Id": "harv_carrot_1",
+    "FieldObjectType": "Harvest",
+    "Name": "당근",
+    "Description": "과제 실습용 당근",
+    "DropCountRange": [
+      10,
+      100
+    ],
+    "DropItemDataId": "Item_Carrot_1",
+    "IconPath": null,
+    "PrefabPath": "2DPrefab/Harvest_Carrot"
+  },
+  {
+    "Id": "harv_apple_1",
+    "FieldObjectType": "Harvest",
+    "Name": "사과",
+    "Description": "과제 제출용 당근",
+    "DropCountRange": [
+      10,
+      50
+    ],
+    "DropItemDataId": "Item_Apple_1",
+    "IconPath": null,
+    "PrefabPath": "2DPrefab/Harvest_Apple"
   }
 ]
