@@ -7,6 +7,14 @@ public class DaniTech_2DFieldObject : MonoBehaviour
     [SerializeField] private string _fieldObjectDataId;
     [SerializeField] private string _fieldObjectName;
 
+    public int FieldObjectInstanceId
+    {
+        get
+        {
+            return _fieldObjectInstanceId;
+        }
+    }
+
     public void InitFieldObjectInfoOnCreated(int instanceId, string fieldObjectDataId)
     {
         var fieldObjectData = DaniTechGameDataManager.Instance.GetDNFieldObjectData(fieldObjectDataId);
@@ -35,6 +43,7 @@ public class DaniTech_2DFieldObject : MonoBehaviour
             // Destroy(this.gameObject);
 
             // 채집과 드랍 1-0) 내가 상호작용한 필드 오브젝트의 타입에 따라 처리를 추가해봅시다
+            Debug.LogError($"{_fieldObjectDataId} 1개 획득!!!");
             var fieldObjectData = DaniTechGameDataManager.Instance.GetDNFieldObjectData(_fieldObjectDataId);
             if (fieldObjectData == null)
             {

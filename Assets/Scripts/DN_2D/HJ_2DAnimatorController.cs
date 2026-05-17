@@ -6,7 +6,8 @@ public enum EntityAnimState
     Idle,
     Walk,
     Jump,
-    Atk
+    Atk,
+    Hit
 }
 public class HJ_2DAnimatorController : MonoBehaviour
 {
@@ -34,12 +35,16 @@ public class HJ_2DAnimatorController : MonoBehaviour
                 break;
 
             case EntityAnimState.Jump:
-                Debug.LogWarning("Jump SetTrigger 호출됨");
+                // Debug.LogWarning("Jump SetTrigger 호출됨");
                 Animator_Entity.SetTrigger("IsJump");
                 break;
 
             case EntityAnimState.Atk:
                 Animator_Entity.SetTrigger("IsAtk");
+                break;
+                
+            case EntityAnimState.Hit:
+                Animator_Entity.SetTrigger("IsHit");
                 break;
 
             default:

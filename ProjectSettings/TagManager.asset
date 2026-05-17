@@ -7,6 +7,8 @@ TagManager:
   - Gold
   - Map
   - Enemy
+  - Fire
+  - Apple
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Dummy
-  - 
+  - Fire
   - 
   - 
   - 

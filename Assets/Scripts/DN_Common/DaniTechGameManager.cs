@@ -53,11 +53,39 @@ public class DaniTechGameManager : MonoBehaviour
         newItem.ItemStackCount = addItemCount;
 
         _playerModel.ItemList.Add(newItem);
+
+        if(itemDataId == "Item_Apple_1")
+        {
+            CheckGameClear(itemDataId);
+        }
     }
 
     public List<DaniTechItemModel> GetPlayerItemList()
     {
         // _playerModel이 Private이므로 외부에서 ItemList를 받아올 수 있게 Get함수를 사용한다
         return _playerModel.ItemList;
+    }
+
+    private void CheckGameClear(string itemDataId)
+    {
+
+        int appleCount = 0;
+        foreach(var item in _playerModel.ItemList )
+        {
+            if(item.ItemDataId == "Item_Apple_1")
+            {
+                appleCount += item.ItemStackCount;
+            }
+        }
+
+        if (appleCount >= 10)
+        {
+            GameClear();
+        }
+    }
+
+    private void GameClear()
+    {
+        Debug.Log("게임 클리어");
     }
 }

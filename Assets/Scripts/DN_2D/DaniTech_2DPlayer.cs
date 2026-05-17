@@ -43,10 +43,10 @@ public class DaniTech_2DPlayer : MonoBehaviour
         _horizontalInput = Input.GetAxisRaw("Horizontal");
 
         // 2. 점프 입력
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (Input.GetKeyDown(KeyCode.X) && _isGrounded)
         {
-            Debug.LogWarning("점프 입력받음");
-            Debug.LogWarning(AnimatorController_Entity  == null ? "animatorController가 null!" : "animatorController 정상" );
+            //Debug.LogWarning("점프 입력받음");
+            //Debug.LogWarning(AnimatorController_Entity  == null ? "animatorController가 null!" : "animatorController 정상" );
 
             Jump();
             return;
@@ -66,9 +66,9 @@ public class DaniTech_2DPlayer : MonoBehaviour
         bool isMoving = (_horizontalInput != 0);
         ChangePlayerState(isMoving ? EntityAnimState.Walk : EntityAnimState.Idle);
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            ChangePlayerState(EntityAnimState.Atk);
+            Atk();
         }
 
     }
@@ -103,7 +103,11 @@ public class DaniTech_2DPlayer : MonoBehaviour
         // 순간적인 힘을 위로 가함
         _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, _jumpForce);
     }
+    void Atk()
+    {
+        ChangePlayerState(EntityAnimState.Atk);
 
+    }
     void Flip()
     {
         _lookRight = !_lookRight;
@@ -154,6 +158,44 @@ public class DaniTech_2DPlayer : MonoBehaviour
             // 알고 있는게 좋은걸까?
 
         _currentScore++;
-        _scoreUI.AddGameScore(_currentScore);
+        if(_scoreUI != null)
+        {
+            _scoreUI.AddGameScore(_currentScore);
+
+        }
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Fire"))
+        {
+            ChangePlayerState(EntityAnimState.Hit);
+        }
+
+        if(collision.CompareTag("Apple"))
+        {
+            Debug.LogWarning("사과를 1개 획득했습니다");
+            CollectApple(collision.gameObject);
+        }
+    }
+
+    private void CollectApple(GameObject apple)
+    {
+        // DaniTechGameObjectManager.Inst.RequestDestroyEntityObject(apple.GetComponent<DaniTech_2DFieldObject>().EntityInstanceId);
+
+        var fieldObject = apple.GetComponent<DaniTech_2DFieldObject>();
+        if (fieldObject == null) return;
+
+        DaniTechGameObjectManager.Inst.RequestDestroyFieldObject(fieldObject.FieldObjectInstanceId);
+        
+        AddGameScore();
+    }
+
+    private void GameClear()
+    {
+        Debug.LogWarning("게임 클리어");
+        // Todo 로그 대신 클리어 화면 UIManager에 요청해보기
     }
 }
