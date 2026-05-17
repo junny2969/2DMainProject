@@ -45,7 +45,11 @@ public class DaniTech_2DPlayer : MonoBehaviour
         // 2. 점프 입력
         if (Input.GetButtonDown("Jump") && _isGrounded)
         {
+            Debug.LogWarning("점프 입력받음");
+            Debug.LogWarning(AnimatorController_Entity  == null ? "animatorController가 null!" : "animatorController 정상" );
+
             Jump();
+            return;
         }
 
         // 3. 캐릭터 방향 전환 (Flip)
@@ -95,6 +99,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
 
     void Jump()
     {
+        ChangePlayerState(EntityAnimState.Jump);
         // 순간적인 힘을 위로 가함
         _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, _jumpForce);
     }

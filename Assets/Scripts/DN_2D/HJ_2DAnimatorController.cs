@@ -34,6 +34,7 @@ public class HJ_2DAnimatorController : MonoBehaviour
                 break;
 
             case EntityAnimState.Jump:
+                Debug.LogWarning("Jump SetTrigger 호출됨");
                 Animator_Entity.SetTrigger("IsJump");
                 break;
 
