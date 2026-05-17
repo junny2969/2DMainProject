@@ -14,7 +14,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;    // 지면으로 인식할 레이어 (Platforms 등)
 
     [Header("애니메이터")]
-    [SerializeField] private DaniTech_2DAnimatorController AnimatorController_Entity;
+    [SerializeField] private HJ_2DAnimatorController AnimatorController_Entity;
 
 
 
@@ -60,16 +60,16 @@ public class DaniTech_2DPlayer : MonoBehaviour
 
         // 이동을 한다라는 판정만 우선 해봅시다
         bool isMoving = (_horizontalInput != 0);
-        ChangePlayerState(isMoving ? DaniTech_EntityAnimState.Walk : DaniTech_EntityAnimState.Idle);
+        ChangePlayerState(isMoving ? EntityAnimState.Walk : EntityAnimState.Idle);
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            ChangePlayerState(DaniTech_EntityAnimState.Atk);
+            ChangePlayerState(EntityAnimState.Atk);
         }
 
     }
 
-    private void ChangePlayerState(DaniTech_EntityAnimState newState)
+    private void ChangePlayerState(EntityAnimState newState)
     {
         // 이런 곳에 UI나 플레이어의 별도 처리를 넣어줄 수도 있다
 
