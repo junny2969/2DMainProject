@@ -19,6 +19,7 @@ public class Test_LobbyUI : DaniTechUIBase
     public void OnClick_GameStart()
     {
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.Lobby_UI);
+        DaniTechUIManager.Instance.OpenLoadingUI();
     }
 
     public void OnClick_GameQuit()

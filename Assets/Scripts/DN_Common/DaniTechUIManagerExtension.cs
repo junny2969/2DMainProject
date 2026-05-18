@@ -36,7 +36,7 @@ public static class DaniTechUIManagerExtension
 
     public static void ShowStartupUIOnGameStart(this DaniTechUIManager uiManager)
     {
-        uiManager.OpenLoadingUI();
+        // uiManager.OpenLoadingUI();
         uiManager.OpenContentUI(DaniTechUIType.Lobby_UI);
         uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         // 게임 로비 UI를 여기서 오픈해주자 -> uiManager.
