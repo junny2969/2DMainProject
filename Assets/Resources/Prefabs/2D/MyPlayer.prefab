@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1841748892333803195}
   - component: {fileID: 38588006707050731}
   - component: {fileID: 1158775202123785231}
-  - component: {fileID: 7017508848187524538}
+  - component: {fileID: 538467680628665551}
   - component: {fileID: 5664713410890166741}
   - component: {fileID: 7709251462396610220}
   - component: {fileID: 3648616374290269082}
@@ -51,13 +51,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DaniTech_2DPlayer
   _moveSpeed: 8
-  _jumpForce: 14
   _groundCheck: {fileID: 1886913021006355369}
   _checkRadius: 0.5
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  AnimatorController_Entity: {fileID: 7017508848187524538}
+  AnimatorController_Entity: {fileID: 538467680628665551}
   _scoreUI: {fileID: 0}
 --- !u!50 &1158775202123785231
 Rigidbody2D:
@@ -74,7 +73,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -86,7 +85,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7017508848187524538
+--- !u!114 &538467680628665551
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4239834070742971367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5975dc3f406f1b745afa9c15669b03e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 62a684daa2b7ec049a6bfe1f029693e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HJ_2DAnimatorController
-  Animator_Entity: {fileID: 7709251462396610220}
+  m_EditorClassIdentifier: Assembly-CSharp::Eilie_AnimatorController
+  Animator_Eilie: {fileID: 7709251462396610220}
 --- !u!212 &5664713410890166741
 SpriteRenderer:
   serializedVersion: 2
@@ -148,7 +147,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 150
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 118223896, guid: 28b484b19f569a7459cae61674f7a190, type: 3}
+  m_Sprite: {fileID: 1724187242, guid: 9ccf5d2ca57023a4da321a13e687a3e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -214,17 +213,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 1
   m_CompositeOrder: 0
-  m_Offset: {x: 0.011271417, y: 1.01}
+  m_Offset: {x: 0.0026359558, y: 0.46321106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 0.7, y: 2.07}
+    oldSize: {x: 0.46, y: 0.91}
     newSize: {x: 0.7, y: 2.07}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.76254284, y: 2.02}
+  m_Size: {x: 0.5265579, y: 0.9264221}
   m_EdgeRadius: 0
 --- !u!1 &6040484897788173106
 GameObject:
@@ -241,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1886913021006355369
 Transform:
   m_ObjectHideFlags: 0

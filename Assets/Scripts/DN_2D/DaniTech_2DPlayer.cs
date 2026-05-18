@@ -6,7 +6,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
 {
     [Header("이동 설정")]
     [SerializeField] private float _moveSpeed = 8f;
-    [SerializeField] private float _jumpForce = 12f;
+    // [SerializeField] private float _jumpForce = 12f;
 
     [Header("지면 체크 설정")]
     [SerializeField] private Transform _groundCheck;    // 발 밑에 배치할 빈 오브젝트
@@ -14,7 +14,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;    // 지면으로 인식할 레이어 (Platforms 등)
 
     [Header("애니메이터")]
-    [SerializeField] private HJ_2DAnimatorController AnimatorController_Entity;
+    [SerializeField] private Eilie_AnimatorController AnimatorController_Entity;
 
 
 
@@ -24,6 +24,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private bool _isGrounded;
     private float _horizontalInput;
+    private float _verticalInput;
     private bool _lookRight = true;
 
     // 추후에는 이런 데이터가 저장될 수 있도록 UI에 있는 것보다 한곳으로 모여지는게 좋다
@@ -41,16 +42,16 @@ public class DaniTech_2DPlayer : MonoBehaviour
     {
         // 1. 입력 받기 (Update에서 수행)
         _horizontalInput = Input.GetAxisRaw("Horizontal");
-
+        _verticalInput = Input.GetAxisRaw("Vertical");
         // 2. 점프 입력
-        if (Input.GetKeyDown(KeyCode.X) && _isGrounded)
-        {
-            //Debug.LogWarning("점프 입력받음");
-            //Debug.LogWarning(AnimatorController_Entity  == null ? "animatorController가 null!" : "animatorController 정상" );
+        //if (Input.GetKeyDown(KeyCode.X) && _isGrounded)
+        //{
+        //    //Debug.LogWarning("점프 입력받음");
+        //    //Debug.LogWarning(AnimatorController_Entity  == null ? "animatorController가 null!" : "animatorController 정상" );
 
-            Jump();
-            return;
-        }
+        //    Jump();
+        //    return;
+        //}
 
         // 3. 캐릭터 방향 전환 (Flip)
         if (_horizontalInput > 0 && !_lookRight)
@@ -63,17 +64,19 @@ public class DaniTech_2DPlayer : MonoBehaviour
         }
 
         // 이동을 한다라는 판정만 우선 해봅시다
-        bool isMoving = (_horizontalInput != 0);
-        ChangePlayerState(isMoving ? EntityAnimState.Walk : EntityAnimState.Idle);
+        bool isMoving = ((_horizontalInput != 0) || (_verticalInput != 0));
+        ChangePlayerState(isMoving ? EilieAnimState.Walk : EilieAnimState.Idle);
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            Atk();
-        }
+        AnimatorController_Entity.SetMoveDirection(new Vector2(_horizontalInput, _verticalInput));
+
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    Atk();
+        //}
 
     }
 
-    private void ChangePlayerState(EntityAnimState newState)
+    private void ChangePlayerState(EilieAnimState newState)
     {
         // 이런 곳에 UI나 플레이어의 별도 처리를 넣어줄 수도 있다
 
@@ -94,20 +97,20 @@ public class DaniTech_2DPlayer : MonoBehaviour
     void Move()
     {
         // Y축 속도는 유지하면서 X축 속도만 변경 (관성 유지)
-        _rigidBody.linearVelocity = new Vector2(_horizontalInput * _moveSpeed, _rigidBody.linearVelocity.y);
+        _rigidBody.linearVelocity = new Vector2(_horizontalInput * _moveSpeed, _verticalInput * _moveSpeed);
     }
 
-    void Jump()
-    {
-        ChangePlayerState(EntityAnimState.Jump);
-        // 순간적인 힘을 위로 가함
-        _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, _jumpForce);
-    }
-    void Atk()
-    {
-        ChangePlayerState(EntityAnimState.Atk);
+    //void Jump()
+    //{
+    //    ChangePlayerState(EilieAnimState.Jump);
+    //    // 순간적인 힘을 위로 가함
+    //    _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, _jumpForce);
+    //}
+    //void Atk()
+    //{
+    //    ChangePlayerState(EilieAnimState.Atk);
 
-    }
+    //}
     void Flip()
     {
         _lookRight = !_lookRight;
@@ -169,16 +172,16 @@ public class DaniTech_2DPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Fire"))
-        {
-            ChangePlayerState(EntityAnimState.Hit);
-        }
+        //if(collision.CompareTag("Fire"))
+        //{
+        //    ChangePlayerState(EilieAnimState.Hit);
+        //}
 
-        if(collision.CompareTag("Apple"))
-        {
-            Debug.LogWarning("사과를 1개 획득했습니다");
-            CollectApple(collision.gameObject);
-        }
+        //if(collision.CompareTag("Apple"))
+        //{
+        //    Debug.LogWarning("사과를 1개 획득했습니다");
+        //    CollectApple(collision.gameObject);
+        //}
     }
 
     private void CollectApple(GameObject apple)
