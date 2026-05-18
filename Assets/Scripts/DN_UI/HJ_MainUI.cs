@@ -19,6 +19,11 @@ public class HJ_MainUI : DaniTechUIBase
         Btn_Test.BindOnClickButtonEvent(Onclick_Test);
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void OnClick_OpenMyProfile()
     {
 
