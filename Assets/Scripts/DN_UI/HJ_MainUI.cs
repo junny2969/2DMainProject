@@ -8,6 +8,8 @@ public class HJ_MainUI : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_Harvest;
     [SerializeField] private DaniTechUIButton Btn_Inventory;
     [SerializeField] private DaniTechUIButton Btn_Test;
+    [SerializeField] private DaniTechUIButton Btn_GameBook;
+
 
     private void OnEnable()
     {
@@ -17,6 +19,7 @@ public class HJ_MainUI : DaniTechUIBase
         Btn_Harvest.BindOnClickButtonEvent(OnClick_Harvest);
         Btn_Inventory.BindOnClickButtonEvent(OnClick_OpenInventory);
         Btn_Test.BindOnClickButtonEvent(Onclick_Test);
+        
     }
 
     private void Update()
@@ -48,7 +51,7 @@ public class HJ_MainUI : DaniTechUIBase
 
     public void Onclick_Test()
     {
-
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.InventoryUI);
     }
 
 
