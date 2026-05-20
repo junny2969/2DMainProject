@@ -21,7 +21,9 @@ public enum DaniTechUIType
     DNInfoBookUI,
     Lobby_UI,
     HJGameBookUI_Test,
-    InventoryUI
+    InventoryUI,
+    BattleUI
+
 }
 
 public static class DaniTechUIManagerExtension

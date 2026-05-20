@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 // +) 어떤 컴포넌트가 필수로 필요하다는 것을 강제할 수 있다
 [RequireComponent(typeof(Rigidbody2D))]
@@ -16,7 +17,10 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [Header("애니메이터")]
     [SerializeField] private Eilie_AnimatorController AnimatorController_Entity;
 
-
+    [Header("스킬")]
+    [SerializeField] private Collider2D Collider_PlayerNormalAttack;
+    [SerializeField] private GameObject Prefab_SkillProfectile;
+    [SerializeField] private Transform Transform_SkillProfectileRoot;
 
     // 우선 직접 들고 있다가 추후에 UI매니저한테 요청하도록 개선해볼 것
     [SerializeField] private DaniTech_ScoreUI _scoreUI;
@@ -26,9 +30,18 @@ public class DaniTech_2DPlayer : MonoBehaviour
     private float _horizontalInput;
     private float _verticalInput;
     private bool _lookRight = true;
+    private bool _isSkillUsing = false;
 
     // 추후에는 이런 데이터가 저장될 수 있도록 UI에 있는 것보다 한곳으로 모여지는게 좋다
     private int _currentScore;
+
+    // 스킬 관련 ==========================================================================
+    //플레이어가 바라보고 있는 방향
+    private Vector2 _lookDirection = Vector2.right;
+    public enum ViewType { sideView, TopDown, Isometric}
+    public ViewType _currentView;
+
+
 
     void Awake()
     {
@@ -36,6 +49,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
 
         // 2D 캐릭터가 물리 충돌 시 회전해서 넘어지는 것 방지
         _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        Collider_PlayerNormalAttack.gameObject.SetActive(false);
     }
 
     void Update()
@@ -73,6 +87,11 @@ public class DaniTech_2DPlayer : MonoBehaviour
         //{
         //    Atk();
         //}
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            UseNormalAttack();
+        }
 
     }
 
@@ -200,5 +219,67 @@ public class DaniTech_2DPlayer : MonoBehaviour
     {
         Debug.LogWarning("게임 클리어");
         // Todo 로그 대신 클리어 화면 UIManager에 요청해보기
+    }
+
+    public bool CheckSkillUseable(bool isShowMsg = true)
+    {
+        //원하는 스킬의 사용가능 조건 추가 Ex) 후딜레이
+        if (_isSkillUsing == true)
+        {
+            if (isShowMsg == true)
+            {
+                DaniTechUIManager.Instance.OpenSimplePopup("스킬이 이미 사용중입니다.");
+
+            }
+            return false; 
+        }
+
+        return true;
+    }
+
+    public void UseNormalAttack()
+    {
+        if(CheckSkillUseable(isShowMsg:false) == false) return;
+        
+        Collider_PlayerNormalAttack.gameObject.SetActive(true);
+        StartCoroutine(CoStartNormalAttack());
+
+        // ChangePlayerState(); 플레이어의 공격모션 변경
+    }
+
+    public void UseFirstlSkill()
+    {
+        if (CheckSkillUseable() == false) return;
+
+    }
+
+    public void UseSecondSkill()
+    {
+        if (CheckSkillUseable() == false) return;
+
+    }
+
+    public void UseThirdSkill()
+    {
+        if (CheckSkillUseable() == false) return;
+        CreateProjectileSkillObject();
+    }
+
+    private void CreateProjectileSkillObject()
+    {
+        var gObj = Instantiate(Prefab_SkillProfectile);
+        if (gObj == null) return;
+
+        var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
+        if(skillProjectileComponent == null) return;
+
+        skillProjectileComponent.InitSkillObject(_lookRight, this.transform.position, 50);
+    }
+
+    IEnumerator CoStartNormalAttack()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Collider_PlayerNormalAttack.gameObject.SetActive(false);
+
     }
 }

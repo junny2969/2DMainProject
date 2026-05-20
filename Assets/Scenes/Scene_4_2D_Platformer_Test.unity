@@ -1739,6 +1739,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a684daa2b7ec049a6bfe1f029693e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Eilie_AnimatorController
+--- !u!114 &2005320646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 38588006707050731, guid: a974c234fc0431741940af29b5c3e042, type: 3}
+  m_PrefabInstance: {fileID: 3679689449135864954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eba4062894d60ec408a1eec8cc09650d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DaniTech_2DPlayer
 --- !u!61 &981711666340176653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1942,6 +1953,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManagerContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8007951631376954100, guid: d9614b341da396f43a8b38d13a069d93, type: 3}
+      propertyPath: LocalPlayer
+      value: 
+      objectReference: {fileID: 2005320646}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

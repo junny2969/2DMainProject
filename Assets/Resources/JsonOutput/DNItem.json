@@ -68,5 +68,95 @@
     "MaxStackCount": 50,
     "SellingPrice": 70,
     "IconPath": "Icon/Icon_Item_Apple_1"
+  },
+  {
+    "Id": "Item_Armor_1",
+    "Name": "동 갑옷",
+    "Description": "동으로 만들어진 갑옷, 싸구려다.",
+    "ItemType": "Equipment",
+    "Grade": "Normal",
+    "MaxStackCount": 10,
+    "SellingPrice": 50,
+    "IconPath": "Icon/Icon_Item_Armor_1"
+  },
+  {
+    "Id": "Item_Armor_2",
+    "Name": "은 갑옷",
+    "Description": "은으로 만들어진 갑옷, 조금은 실용성이 느껴진다.",
+    "ItemType": "Equipment",
+    "Grade": "Rare",
+    "MaxStackCount": 10,
+    "SellingPrice": 150,
+    "IconPath": "Icon/Icon_Item_Armor_2"
+  },
+  {
+    "Id": "Item_Armor_3",
+    "Name": "금 갑옷",
+    "Description": "금으로 만들어진 갑옷, 일단 비싸보인다.",
+    "ItemType": "Equipment",
+    "Grade": "Epic",
+    "MaxStackCount": 10,
+    "SellingPrice": 450,
+    "IconPath": "Icon/Icon_Item_Armor_3"
+  },
+  {
+    "Id": "Item_Potion_1",
+    "Name": "빨간 포션",
+    "Description": "붉은색의 물약, 체력을 20 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 10,
+    "IconPath": "Icon/Icon_Item_Potion_1"
+  },
+  {
+    "Id": "Item_Potion_2",
+    "Name": "주황 포션",
+    "Description": "주황색의 물약, 체력을 50 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 30,
+    "IconPath": "Icon/Icon_Item_Potion_2"
+  },
+  {
+    "Id": "Item_Potion_3",
+    "Name": "하얀 포션",
+    "Description": "하얀색의 물약, 체력을 150 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 100,
+    "IconPath": "Icon/Icon_Item_Potion_3"
+  },
+  {
+    "Id": "Item_Weapon_1",
+    "Name": "나무 지팡이",
+    "Description": "허름한 나무 지팡이다.",
+    "ItemType": "Weapon",
+    "Grade": "Normal",
+    "MaxStackCount": 10,
+    "SellingPrice": 10,
+    "IconPath": "Icon/Icon_Item_Weapon_1"
+  },
+  {
+    "Id": "Item_Weapon_2",
+    "Name": "고목 지팡이",
+    "Description": "세월의 흔적이 느껴지는 지팡이.",
+    "ItemType": "Weapon",
+    "Grade": "Normal",
+    "MaxStackCount": 10,
+    "SellingPrice": 50,
+    "IconPath": "Icon/Icon_Item_Weapon_2"
+  },
+  {
+    "Id": "Item_Weapon_3",
+    "Name": "떡갈나무 지팡이",
+    "Description": "마법학교에서 본것같은 지팡이.",
+    "ItemType": "Weapon",
+    "Grade": "Epic",
+    "MaxStackCount": 10,
+    "SellingPrice": 200,
+    "IconPath": "Icon/Icon_Item_Weapon_3"
   }
 ]

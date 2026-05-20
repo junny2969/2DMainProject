@@ -36,7 +36,11 @@ public class DaniTechGameDataManager : MonoBehaviour
     public Dictionary<string, DNFieldObjectData> FieldObjectDataList { get; private set; } = new Dictionary<string, DNFieldObjectData>();
     public Dictionary<string, DNMonsterData> MonsterDataList { get; private set; } = new Dictionary<string, DNMonsterData>();
 
-
+    // 추후 필요할떄..?
+    //private Dictionary<string, DNItemData> GetItemDataList()
+    //{
+    //    return ItemDataList;
+    //}
 
 
     private Dictionary<string, T> LoadData<T>(string tableName) where T : GameDataBase

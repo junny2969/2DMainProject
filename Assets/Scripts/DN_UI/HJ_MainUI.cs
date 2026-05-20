@@ -10,6 +10,8 @@ public class HJ_MainUI : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_Test;
     [SerializeField] private DaniTechUIButton Btn_GameBook;
 
+    
+
 
     private void OnEnable()
     {
@@ -46,12 +48,14 @@ public class HJ_MainUI : DaniTechUIBase
 
     public void OnClick_OpenInventory()
     {
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.InventoryUI);
 
     }
 
     public void Onclick_Test()
     {
         DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.InventoryUI);
+        // DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
     }
 
 
