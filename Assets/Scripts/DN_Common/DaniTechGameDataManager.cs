@@ -35,6 +35,9 @@ public class DaniTechGameDataManager : MonoBehaviour
     public Dictionary<string, DNDialogueData> DialogueDataList { get; private set; } = new Dictionary<string, DNDialogueData>();
     public Dictionary<string, DNFieldObjectData> FieldObjectDataList { get; private set; } = new Dictionary<string, DNFieldObjectData>();
     public Dictionary<string, DNMonsterData> MonsterDataList { get; private set; } = new Dictionary<string, DNMonsterData>();
+    public Dictionary<string, PotionData> PotionDataList { get; private set; } = new Dictionary<string, PotionData>();
+    public Dictionary<string, EqupmentData> EqupmentDataList { get; private set; } = new Dictionary<string, EqupmentData>();
+    
 
     // 추후 필요할떄..?
     //private Dictionary<string, DNItemData> GetItemDataList()
@@ -113,6 +116,15 @@ public class DaniTechGameDataManager : MonoBehaviour
         DialogueDataList = LoadData<DNDialogueData>("DNDialogue");
     }
 
+    public void LoadPotionData()
+    {
+        PotionDataList = LoadData<PotionData>("Potion");
+    }
+
+    public void LoadEqupmentData()
+    {
+        EqupmentDataList = LoadData<EqupmentData>("Equpment");
+    }
     public void LoadAll()
     {
         FieldObjectDataList = LoadData<DNFieldObjectData>("DNFieldObject");
@@ -184,5 +196,19 @@ public class DaniTechGameDataManager : MonoBehaviour
         if (FieldObjectDataList == null || string.IsNullOrEmpty(dataId)) return null;
 
         return FieldObjectDataList.TryGetValue(dataId, out var data) ? data : null;
+    }
+
+    public PotionData GetPotionData(string dataId)
+    {
+        if (PotionDataList == null || string.IsNullOrEmpty(dataId)) return null;
+
+        return PotionDataList.TryGetValue(dataId, out var data) ? data : null;
+    }
+
+    public EqupmentData GetEqupmentData(string dataId)
+    {
+        if (EqupmentDataList == null || string.IsNullOrEmpty(dataId)) return null;
+        
+        return EqupmentDataList.TryGetValue(dataId,out var data) ? data : null;
     }
 }

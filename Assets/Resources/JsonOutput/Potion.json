@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "Item_Potion_1",
+    "Name": "빨간 포션",
+    "Description": "붉은색의 물약, 체력을 20 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 10,
+    "IconPath": "Icon/Icon_Item_Potion_1"
+  },
+  {
+    "Id": "Item_Potion_2",
+    "Name": "주황 포션",
+    "Description": "주황색의 물약, 체력을 50 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 30,
+    "IconPath": "Icon/Icon_Item_Potion_2"
+  },
+  {
+    "Id": "Item_Potion_3",
+    "Name": "하얀 포션",
+    "Description": "하얀색의 물약, 체력을 150 회복시킨다.",
+    "ItemType": "Potion",
+    "Grade": "Normal",
+    "MaxStackCount": 100,
+    "SellingPrice": 100,
+    "IconPath": "Icon/Icon_Item_Potion_3"
+  }
+]

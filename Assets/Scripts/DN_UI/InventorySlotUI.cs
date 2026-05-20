@@ -25,16 +25,59 @@ public class InventorySlotUI : MonoBehaviour
     {
         _onClickSlot = null;
     }
-    public void InitSlot(string dataId, Action<string> onClickCallback)
+    public void InitSlot(string dataId, EInventoryCategory curCategory, Action<string> onClickCallback)
     {
-        // dataId를 받아 엑셀데이터의 한줄 받아오는 부분
-        var itemData = DaniTechGameDataManager.Instance.GetDNItemData(dataId);
-        _slotDataId = dataId;
-        Text_ItemName.text = itemData.Name;
-        string iconPath = itemData.IconPath;
-        if (string.IsNullOrEmpty(iconPath) == true) return;
+        if(curCategory == EInventoryCategory.SkillCategory)
+        {
+            var skillData = DaniTechGameDataManager.Instance.GetDNItemData(dataId);
+            if (skillData == null) return;
+
+            Text_ItemName.text = skillData.Name;
+            string iconPath = skillData.IconPath;
+            if (string.IsNullOrEmpty(iconPath) == true) return;
+
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
+
+        }
+
+        else if (curCategory == EInventoryCategory.PotionCategory)
+        {
+            var potionData = DaniTechGameDataManager.Instance.GetPotionData(dataId);
+            if (potionData == null) return;
+
+            Text_ItemName.text = potionData.Name;
+            string iconPath = potionData.IconPath;
+            if (string.IsNullOrEmpty(iconPath) == true) return;
+
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
+        }
+
+        else if (curCategory == EInventoryCategory.EqupmentCategory)
+        {
+            var epupmentData = DaniTechGameDataManager.Instance.GetEqupmentData(dataId);
+            if (epupmentData == null) return;
+
+            Text_ItemName.text = epupmentData.Name;
+            string iconPath = epupmentData.IconPath;
+            if (string.IsNullOrEmpty(iconPath) == true) return;
+
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
+        }
+
+        else if (curCategory == EInventoryCategory.WeaponCategory)
+        {
+            var weaponData = DaniTechGameDataManager.Instance.GetWeaponData(dataId);
+            if (weaponData == null) return;
+
+            Text_ItemName.text = weaponData.Name;
+            string iconPath = weaponData.IconPath;
+            if (string.IsNullOrEmpty(iconPath) == true) return;
+
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
+        }
+
+
         // Image에 아이콘, Sprite 리소스 불러올때 일단 암기하고 사용하기
-        DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
         _slotDataId = dataId;
         _onClickSlot += onClickCallback;
 

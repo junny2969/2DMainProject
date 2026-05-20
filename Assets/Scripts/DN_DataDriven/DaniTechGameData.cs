@@ -33,6 +33,7 @@ public class DNWeaponData : GameDataBase
 {
     public string Name;
     public string Description;
+    public string IconPath;
 }
 
 [System.Serializable] 
@@ -91,4 +92,21 @@ public class DNMonsterData : GameDataBase
     public string Description;
     public string IconPath;
     public string PrefabPath;
+}
+[System.Serializable]
+
+public class PotionData : GameDataBase
+{
+    public string Name;
+    public string Description;
+    public string IconPath;
+
+}
+[System.Serializable]
+
+public class EqupmentData : GameDataBase
+{
+    public string Name;
+    public string Description;
+    public string IconPath;
 }

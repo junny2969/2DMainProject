@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "Item_Armor_1",
+    "Name": "동 갑옷",
+    "Description": "동으로 만들어진 갑옷, 싸구려다.",
+    "ItemType": "Equipment",
+    "Grade": "Normal",
+    "MaxStackCount": 10,
+    "SellingPrice": 50,
+    "IconPath": "Icon/Icon_Item_Armor_1"
+  },
+  {
+    "Id": "Item_Armor_2",
+    "Name": "은 갑옷",
+    "Description": "은으로 만들어진 갑옷, 조금은 실용성이 느껴진다.",
+    "ItemType": "Equipment",
+    "Grade": "Rare",
+    "MaxStackCount": 10,
+    "SellingPrice": 150,
+    "IconPath": "Icon/Icon_Item_Armor_2"
+  },
+  {
+    "Id": "Item_Armor_3",
+    "Name": "금 갑옷",
+    "Description": "금으로 만들어진 갑옷, 일단 비싸보인다.",
+    "ItemType": "Equipment",
+    "Grade": "Epic",
+    "MaxStackCount": 10,
+    "SellingPrice": 450,
+    "IconPath": "Icon/Icon_Item_Armor_3"
+  }
+]
