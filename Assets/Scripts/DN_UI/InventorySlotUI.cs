@@ -49,7 +49,7 @@ public class InventorySlotUI : MonoBehaviour
     {
         if(curCategory == EInventoryCategory.SkillCategory)
         {
-            var skillData = DaniTechGameDataManager.Instance.GetDNItemData(dataId);
+            var skillData = DaniTechGameDataManager.Instance.GetSkill(dataId);
             if (skillData == null) return;
 
             SetSlotUI(skillData.Name, skillData.IconPath);

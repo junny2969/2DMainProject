@@ -2234,7 +2234,7 @@ MonoBehaviour:
   Button_OpenSkill: {fileID: 4302089620197725107}
   Button_OpenPotion: {fileID: 5747540145038721049}
   Button_OpenEqupment: {fileID: 280660487220030882}
-  Button_QuestItem: {fileID: 4684797527161366512}
+  Button_Weapon: {fileID: 4684797527161366512}
   Transform_SlotRoot: {fileID: 6703848732050940768}
   Image_ItemIcon: {fileID: 7371074271509367847}
   Text_ItemName: {fileID: 100618725921059241}

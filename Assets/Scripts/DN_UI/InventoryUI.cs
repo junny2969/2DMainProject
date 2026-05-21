@@ -22,7 +22,7 @@ public class InventoryUI : DaniTechUIBase
     [SerializeField] DaniTechUIButton Button_OpenSkill;
     [SerializeField] DaniTechUIButton Button_OpenPotion;
     [SerializeField] DaniTechUIButton Button_OpenEqupment;
-    [SerializeField] DaniTechUIButton Button_QuestItem;
+    [SerializeField] DaniTechUIButton Button_Weapon;
 
     
 
@@ -48,7 +48,7 @@ public class InventoryUI : DaniTechUIBase
         Button_OpenSkill.BindOnClickButtonEvent(OnClick_OpenSkill);
         Button_OpenPotion.BindOnClickButtonEvent(OnClick_OpenPotion);
         Button_OpenEqupment.BindOnClickButtonEvent(OnClick_OpenEqupment);
-        Button_QuestItem.BindOnClickButtonEvent(OnClick_QuestItem);
+        Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
     }
 
     private void OnClick_CloseInventory()
@@ -89,9 +89,9 @@ public class InventoryUI : DaniTechUIBase
 
     }
 
-    private void OnClick_QuestItem()
+    private void OnClick_Weapon()
     {
-        SetInventoryLayoutByCategory(EInventoryCategory.QuestItemCategory);
+        SetInventoryLayoutByCategory(EInventoryCategory.WeaponCategory);
 
     }
 
