@@ -139,6 +139,7 @@ public class InventoryUI : DaniTechUIBase
             if (data == null) return;
             CreateInventorySlot(data.Id, EInventoryCategory.SkillCategory);
         }
+        SelectFirstSlot();
     }
 
     private void ReadPotionListAndCreateSlot()
@@ -150,6 +151,8 @@ public class InventoryUI : DaniTechUIBase
             if (data == null) return;
             CreateInventorySlot(data.Id, EInventoryCategory.PotionCategory);
         }
+
+        SelectFirstSlot();
     }
 
     private void ReadEqupmentListAndCreateSlot()
@@ -161,6 +164,8 @@ public class InventoryUI : DaniTechUIBase
             if (data == null) return;
             CreateInventorySlot(data.Id, EInventoryCategory.EqupmentCategory);
         }
+
+        SelectFirstSlot();
     }
 
     private void ReadWeaponListAndCreateSlot()
@@ -172,9 +177,21 @@ public class InventoryUI : DaniTechUIBase
             if (data == null) return;
             CreateInventorySlot(data.Id, EInventoryCategory.WeaponCategory);
         }
+
+        SelectFirstSlot();
     }
 
-
+    private void SelectFirstSlot()
+    {
+        if(_slotList.Count > 0)
+        {
+            foreach (var slotKv in _slotList)
+            {
+                var slot = slotKv.Value;
+                slot.OnClick_InventorySlot();
+            }
+        }
+    }
 
 
     private void CreateInventorySlot(string dataId, EInventoryCategory curCategory)
@@ -190,13 +207,65 @@ public class InventoryUI : DaniTechUIBase
         _slotList.Add(dataId, slotComponent);
     }
 
-    private void OnClickChildSlotSelected(string slotDataId)
+    private void SetDetailInforUI(string dataName, string dataDescription = "", string iconPath = "")
     {
-        var currentSelectedData = DaniTechGameDataManager.Instance.GetDNItemData(slotDataId);
-        if (currentSelectedData == null) return;
-        Text_ItemName.text = currentSelectedData.Name;
-        Text_Description.text = currentSelectedData.Description;
-        DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, currentSelectedData.IconPath).Forget();
+       
+        Text_ItemName.text = dataName;
+        Text_Description.text = dataDescription;
+
+        if (string.IsNullOrEmpty(iconPath) == false)
+        {
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_ItemIcon, iconPath).Forget();
+        }
+
+        Image_ItemIcon.gameObject.SetActive(string.IsNullOrEmpty(iconPath) == false);
+
+    }
+    private void OnClickChildSlotSelected(string slotDataId, EInventoryCategory selectedCatogory)
+    {
+       
+
+        if (selectedCatogory == EInventoryCategory.SkillCategory)
+        {
+
+
+            var currentSelectedData = DaniTechGameDataManager.Instance.GetSkill(slotDataId);
+            if (currentSelectedData == null) return;
+
+            SetDetailInforUI(currentSelectedData.Name, currentSelectedData.Description, currentSelectedData.IconPath);
+        }
+
+        else if(selectedCatogory == EInventoryCategory.PotionCategory)
+        {
+            var currentSelectedData = DaniTechGameDataManager.Instance.GetPotionData(slotDataId);
+            if (currentSelectedData == null) return;
+
+            SetDetailInforUI(currentSelectedData.Name, currentSelectedData.Description, currentSelectedData.IconPath);
+
+        }
+
+        else if(selectedCatogory == EInventoryCategory.EqupmentCategory)
+        {
+            var currentSelectedData = DaniTechGameDataManager.Instance.GetEqupmentData(slotDataId);
+            if (currentSelectedData == null) return;
+
+            SetDetailInforUI(currentSelectedData.Name, currentSelectedData.Description, currentSelectedData.IconPath);
+        }
+
+        else if(selectedCatogory == EInventoryCategory.WeaponCategory)
+        {
+            var currentSelectedData = DaniTechGameDataManager.Instance.GetWeaponData(slotDataId);
+            if (currentSelectedData == null) return;
+
+            SetDetailInforUI(currentSelectedData.Name, currentSelectedData.Description, currentSelectedData.IconPath);
+        }
+
+        foreach (var slotKv in _slotList)
+        {
+            var slot = slotKv.Value;
+            var dataId = slot.GetSlotDataId();
+            slot.SetSelectedUI(slotDataId == dataId);
+        }
 
     }
 }

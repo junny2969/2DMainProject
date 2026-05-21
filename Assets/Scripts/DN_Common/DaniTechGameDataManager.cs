@@ -62,6 +62,8 @@ public class DaniTechGameDataManager : MonoBehaviour
             return new Dictionary<string, T>();
         }
 
+        Debug.LogWarning($"파일 로드 성공: {resourcePath}");
+
         try
         {
             string jsonString = textAsset.text;
@@ -118,17 +120,23 @@ public class DaniTechGameDataManager : MonoBehaviour
 
     public void LoadPotionData()
     {
+        Debug.LogWarning("LoadPotionData 동작");
         PotionDataList = LoadData<PotionData>("Potion");
     }
 
     public void LoadEqupmentData()
     {
+       
         EqupmentDataList = LoadData<EqupmentData>("Equpment");
     }
     public void LoadAll()
     {
         FieldObjectDataList = LoadData<DNFieldObjectData>("DNFieldObject");
         MonsterDataList = LoadData<DNMonsterData>("DNMonster");
+
+        PotionDataList = LoadData<PotionData>("Potion");
+        EqupmentDataList = LoadData<EqupmentData>("Equpment");
+
     }
 
 

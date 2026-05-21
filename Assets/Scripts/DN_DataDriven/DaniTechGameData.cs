@@ -26,6 +26,7 @@ public class DNSkillData : GameDataBase
 {
     public string Name;
     public string Description;
+    public string IconPath;
 }
 
 [System.Serializable]
@@ -90,6 +91,10 @@ public class DNMonsterData : GameDataBase
 {
     public string Name;
     public string Description;
+    public int BaseHP;
+    public int BaseAtk;
+    public float NormalAtkMultiple;
+    public List<float> SkillAtkMultipleList;
     public string IconPath;
     public string PrefabPath;
 }

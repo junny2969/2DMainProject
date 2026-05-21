@@ -16,6 +16,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
     // 생성된 오브젝트의 생명을 보관
     private Dictionary<int, GameObject> _createdGameObjectContainer = new Dictionary<int, GameObject>();
     private Dictionary<int, DaniTech_2DFieldObject> _fieldObjectContainer = new Dictionary<int, DaniTech_2DFieldObject>();
+    private Dictionary<int, GameMonster> _monsterObjectContainer = new Dictionary<int, GameMonster>();
 
     private void Awake()
     {
@@ -94,7 +95,35 @@ public class DaniTechGameObjectManager : MonoBehaviour
         Destroy(gObj);
     }
 
+    //[몬스터 오브젝트] ====================================================================================================
+    public async UniTaskVoid CreateMonsterObject(string monsterDataId, Transform spawnSpot)
+    {
+        // 만드려는 몬스터 정보 받아오기
+        var monsterData = DaniTechGameDataManager.Instance.GetDNMonsterData(monsterDataId);
+        if (monsterData == null) return;
 
+        // 비동기라 조금 어려우므로 일단 따라치기
+        var createdObj = await DaniTechResourceManager.Inst.InstantiateAsync(monsterData.PrefabPath, Root_Enemy, true);
+        createdObj.transform.position = spawnSpot.position; // 위치를 스폰스팟의 위치로 조정
+
+        AddMonsterObjectOnCreate(createdObj, monsterDataId);
+    }
+
+    private void AddMonsterObjectOnCreate(GameObject createdObject, string monsterDataId)
+    {
+        _objectInstanceKeyGenerator++;
+        int generatedInstanceId = _objectInstanceKeyGenerator;
+
+        // 생성된 애는 게임오브젝트이기 때문에 MonsterBase <- GameMonster로 상속구조 되어있음
+        var monsterComponent = createdObject.GetComponent<GameMonster>();
+        if (monsterComponent == null) return;
+
+        // 생성이 되었고 컴포넌트도 잘 가져왔다면 보관을 해야한다
+        _monsterObjectContainer.Add(generatedInstanceId, monsterComponent);
+
+        // UI든 필드 오브젝트든 몬스터든 만들어지는 시점에서 Init(생성자처럼 정보를 세팅해주는 함수는 거의 자주 보게된다
+        monsterComponent.InitMonster(generatedInstanceId, monsterDataId);
+    }
 
 
 
