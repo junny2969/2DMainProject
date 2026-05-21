@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12067ce958e7ecc49b880f97831a762b
+    m_Address: 2DObject/Monster_RedSnake
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12da01cd9c266e640bb0c8b5f620d692
     m_Address: Icon/Icon_Item_Armor_3
     m_ReadOnly: 0
@@ -80,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 577273a3d93688449bd2a519761b4697
+    m_Address: Icon/Icon_greenSnake_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 667b719d1d688874a8f6a8ad59d98106
     m_Address: Icon/Icon_Item_Box_1
     m_ReadOnly: 0
@@ -97,11 +107,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7289f7837b250424a80a9a63dc28f8a4
     m_Address: Icon/Icon_Item_Potion_2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 90b54bdc42baecd4faa8fc055a880e19
-    m_Address: 2DObject/Monster_Slime
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -155,6 +160,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd1d71d2b9e533d46b8d008d1b898998
+    m_Address: 2DObject/Monster_GreenSnake
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e310e04de52f52a46bfce09600db670f
     m_Address: Icon/Icon_Item_Potion_3
     m_ReadOnly: 0
@@ -165,6 +175,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3fcc4c8f16aa7c46ba29f67456086af
+    m_Address: Icon/Icon_redSnake_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa10f0e6a7fa0194585cc5d634b0a558
     m_Address: 2DPrefab/DropItem_Gold
     m_ReadOnly: 0
@@ -172,11 +187,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc2ce945261b9d54585e30ba961877ad
     m_Address: Icon/Icon_Item_Weapon_1
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fd64c98148cd0274b9a7724bc44d1dcc
-    m_Address: 2DObject/Monster_Bear
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

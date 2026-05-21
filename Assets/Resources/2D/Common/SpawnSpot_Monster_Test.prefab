@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3180363546269119021}
   - component: {fileID: 2039119099879299171}
   m_Layer: 0
-  m_Name: SpawnSpot_Monster
+  m_Name: SpawnSpot_Monster_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaac9829db648046bbd2e71dbce20f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DaniTech_SpawnSpot
-  _spawnSpotType: 4
+  _spawnSpotType: 1
   _startSpawnType: 2
-  _spawnObjectDataId: harv_apple_1
+  _spawnObjectDataId: 
   Collider_OnSpawnStart: {fileID: 2039119099879299171}
 --- !u!58 &2039119099879299171
 CircleCollider2D:
@@ -83,5 +83,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.6513746}
-  m_Radius: 0.95862556
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 1.61

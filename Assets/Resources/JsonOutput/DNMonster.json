@@ -47,5 +47,32 @@
     ],
     "IconPath": "Icon/Icon_bear",
     "PrefabPath": "2DObject/Monster_Bear"
+  },
+  {
+    "Id": "mob_redSnake_1",
+    "Name": "레드 스네이크",
+    "Description": "붉은색의 뱀이다. 뭔가 화끈해보인다.",
+    "BaseHP": 500,
+    "BaseAtk": 20,
+    "NormalAtkMultiple": "1",
+    "SkillAtkMultipleList": [
+      2
+    ],
+    "IconPath": "Icon/Icon_redSnake_1",
+    "PrefabPath": "2DObject/Monster_RedSnake"
+  },
+  {
+    "Id": "mob_greenSnake_1",
+    "Name": "그린 스네이크",
+    "Description": "녹색의 뱀. 뭔가 말랑말랑해보인다.",
+    "BaseHP": 1000,
+    "BaseAtk": 100,
+    "NormalAtkMultiple": "0.5",
+    "SkillAtkMultipleList": [
+      1.5,
+      5
+    ],
+    "IconPath": "Icon/Icon_greenSnake_1",
+    "PrefabPath": "2DObject/Monster_GreenSnake"
   }
 ]

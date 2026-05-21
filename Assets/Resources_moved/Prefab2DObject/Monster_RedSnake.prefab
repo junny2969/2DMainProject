@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3913345384659400806}
-  - component: {fileID: 5991350944429000425}
+  - component: {fileID: 3596972536766285282}
   - component: {fileID: 5336684423402810778}
   - component: {fileID: 1874681594026397106}
   m_Layer: 0
-  m_Name: Monster_Bear
+  m_Name: Monster_RedSnake
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 2420435343989445246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5991350944429000425
+--- !u!114 &3596972536766285282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMonster
   SkillCoolTime: 0
-  Prefab_ThisMonsterSkillObject: {fileID: 510218329965337673, guid: 16c690584cb6a9f468efa18db9415598, type: 3}
-  SpriteRenderer_Monster: {fileID: 6627811897836811848}
+  Prefab_ThisMonsterSkillObject: {fileID: 0}
+  SpriteRenderer_Monster: {fileID: 0}
   _instanceId: 0
   _dataId: 
   _baseHp: 0
@@ -67,10 +67,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.11860466, y: -0.35996437}
+  m_Offset: {x: -0.0000019073486, y: 2.0962276}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.3874245, y: 2.5073204}
+  m_Size: {x: 4.4047585, y: 4.435848}
   m_EdgeRadius: 0
 --- !u!1 &2944356783977162841
 GameObject:
@@ -155,8 +155,8 @@ Transform:
   m_GameObject: {fileID: 2944356783977162841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1205, y: -0.3119, z: 0}
-  m_LocalScale: {x: 3.4464002, y: 3.9903002, z: 3}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3913345384659400806}
@@ -210,7 +210,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ff92939a627188a43b28b96c0fa7f6e8, type: 3}
+  m_Sprite: {fileID: 1575960019, guid: 473844213ba233a479d661d712684057, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,7 +230,7 @@ Animator:
   m_GameObject: {fileID: 2944356783977162841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6335f15cd83a0e54f8857f7a5dd177f2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 546897b0e31955d4e8c3e203417155d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
