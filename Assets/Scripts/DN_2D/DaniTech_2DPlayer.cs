@@ -22,6 +22,12 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [SerializeField] private GameObject Prefab_SkillProfectile;
     [SerializeField] private Transform Transform_SkillProfectileRoot;
 
+    [Header("전투 관련 정보")]
+    [SerializeField] private int _playerHp = 1000;
+    [SerializeField] private int _playerBaseAtk = 100;
+
+
+
     // 우선 직접 들고 있다가 추후에 UI매니저한테 요청하도록 개선해볼 것
     [SerializeField] private DaniTech_ScoreUI _scoreUI;
 
@@ -50,6 +56,12 @@ public class DaniTech_2DPlayer : MonoBehaviour
         // 2D 캐릭터가 물리 충돌 시 회전해서 넘어지는 것 방지
         _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         Collider_PlayerNormalAttack.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+       // 나 스스롤를 등록 > 씬에 있는 그 2D플레이어가 등록됨
+        DaniTechGameObjectManager.Inst.RegisterLocalPlayer(this);
     }
 
     void Update()
@@ -273,7 +285,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
         var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
         if(skillProjectileComponent == null) return;
 
-        skillProjectileComponent.InitSkillObject(0, _lookRight, this.transform.position, 50);
+        skillProjectileComponent.InitSkillObject(0, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
     }
 
     IEnumerator CoStartNormalAttack()
@@ -281,5 +293,31 @@ public class DaniTech_2DPlayer : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Collider_PlayerNormalAttack.gameObject.SetActive(false);
 
+    }
+
+    // 플레이어의 전투와 관련된 부분은 추후 다른곳으로 빠질수 있음
+    // 데이터의 와리가리 하는 부분은 > 세이브 > GameManager
+    // 인스턴스 데이터가 플레이어 코드안에 있는게 아니라 저장이 가능하도록 GameManager에 플레이어 인스턴스 데이터로 이동해야함
+    // PlayerViewModel
+    public void TakeDamage(int damage)
+    {
+       
+        _playerHp -= damage;
+
+        if (_playerHp <= 0)
+        {
+            // 죽음처리
+            PlayerDie();
+        }
+    }
+
+    private void OnSkillCollision(int collidedObjectInstanceId, int damage)
+    {
+
+    }
+
+    public void PlayerDie()
+    {
+        // bool _isAlive = false;
     }
 }

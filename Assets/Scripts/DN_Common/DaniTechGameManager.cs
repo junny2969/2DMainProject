@@ -6,7 +6,7 @@ public class DaniTechGameManager : MonoBehaviour
     public static DaniTechGameManager Inst { get; set; }
 
     // 플레이어를 캐싱
-    public DaniTech_2DPlayer LocalPlayer;
+   //  public DaniTech_2DPlayer LocalPlayer; > GameObjectManager 또는 GameManager로 역할 이전
     // 플레이 중에 저장되어야 하는 정보들이 있는 위치
     private DaniTechPlayerModel _playerModel = new DaniTechPlayerModel();
 
@@ -89,5 +89,10 @@ public class DaniTechGameManager : MonoBehaviour
     private void GameClear()
     {
         Debug.Log("게임 클리어");
+    }
+
+    public DaniTech_2DPlayer GetLocalPlayer()
+    {
+        return DaniTechGameObjectManager.Inst.GetLocalPlayer();
     }
 }

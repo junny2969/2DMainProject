@@ -18,11 +18,31 @@ public class DaniTechGameObjectManager : MonoBehaviour
     private Dictionary<int, DaniTech_2DFieldObject> _fieldObjectContainer = new Dictionary<int, DaniTech_2DFieldObject>();
     private Dictionary<int, GameMonster> _monsterObjectContainer = new Dictionary<int, GameMonster>();
 
+    // 게임 오브젝트 매니저가 살아있는 동안 이 플레이어를 보관(캐싱)해둔다
+    private DaniTech_2DPlayer _localPlayer;
+
     private void Awake()
     {
         Inst = this;
     }
 
+    // 등록과 가져오기
+    public void RegisterLocalPlayer(DaniTech_2DPlayer localPlayer)
+    {
+        _localPlayer = localPlayer;
+    }
+
+    public DaniTech_2DPlayer GetLocalPlayer()
+    {
+        // 없다면 로그를 미리 찍어줄수도 있고 Find
+        // 우리가 배웠던 원시적인 Get함수 > 원시적이지만 유용함 // 로그찍기 등
+        if( _localPlayer == null )
+        {
+            Debug.LogError("등록된 플레이어가 없는데 참조하려고 시도하고 있음");
+            return null;
+        }
+        return _localPlayer;
+    }
     public void RequestSpawnEnemy()
     {
         if(Prefab_Enemy == null)
@@ -177,4 +197,6 @@ public class DaniTechGameObjectManager : MonoBehaviour
 
         return _fieldObjectContainer[fieldObjectInstanceId];
     } 
+
+    
 }

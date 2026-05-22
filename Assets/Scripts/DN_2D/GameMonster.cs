@@ -76,7 +76,7 @@ public class GameMonster : MonsterBase
                 break;
             }
 
-            ChangeMonsterDirection();
+            ChangeMonsterDirection(); // 몬스터의 방향전환
             UseSkill();
         }
     }
@@ -107,6 +107,23 @@ public class GameMonster : MonsterBase
 
         float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
         float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
-        skillProjectileComponent.InitSkillObject(_instanceId, _lookRight, this.transform.position, 50);
+        skillProjectileComponent.InitSkillObject(_instanceId, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
+    }
+
+    // 몬스터가 소환한 투사체의 충돌이 발생 했을때 응답이 온다
+    private void OnSkillCollision(int coliedObjectInstanceId, int damage)
+    {
+        
+
+        if(coliedObjectInstanceId == 0)
+        {
+            var player = DaniTechGameObjectManager.Inst.GetLocalPlayer();
+            
+            //스킬이 충돌한 시점에서 다시한번 대미지를 계산해도 된다
+            //float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
+            //float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
+
+            player.TakeDamage(damage);
+        }
     }
 }

@@ -36,23 +36,27 @@ public class BattleUI : DaniTechUIBase
 
     public void Onclick_UseNormalAttack()
     {
-        DaniTechGameManager.Inst.LocalPlayer.UseNormalAttack();
+        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+        localPlayer.UseNormalAttack();
     }
 
     public void Onclick_UseFirstAttack()
     {
-        DaniTechGameManager.Inst.LocalPlayer.UseFirstlSkill();
+        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+        localPlayer.UseFirstlSkill();
     }
 
     public void Onclick_UseSecondAttack()
     {
-        DaniTechGameManager.Inst.LocalPlayer.UseSecondSkill();
+        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+        localPlayer.UseSecondSkill();
 
     }
 
     public void Onclick_UseThirdAttack()
     {
-        DaniTechGameManager.Inst.LocalPlayer.UseThirdSkill();
+        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+        localPlayer.UseThirdSkill();
 
     }
     private void Update()
