@@ -45,8 +45,8 @@ public class GameMonster : MonsterBase
         {
             // 이 몬스터가 생성된 시점에서 자신의 엑셀에서 받아온 json을 거친 데이터를 캐싱해둔다(보관)
             _thisMonsterData = monsterData;
-            _baseHp = _thisMonsterData.BaseHP;
-            _baseAtk = _thisMonsterData.BaseAtk;
+            //_baseHp = _thisMonsterData.BaseHP;
+            //_baseAtk = _thisMonsterData.BaseAtk;
         }
 
         StartCoroutine(CheckAndUseSkill());

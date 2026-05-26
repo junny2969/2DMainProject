@@ -8,6 +8,16 @@ public class DaniTechGameObjectManager : MonoBehaviour
     [SerializeField] private GameObject Prefab_Enemy;
     [SerializeField] private Transform Root_Enemy;
 
+    [Header("전투 유닛 정보")]
+    [SerializeField] private GameObject Prefab_BattlePlayer;
+    [SerializeField] private GameObject Prefab_BattleMonster;
+
+    [SerializeField] private Transform Root_BattlePlayer;
+    [SerializeField] private Transform Root_BattleMonster;
+
+
+
+
     public static DaniTechGameObjectManager Inst { get; set; }
 
     // 생성된 오브젝트의 키가 됨
@@ -198,5 +208,21 @@ public class DaniTechGameObjectManager : MonoBehaviour
         return _fieldObjectContainer[fieldObjectInstanceId];
     } 
 
+    public int GenerateInstanceId()
+    {
+        return _objectInstanceKeyGenerator++;
+    }
     
+    public void RequestInitBattleUnit(int instanceId, UnitModel unitModel, GameObject prefabUnit, Transform spwanRoot)
+    {
+        var unit = Instantiate(prefabUnit, spwanRoot);
+        var battleUnit = unit.GetComponent<BattleUnitView>();
+
+        if (battleUnit != null)
+        {
+            battleUnit.InitBattleUnit(unitModel);
+            _createdGameObjectContainer.Add(instanceId, unit);
+        }
+
+    }
 }

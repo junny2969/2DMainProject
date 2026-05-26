@@ -7,18 +7,39 @@ public class GameDataBase
     public string Id;
 }
 
+
+[System.Serializable]
+
+public class BattleUnitDataBase : GameDataBase
+{
+    public string Name;
+    public int MaxHp;
+    public int MaxMp;
+    public int Atk;
+    public string PrefabKey;
+    public string SpritePath;
+    public List<int> SkillIdList;
+}
 // C# 때와 약간 달라진 점
     // Syste.Text.Json대신 유니티 내장 JsonUtility를 사용
     // 따라서 프로퍼티말고 그냥 일반 public 멤버변수로 변경함
     // [System.Serializable]가 없다면 JsonUtility는 데이터를 무시
 
 [System.Serializable]
-public class DNCharacterData : GameDataBase
+public class DNCharacterData : BattleUnitDataBase
 {
-    public string Name;
+    public string BasicCostumeId;
     public string SkillList;
     public string UseWeaponId;
-    public string BasicCostumeId;
+
+    // public int Id;
+    //public string Name;
+    //public int MaxHp;
+    //public int MaxMp;
+    //public int Atk;
+    //public string PrefabKey;
+    //public string SpritePath;
+    //public List<int> SkillIdList;
 }
 
 [System.Serializable]
@@ -87,12 +108,12 @@ public class DNFieldObjectData : GameDataBase
 }
 
 [System.Serializable]
-public class DNMonsterData : GameDataBase
+public class DNMonsterData : BattleUnitDataBase
 {
-    public string Name;
+    //public string Name;
     public string Description;
-    public int BaseHP;
-    public int BaseAtk;
+    //public int BaseHP;
+    //public int BaseAtk;
     public float NormalAtkMultiple;
     public List<float> SkillAtkMultipleList;
     public string IconPath;

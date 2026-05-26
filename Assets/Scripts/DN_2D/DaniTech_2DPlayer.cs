@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 // +) 어떤 컴포넌트가 필수로 필요하다는 것을 강제할 수 있다
@@ -23,6 +24,8 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [SerializeField] private Transform Transform_SkillProfectileRoot;
 
     [Header("전투 관련 정보")]
+    [SerializeField] private int _maxHp = 1000;
+
     [SerializeField] private int _playerHp = 1000;
     [SerializeField] private int _playerBaseAtk = 100;
 
@@ -47,6 +50,8 @@ public class DaniTech_2DPlayer : MonoBehaviour
     public enum ViewType { sideView, TopDown, Isometric}
     public ViewType _currentView;
 
+    private event Action<int, int> _onHpChanged;
+    private event Action<int, int> _onMpChanged;
 
 
     void Awake()
@@ -56,12 +61,16 @@ public class DaniTech_2DPlayer : MonoBehaviour
         // 2D 캐릭터가 물리 충돌 시 회전해서 넘어지는 것 방지
         _rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         Collider_PlayerNormalAttack.gameObject.SetActive(false);
+
+        _playerHp = 1000;
+        _maxHp = 1000;
     }
 
     private void Start()
     {
        // 나 스스롤를 등록 > 씬에 있는 그 2D플레이어가 등록됨
         DaniTechGameObjectManager.Inst.RegisterLocalPlayer(this);
+        DaniTechUIManager.Instance.AddHudSlot(0, this.gameObject.transform);
     }
 
     void Update()
@@ -315,6 +324,30 @@ public class DaniTech_2DPlayer : MonoBehaviour
     {
 
     }
+
+    public void BindOnStatChangedEvent(Action<int, int> hpChangeCallback, Action<int, int> mpChangeCallback)
+    {
+        _onHpChanged += hpChangeCallback;
+        _onMpChanged += mpChangeCallback;
+    }
+
+    public void ResetBindStatChangedEvent()
+    {
+        _onHpChanged = null;
+        _onMpChanged = null; 
+    }
+
+    private void InvokeStatChangedEvent()
+    {
+        _onHpChanged?.Invoke(_playerHp, _maxHp);
+        // _onMpChanged?.Invoke(_playerMp);
+    }
+
+    // 이건 언제 왜 생긴거지?
+    //private void DaniTech_2DPlayer__onMpChanged(int obj)
+    //{
+    //    throw new NotImplementedException();
+    //}
 
     public void PlayerDie()
     {
