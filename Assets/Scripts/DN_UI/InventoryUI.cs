@@ -23,8 +23,9 @@ public class InventoryUI : DaniTechUIBase
     [SerializeField] DaniTechUIButton Button_OpenPotion;
     [SerializeField] DaniTechUIButton Button_OpenEqupment;
     [SerializeField] DaniTechUIButton Button_Weapon;
+    [SerializeField] DaniTechUIButton Button_UseItem;
 
-    
+
 
     [Header("슬롯 리스트 영역")]
     [SerializeField] private Transform Transform_SlotRoot;
@@ -49,6 +50,8 @@ public class InventoryUI : DaniTechUIBase
         Button_OpenPotion.BindOnClickButtonEvent(OnClick_OpenPotion);
         Button_OpenEqupment.BindOnClickButtonEvent(OnClick_OpenEqupment);
         Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
+
+        Button_UseItem.gameObject.SetActive(false);
     }
 
     private void OnClick_CloseInventory()
@@ -56,6 +59,10 @@ public class InventoryUI : DaniTechUIBase
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.InventoryUI);
     }
 
+    private void OnClick_UseItem()
+    {
+
+    }
 
     private void OnDisable()
     {
@@ -93,6 +100,21 @@ public class InventoryUI : DaniTechUIBase
     {
         SetInventoryLayoutByCategory(EInventoryCategory.WeaponCategory);
 
+    }
+    //private void OnClick_UseItem()
+    //{
+        
+
+    //}
+
+    private void RequestSelectUseItm()
+    {
+
+    }
+
+    private void RemoveItemSlot()
+    {
+        // 저장 정보에서 먼저 아이템이 제거된 후에 슬롯이 제거되어야 한다
     }
 
     private void SetInventoryLayoutByCategory(EInventoryCategory category)
@@ -265,6 +287,9 @@ public class InventoryUI : DaniTechUIBase
             var slot = slotKv.Value;
             var dataId = slot.GetSlotDataId();
             slot.SetSelectedUI(slotDataId == dataId);
+
+            
+
         }
 
     }

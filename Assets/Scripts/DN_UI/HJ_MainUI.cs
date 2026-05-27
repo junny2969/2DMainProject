@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class HJ_MainUI : DaniTechUIBase
 {
@@ -10,7 +11,10 @@ public class HJ_MainUI : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_Test;
     [SerializeField] private DaniTechUIButton Btn_GameBook;
 
-    
+    [Header("기능테스트용")]
+    [SerializeField] private List<string> playerList;
+    [SerializeField] private List<string> monsterList;
+
 
 
     private void OnEnable()
@@ -20,7 +24,7 @@ public class HJ_MainUI : DaniTechUIBase
         Btn_Jump.BindOnClickButtonEvent(OnClick_Jump);
         Btn_Harvest.BindOnClickButtonEvent(OnClick_Harvest);
         Btn_Inventory.BindOnClickButtonEvent(OnClick_OpenInventory);
-        Btn_Test.BindOnClickButtonEvent(Onclick_Test);
+        Btn_Test.BindOnClickButtonEvent(OnClick_Test);
         
     }
 
@@ -52,10 +56,12 @@ public class HJ_MainUI : DaniTechUIBase
 
     }
 
-    public void Onclick_Test()
+    public void OnClick_Test()
     {
-        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.InventoryUI);
-        // DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
+        DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
+        DaniTechGameObjectManager.Inst.HideLocalPlayer();
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
+        BattleManager.Inst.StartBattle(playerList, monsterList);
     }
 
 

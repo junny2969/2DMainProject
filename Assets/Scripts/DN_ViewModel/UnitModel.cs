@@ -17,6 +17,7 @@ public class UnitModel
     }
 
     public event Action<int, int> OnHpChanged;
+    public event Action<int, int> OnMpChanged;
     public event Action OnDead;
 
     public UnitModel(int instanceId, BattleUnitDataBase data)
@@ -30,6 +31,25 @@ public class UnitModel
 
     public void TakeDmage(int damage)
     {
-        
+        CurrentHp = CurrentHp - damage;
+        if(CurrentHp <= 0)
+        {
+
+            CurrentHp = 0;
+            OnDead?.Invoke();
+        }
+
+        OnHpChanged?.Invoke(CurrentHp, Data.MaxHp);
+    }
+
+    public void TakeMp(int consumeMp)
+    {
+        CurrentMp = CurrentMp - consumeMp;
+        if (CurrentMp <= 0)
+        {
+            CurrentMp = 0;
+        }
+
+        OnMpChanged?.Invoke(CurrentMp, Data.MaxMp);
     }
 }

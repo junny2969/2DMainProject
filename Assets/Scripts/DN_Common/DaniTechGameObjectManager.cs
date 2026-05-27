@@ -21,7 +21,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
     public static DaniTechGameObjectManager Inst { get; set; }
 
     // 생성된 오브젝트의 키가 됨
-    private int _objectInstanceKeyGenerator = 0;
+    private int _objectInstanceKeyGenerator = 10;
 
     // 생성된 오브젝트의 생명을 보관
     private Dictionary<int, GameObject> _createdGameObjectContainer = new Dictionary<int, GameObject>();
@@ -210,7 +210,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
 
     public int GenerateInstanceId()
     {
-        return _objectInstanceKeyGenerator++;
+        return ++_objectInstanceKeyGenerator;
     }
     
     public void RequestInitBattleUnit(int instanceId, UnitModel unitModel, GameObject prefabUnit, Transform spwanRoot)
@@ -223,6 +223,10 @@ public class DaniTechGameObjectManager : MonoBehaviour
             battleUnit.InitBattleUnit(unitModel);
             _createdGameObjectContainer.Add(instanceId, unit);
         }
+    }
 
+    public void HideLocalPlayer()
+    {
+        _localPlayer.gameObject.SetActive(false);
     }
 }

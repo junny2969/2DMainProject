@@ -11,6 +11,7 @@ public class InventorySlotUI : MonoBehaviour
     [SerializeField] private DaniTechUIButton Button_SlotClick;
 
     private event Action<string, EInventoryCategory> _onClickSlot;
+
     private string _slotDataId;
     private EInventoryCategory _curSlotCategory;
 

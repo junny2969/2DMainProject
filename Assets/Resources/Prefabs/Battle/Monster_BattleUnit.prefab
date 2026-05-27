@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 528320443937908164}
   - component: {fileID: 7456553411444007366}
   m_Layer: 5
-  m_Name: Image_Player
+  m_Name: Image_Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -685804969, guid: 04ed013fd614c4645845578a96b1d27c, type: 3}
+  m_Sprite: {fileID: 1480080849, guid: 473844213ba233a479d661d712684057, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8131088586895992146}
   - component: {fileID: 7440843446431987419}
   m_Layer: 5
-  m_Name: Text_PlayerName
+  m_Name: Text_MonsterName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PlayerName
+  m_Text: MonsterName
 --- !u!1 &2335215946402408621
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +514,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.854
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -529,7 +529,7 @@ GameObject:
   - component: {fileID: 3894001653890512518}
   - component: {fileID: 3807858464591528013}
   m_Layer: 5
-  m_Name: Player_BattleUnit
+  m_Name: Monster_BattleUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

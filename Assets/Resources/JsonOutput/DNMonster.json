@@ -10,7 +10,9 @@
       2
     ],
     "IconPath": "Icon/Icon_slime",
-    "PrefabPath": "2DObject/Monster_Slime"
+    "PrefabPath": "2DObject/Monster_Slime",
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "mob_dog_1",
@@ -21,7 +23,9 @@
     "NormalAtkMultiple": null,
     "SkillAtkMultipleList": null,
     "IconPath": null,
-    "PrefabPath": null
+    "PrefabPath": null,
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "mob_pigme_1",
@@ -32,7 +36,9 @@
     "NormalAtkMultiple": null,
     "SkillAtkMultipleList": null,
     "IconPath": null,
-    "PrefabPath": null
+    "PrefabPath": null,
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "mob_bear_1",
@@ -46,7 +52,9 @@
       5
     ],
     "IconPath": "Icon/Icon_bear",
-    "PrefabPath": "2DObject/Monster_Bear"
+    "PrefabPath": "2DObject/Monster_Bear",
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "mob_redSnake_1",
@@ -59,7 +67,9 @@
       2
     ],
     "IconPath": "Icon/Icon_redSnake_1",
-    "PrefabPath": "2DObject/Monster_RedSnake"
+    "PrefabPath": "2DObject/Monster_RedSnake",
+    "MaxHp": 150,
+    "MaxMp": 200
   },
   {
     "Id": "mob_greenSnake_1",
@@ -73,6 +83,8 @@
       5
     ],
     "IconPath": "Icon/Icon_greenSnake_1",
-    "PrefabPath": "2DObject/Monster_GreenSnake"
+    "PrefabPath": "2DObject/Monster_GreenSnake",
+    "MaxHp": 300,
+    "MaxMp": 200
   }
 ]

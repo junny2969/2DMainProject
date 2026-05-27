@@ -75,6 +75,8 @@ public class DNItemData : GameDataBase
     public string MaxStackCount;
     public string SellingPrice;
     public string IconPath;
+    public string UseItemType;
+    public List<string> UseItemParameterList; // 특수한 제약 조건이 있긴 하다
 }
 
 [System.Serializable]
@@ -118,6 +120,8 @@ public class DNMonsterData : BattleUnitDataBase
     public List<float> SkillAtkMultipleList;
     public string IconPath;
     public string PrefabPath;
+    //public int MaxHp;
+    //public int MaxMp;
 }
 [System.Serializable]
 

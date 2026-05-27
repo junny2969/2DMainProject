@@ -5,7 +5,9 @@
     "Description": "모든 마법을 사용할 수 있는 캐릭터",
     "SkillList": "skill_fireball_01,skill_normalSword_01",
     "UseWeaponId": "Weapon_Braclet_1",
-    "BasicCostumeId": "Costume_03"
+    "BasicCostumeId": "Costume_03",
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "character_victor_01",
@@ -13,7 +15,9 @@
     "Description": "소환 마법을 사용할 수 있는 캐릭터",
     "SkillList": "skill_normalSword_01",
     "UseWeaponId": "Weapon_Sword_1",
-    "BasicCostumeId": null
+    "BasicCostumeId": null,
+    "MaxHp": null,
+    "MaxMp": null
   },
   {
     "Id": "character_daniel_01",
@@ -21,6 +25,18 @@
     "Description": "잉여로운 버프 캐릭터",
     "SkillList": "skill_rest_coffee_01",
     "UseWeaponId": "Weapon_CoffeeCup_1",
-    "BasicCostumeId": null
+    "BasicCostumeId": null,
+    "MaxHp": null,
+    "MaxMp": null
+  },
+  {
+    "Id": "character_ellie_01",
+    "Name": "엘리",
+    "Description": "제발 뜻대로 움직여주라",
+    "SkillList": "skill_swing_01",
+    "UseWeaponId": null,
+    "BasicCostumeId": null,
+    "MaxHp": 300,
+    "MaxMp": 200
   }
 ]

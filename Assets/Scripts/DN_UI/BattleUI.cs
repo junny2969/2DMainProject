@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleUI : DaniTechUIBase
 {
-    //[SerializeField] private DaniTechUIButton Btn_MyProfile;
-    //[SerializeField] private DaniTechUIButton Btn_Atk;
-    //[SerializeField] private DaniTechUIButton Btn_Jump;
-    //[SerializeField] private DaniTechUIButton Btn_Harvest;
-    //[SerializeField] private DaniTechUIButton Btn_Inventory;
-    //[SerializeField] private DaniTechUIButton Btn_Test;
-    //[SerializeField] private DaniTechUIButton Btn_GameBook;
+    [Header("동적 생성 위치")]
+    [SerializeField] private Transform Root_player;
+    [SerializeField] private Transform Root_monster;
+
+    [Header("하단 UI 정보")]
+    [SerializeField] private Slider Slider_PlayerHp;
+    [SerializeField] private Slider Slider_PlayerMp;
+    [SerializeField] private Slider Slider_MonsterHp;
+    [SerializeField] private Slider Slider_MonsterMp;
 
     [Header("스킬 버튼")]
     [SerializeField] private DaniTechUIButton Btn_NomalAttack;
@@ -16,7 +19,7 @@ public class BattleUI : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_SecondAttack;
     [SerializeField] private DaniTechUIButton Btn_ThirdAttack;
 
-
+    
 
     private void OnEnable()
     {
@@ -28,10 +31,10 @@ public class BattleUI : DaniTechUIBase
         //Btn_Test.BindOnClickButtonEvent(Onclick_Test);
 
 
-        Btn_NomalAttack.BindOnClickButtonEvent(Onclick_UseNormalAttack);
-        Btn_FirstAttack.BindOnClickButtonEvent(Onclick_UseFirstAttack);
-        Btn_SecondAttack.BindOnClickButtonEvent(Onclick_UseSecondAttack);
-        Btn_ThirdAttack.BindOnClickButtonEvent(Onclick_UseThirdAttack);
+        //Btn_NomalAttack.BindOnClickButtonEvent(Onclick_UseNormalAttack);
+        //Btn_FirstAttack.BindOnClickButtonEvent(Onclick_UseFirstAttack);
+        //Btn_SecondAttack.BindOnClickButtonEvent(Onclick_UseSecondAttack);
+        //Btn_ThirdAttack.BindOnClickButtonEvent(Onclick_UseThirdAttack);
     }
 
     public void Onclick_UseNormalAttack()
@@ -91,6 +94,57 @@ public class BattleUI : DaniTechUIBase
         DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.InventoryUI);
     }
 
-   
+    public Transform GetPlayerRoot()
+    {
+        return Root_player;
+    }
+    public Transform GetPMonsterRoot()
+    {
+        return Root_monster;
+    }
+
+    public void SetPlayerUnit(UnitModel _unitModel)
+    {
+        var currentHp = _unitModel.CurrentHp;
+        Slider_PlayerHp.value = currentHp / (float)_unitModel.Data.MaxHp;
+        var currentMp = _unitModel.CurrentMp;
+        Slider_PlayerMp.value = currentMp / (float)_unitModel.Data.MaxMp;
+
+        _unitModel.OnHpChanged += OnPlayerHpChanged;
+        _unitModel.OnMpChanged += OnPlayerMpChanged;
+    }
+
+    private void OnPlayerHpChanged(int currentHp, int maxHp)
+    {
+        Slider_PlayerHp.value = currentHp / (float)maxHp;
+    }
+
+    private void OnPlayerMpChanged(int currentMp, int maxMp)
+    {
+        Slider_PlayerMp.value = currentMp / (float)maxMp;
+    }
+    public void SetMonsterUnit(UnitModel _unitModel)
+    {
+        var currentHp = _unitModel.CurrentHp;
+        Slider_MonsterHp.value = currentHp / (float)_unitModel.Data.MaxHp;
+        var currentMp = _unitModel.CurrentMp;
+        Slider_MonsterMp.value = currentMp / (float)_unitModel.Data.MaxMp;
+
+        _unitModel.OnHpChanged += OnMonsterHpChanged;
+        _unitModel.OnMpChanged += OnMonsterMpChanged;
+
+    }
+
+    private void OnMonsterHpChanged(int currentHp, int maxHp)
+    {
+        Slider_MonsterHp.value = currentHp / (float)maxHp;
+    }
+
+    private void OnMonsterMpChanged(int currentMp, int maxMp)
+    {
+        Slider_MonsterMp.value = currentMp / (float)maxMp;
+
+    }
+
 
 }

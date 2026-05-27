@@ -6,9 +6,9 @@ public class BattleManager : MonoBehaviour
 {
     [Header("전투유닛 위치")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
-    [SerializeField] private Transform Root_BattlePlayer;
+    // [SerializeField] private Transform Root_BattlePlayer;
     [SerializeField] private GameObject Prefab_BattleMonster;
-    [SerializeField] private Transform Root_BattleMonster;
+    // [SerializeField] private Transform Root_BattleMonster;
 
     private List<UnitModel> _playerModels = new List<UnitModel>();
     private List<UnitModel> _enemyModels = new List<UnitModel>();
@@ -22,6 +22,10 @@ public class BattleManager : MonoBehaviour
 
     public void StartBattle(List<string> playerList, List<string> monsterList)
     {
+        var battleUi = DaniTechUIManager.Instance.GetOpenedUI(DaniTechUIRootType.ContentUI, DaniTechUIType.BattleUI) as BattleUI;
+        var playerRoot = battleUi.GetPlayerRoot();
+        var monsterRoot = battleUi.GetPMonsterRoot();
+
         foreach (string playerId in playerList)
         {
             var playerData = DaniTechGameDataManager.Instance.GetCharacterData(playerId);
@@ -31,7 +35,8 @@ public class BattleManager : MonoBehaviour
                 var playerModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), playerData);
                 _playerModels.Add(playerModel);
 
-                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, Root_BattlePlayer);
+                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, playerRoot);
+                battleUi.SetPlayerUnit(playerModel);
 
             }
 
@@ -45,8 +50,13 @@ public class BattleManager : MonoBehaviour
             {
                 var mobModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), mobData);
                 _enemyModels.Add(mobModel);
+
+                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, Prefab_BattleMonster, monsterRoot);
+                battleUi.SetMonsterUnit(mobModel);
+
             }
         }
+
     }
 
 }
