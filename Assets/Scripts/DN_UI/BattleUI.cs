@@ -1,4 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +10,16 @@ public class BattleUI : DaniTechUIBase
     [SerializeField] private Transform Root_monster;
 
     [Header("하단 UI 정보")]
+
+    [SerializeField] private DaniTechUIButton Btn_Player;
+
     [SerializeField] private Slider Slider_PlayerHp;
     [SerializeField] private Slider Slider_PlayerMp;
     [SerializeField] private Slider Slider_MonsterHp;
     [SerializeField] private Slider Slider_MonsterMp;
+
+    [SerializeField] private Image Image_ArrowPlayer;
+    [SerializeField] private Image Image_ArrowMonster;
 
     [SerializeField] private Image Image_PlayerFace;
 
@@ -25,33 +32,56 @@ public class BattleUI : DaniTechUIBase
     [SerializeField] private Text Text_MonsterMp;
 
 
-
-
-
-
-
     [Header("스킬 버튼")]
     [SerializeField] private DaniTechUIButton Btn_NomalAttack;
     [SerializeField] private DaniTechUIButton Btn_FirstAttack;
     [SerializeField] private DaniTechUIButton Btn_SecondAttack;
     [SerializeField] private DaniTechUIButton Btn_ThirdAttack;
 
-    
+
+
 
     private void OnEnable()
     {
-        //Btn_MyProfile.BindOnClickButtonEvent(OnClick_OpenMyProfile);
-        //Btn_Atk.BindOnClickButtonEvent(OnClick_Atk);
-        //Btn_Jump.BindOnClickButtonEvent(OnClick_Jump);
-        //Btn_Harvest.BindOnClickButtonEvent(OnClick_Harvest);
-        //Btn_Inventory.BindOnClickButtonEvent(OnClick_OpenInventory);
-        //Btn_Test.BindOnClickButtonEvent(Onclick_Test);
+        TurnManager.Inst.OnStateChanged += OnBattleStateChanged;
+
+        Btn_Player.BindOnClickButtonEvent(OnClick_PlayerIcon);
+        
 
 
-        //Btn_NomalAttack.BindOnClickButtonEvent(Onclick_UseNormalAttack);
-        //Btn_FirstAttack.BindOnClickButtonEvent(Onclick_UseFirstAttack);
-        //Btn_SecondAttack.BindOnClickButtonEvent(Onclick_UseSecondAttack);
-        //Btn_ThirdAttack.BindOnClickButtonEvent(Onclick_UseThirdAttack);
+    }
+
+    private void OnBattleStateChanged(BattleState curBattleState)
+    {
+        Image_ArrowPlayer.gameObject.SetActive(false);
+
+        switch (curBattleState)
+        {
+
+            case BattleState.PlayerTurn:
+                Image_ArrowPlayer.gameObject.SetActive(true);
+
+                break;
+
+            case BattleState.ChoiceAction:
+                DaniTechUIManager.Instance.OpenPopupUI(DaniTechUIType.BattleActionPopup);
+                break;
+
+            case BattleState.ChoiceTarget:
+                break;
+
+            case BattleState.PlayerAction:
+                break;
+
+            case BattleState.MonsterTurn:
+                break;
+
+        }
+    }
+
+    public void OnClick_PlayerIcon()
+    {
+        TurnManager.Inst.ChangeBattleState(BattleState.ChoiceAction);
     }
 
     public void Onclick_UseNormalAttack()
@@ -117,7 +147,7 @@ public class BattleUI : DaniTechUIBase
         return Root_monster;
     }
 
-    public async UniTaskVoid SetPlayerUnit(UnitModel _unitModel)
+    public async UniTask SetPlayerUnit(UnitModel _unitModel)
     {
         var playerIcon = await DaniTechResourceManager.Inst.LoadSprite(_unitModel.Data.IconPath);
         Image_PlayerFace.sprite = playerIcon;

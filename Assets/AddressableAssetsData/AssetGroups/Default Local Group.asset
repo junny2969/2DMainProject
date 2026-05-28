@@ -115,6 +115,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93acbfef580a5e94686f127f28112589
+    m_Address: Icon/Icon_Arrow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95fe16deb58c2c94b931ceb49c7b6af5
     m_Address: Icon/Icon_Item_Armor_1
     m_ReadOnly: 0

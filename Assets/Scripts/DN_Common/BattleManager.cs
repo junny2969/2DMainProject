@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,7 @@ public class BattleManager : MonoBehaviour
         Inst = this;
     }
 
-    public void StartBattle(List<string> playerList, List<string> monsterList)
+    public async UniTask StartBattle(List<string> playerList, List<string> monsterList)
     {
         var battleUi = DaniTechUIManager.Instance.GetOpenedUI(DaniTechUIRootType.ContentUI, DaniTechUIType.BattleUI) as BattleUI;
         var playerRoot = battleUi.GetPlayerRoot();
@@ -36,7 +37,7 @@ public class BattleManager : MonoBehaviour
                 _playerModels.Add(playerModel);
 
                 DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, playerRoot);
-                battleUi.SetPlayerUnit(playerModel);
+                await battleUi.SetPlayerUnit(playerModel);
 
             }
 
@@ -57,6 +58,14 @@ public class BattleManager : MonoBehaviour
             }
         }
 
+        TurnManager.Inst.StartBattle();
+
+    }
+
+    public UnitModel GetPlayerModel()
+    {
+        if (_playerModels.Count == 0) return null;
+        return _playerModels[0];
     }
 
 }

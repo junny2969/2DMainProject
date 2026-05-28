@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -82,4 +83,12 @@ public class DaniTechUIButton : MonoBehaviour
             Image_Select.gameObject.SetActive(!currentActive);
         }
     }
+
+    public async UniTask ChangeButtonImage(string iconPath)
+    {
+        if (Image_Base == null) return;
+
+        Image_Base.sprite = await DaniTechResourceManager.Inst.LoadSprite(iconPath);
+    }
+   
 }

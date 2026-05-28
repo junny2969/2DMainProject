@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.CompilerServices;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class HJ_MainUI : DaniTechUIBase
@@ -58,11 +60,15 @@ public class HJ_MainUI : DaniTechUIBase
 
     public void OnClick_Test()
     {
+        OnClick_TestAsync().Forget();
+    }
+
+    public async UniTask OnClick_TestAsync()
+    {
         DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         DaniTechGameObjectManager.Inst.HideLocalPlayer();
         DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
-        BattleManager.Inst.StartBattle(playerList, monsterList);
+        await BattleManager.Inst.StartBattle(playerList, monsterList);
     }
-
 
 }

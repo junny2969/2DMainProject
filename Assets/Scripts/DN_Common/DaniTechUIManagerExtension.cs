@@ -23,7 +23,8 @@ public enum DaniTechUIType
     HJGameBookUI_Test,
     InventoryUI,
     BattleUI,
-    HudUi
+    HudUi,
+    BattleActionPopup
 
 }
 

@@ -36,7 +36,7 @@
     "Id": "character_ellie_01",
     "Name": "엘리",
     "Description": "제발 뜻대로 움직여주라",
-    "SkillList": "skill_swing_01",
+    "SkillList": "skill_swing_01,skill_fireball_02,skill_explosion_01",
     "UseWeaponId": null,
     "BasicCostumeId": null,
     "MaxHp": 300,

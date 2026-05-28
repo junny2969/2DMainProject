@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum BattleState
 {
@@ -13,7 +14,13 @@ public enum BattleState
 public class TurnManager : MonoBehaviour
 {
     private BattleState curBattleState;
+
+    public event Action<BattleState> OnStateChanged;
+
+    private string _selectedSkillId;
+
     public static TurnManager Inst {  get; private set; }
+
     private void Awake()
     {
         Inst = this;
@@ -21,7 +28,21 @@ public class TurnManager : MonoBehaviour
 
     public void StartBattle()
     {
-        curBattleState = BattleState.PlayerTurn;
+        ChangeBattleState(BattleState.PlayerTurn);
+
     }
+
+    public void ChangeBattleState(BattleState newState)
+    {
+        curBattleState = newState;
+        OnStateChanged?.Invoke(curBattleState);
+    }
+   
+    public void OnClick_SkillSlot(string skillId)
+    {
+        _selectedSkillId = skillId;
+        ChangeBattleState(BattleState.ChoiceTarget);
+    }
+    
 }
 
