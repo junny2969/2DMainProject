@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BattleUI : DaniTechUIBase
@@ -12,6 +13,22 @@ public class BattleUI : DaniTechUIBase
     [SerializeField] private Slider Slider_PlayerMp;
     [SerializeField] private Slider Slider_MonsterHp;
     [SerializeField] private Slider Slider_MonsterMp;
+
+    [SerializeField] private Image Image_PlayerFace;
+
+    [SerializeField] private Text Text_PlayerName;
+    [SerializeField] private Text Text_MonsterName;
+
+    [SerializeField] private Text Text_PlayerHp;
+    [SerializeField] private Text Text_PlayerMp;
+    [SerializeField] private Text Text_MonsterHp;
+    [SerializeField] private Text Text_MonsterMp;
+
+
+
+
+
+
 
     [Header("스킬 버튼")]
     [SerializeField] private DaniTechUIButton Btn_NomalAttack;
@@ -62,10 +79,7 @@ public class BattleUI : DaniTechUIBase
         localPlayer.UseThirdSkill();
 
     }
-    private void Update()
-    {
-
-    }
+ 
 
     public void OnClick_OpenMyProfile()
     {
@@ -103,12 +117,21 @@ public class BattleUI : DaniTechUIBase
         return Root_monster;
     }
 
-    public void SetPlayerUnit(UnitModel _unitModel)
+    public async UniTaskVoid SetPlayerUnit(UnitModel _unitModel)
     {
+        var playerIcon = await DaniTechResourceManager.Inst.LoadSprite(_unitModel.Data.IconPath);
+        Image_PlayerFace.sprite = playerIcon;
+        Text_PlayerName.text = _unitModel.Data.Name;
+
         var currentHp = _unitModel.CurrentHp;
         Slider_PlayerHp.value = currentHp / (float)_unitModel.Data.MaxHp;
         var currentMp = _unitModel.CurrentMp;
         Slider_PlayerMp.value = currentMp / (float)_unitModel.Data.MaxMp;
+
+        Text_PlayerHp.text = ("H.P  :  " + _unitModel.CurrentHp + "  /  " + _unitModel.Data.MaxHp);
+        Text_PlayerMp.text = ("M.P  :  " + _unitModel.CurrentMp + "  /  " + _unitModel.Data.MaxMp);
+      
+
 
         _unitModel.OnHpChanged += OnPlayerHpChanged;
         _unitModel.OnMpChanged += OnPlayerMpChanged;
@@ -116,19 +139,27 @@ public class BattleUI : DaniTechUIBase
 
     private void OnPlayerHpChanged(int currentHp, int maxHp)
     {
+        Text_PlayerHp.text = ("H.P  :  " + currentHp + "  /  " + maxHp);
         Slider_PlayerHp.value = currentHp / (float)maxHp;
     }
 
     private void OnPlayerMpChanged(int currentMp, int maxMp)
     {
+        Text_PlayerMp.text = ("M.P  :  " + currentMp + "  /  " + maxMp);
+
         Slider_PlayerMp.value = currentMp / (float)maxMp;
     }
     public void SetMonsterUnit(UnitModel _unitModel)
     {
+        Text_MonsterName.text = _unitModel.Data.Name;
+
         var currentHp = _unitModel.CurrentHp;
         Slider_MonsterHp.value = currentHp / (float)_unitModel.Data.MaxHp;
         var currentMp = _unitModel.CurrentMp;
         Slider_MonsterMp.value = currentMp / (float)_unitModel.Data.MaxMp;
+
+        Text_MonsterHp.text = ("H.P  :  " + _unitModel.CurrentHp + "  /  " + _unitModel.Data.MaxHp);
+        Text_MonsterMp.text = ("M.P  :  " + _unitModel.CurrentMp + "  /  " + _unitModel.Data.MaxMp);
 
         _unitModel.OnHpChanged += OnMonsterHpChanged;
         _unitModel.OnMpChanged += OnMonsterMpChanged;
@@ -137,11 +168,15 @@ public class BattleUI : DaniTechUIBase
 
     private void OnMonsterHpChanged(int currentHp, int maxHp)
     {
+        Text_MonsterHp.text = ("H.P  :  " + currentHp + "  /  " + maxHp);
+
         Slider_MonsterHp.value = currentHp / (float)maxHp;
     }
 
     private void OnMonsterMpChanged(int currentMp, int maxMp)
     {
+        Text_MonsterMp.text = ("M.P  :  " + currentMp + "  /  " + maxMp);
+
         Slider_MonsterMp.value = currentMp / (float)maxMp;
 
     }

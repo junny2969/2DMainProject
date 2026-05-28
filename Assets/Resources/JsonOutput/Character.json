@@ -7,7 +7,8 @@
     "UseWeaponId": "Weapon_Braclet_1",
     "BasicCostumeId": "Costume_03",
     "MaxHp": null,
-    "MaxMp": null
+    "MaxMp": null,
+    "IconPath": null
   },
   {
     "Id": "character_victor_01",
@@ -17,7 +18,8 @@
     "UseWeaponId": "Weapon_Sword_1",
     "BasicCostumeId": null,
     "MaxHp": null,
-    "MaxMp": null
+    "MaxMp": null,
+    "IconPath": null
   },
   {
     "Id": "character_daniel_01",
@@ -27,7 +29,8 @@
     "UseWeaponId": "Weapon_CoffeeCup_1",
     "BasicCostumeId": null,
     "MaxHp": null,
-    "MaxMp": null
+    "MaxMp": null,
+    "IconPath": null
   },
   {
     "Id": "character_ellie_01",
@@ -37,6 +40,7 @@
     "UseWeaponId": null,
     "BasicCostumeId": null,
     "MaxHp": 300,
-    "MaxMp": 200
+    "MaxMp": 200,
+    "IconPath": "Icon/Icon_ellie"
   }
 ]

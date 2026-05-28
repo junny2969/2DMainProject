@@ -19,6 +19,7 @@ public class BattleUnitDataBase : GameDataBase
     public string PrefabKey;
     public string SpritePath;
     public List<int> SkillIdList;
+    public string IconPath;
 }
 // C# 때와 약간 달라진 점
     // Syste.Text.Json대신 유니티 내장 JsonUtility를 사용
@@ -118,7 +119,6 @@ public class DNMonsterData : BattleUnitDataBase
     //public int BaseAtk;
     public float NormalAtkMultiple;
     public List<float> SkillAtkMultipleList;
-    public string IconPath;
     public string PrefabPath;
     //public int MaxHp;
     //public int MaxMp;
