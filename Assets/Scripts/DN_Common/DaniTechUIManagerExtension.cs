@@ -25,7 +25,8 @@ public enum DaniTechUIType
     BattleUI,
     HudUi,
     BattleActionPopup,
-    SkillConfirmPopup
+    SkillConfirmPopup,
+    BattleResultPopup
 
 }
 
@@ -161,6 +162,21 @@ public static class DaniTechUIManagerExtension
         if (uiBase is HudUI hudUi)
         {
             hudUi.RemoveHudSlot();
+        }
+    }
+
+    public static void OpenBattleResultPopup(this DaniTechUIManager uiManager, string msg)
+    {
+        var uiBase = uiManager.OpenPopupUI(DaniTechUIType.BattleResultPopup);
+        if (uiBase == null)
+        {
+            Debug.LogWarning($"UI가 생성되지 않았습니다");
+            return;
+        }
+
+        if (uiBase is BattleResultPopup battlePopup)
+        {
+            battlePopup.SetUI(msg);
         }
     }
 }

@@ -37,7 +37,8 @@ public class BattleManager : MonoBehaviour
             if(playerData != null)
             {
                 var playerModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), playerData);
-                Debug.LogWarning("playerData: " + (playerData == null ? "null" : playerData.Name));
+                playerModel.OnDead += OnPlayerDead;
+                //Debug.LogWarning("playerData: " + (playerData == null ? "null" : playerData.Name));
                 _playerModels.Add(playerModel);
 
                 DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, playerRoot);
@@ -53,6 +54,7 @@ public class BattleManager : MonoBehaviour
             if (mobData != null)
             {
                 var mobModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), mobData);
+                mobModel.OnDead += OnMonsterDead;
                 _enemyModels.Add(mobModel);
 
                 DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, Prefab_BattleMonster, monsterRoot);
@@ -73,5 +75,16 @@ public class BattleManager : MonoBehaviour
     {
         if (_enemyModels.Count == 0) return null;
         return _enemyModels[0]; // TODO 몬스터 늘어날시 개선 필요
+    }
+
+    private void OnPlayerDead()
+    {
+        DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
+    }
+
+    private void OnMonsterDead()
+    {
+        DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
+
     }
 }
