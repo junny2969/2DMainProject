@@ -27,24 +27,19 @@ public class BattleActionPopup : DaniTechUIBase
 
     private void OnEnable()
     {
-        var playerInfo = BattleManager.Inst.GetPlayerModel();
-        _unitModel = playerInfo;
-        // Debug.LogWarning("playerInfo :" + (_unitModel == null ? "null" : _unitModel.Data.Name));
+        
         Btn_NormalSkill.BindOnClickButtonEvent(OnClick_NormalSkill);
         Btn_SpeacialSkill.BindOnClickButtonEvent(onClick_SpeacialSkill);
         Btn_UseItem.BindOnClickButtonEvent(onClick_UseItem);
 
-        if (_unitModel == null) return;
-        OnClick_NormalSkill();
+        
     }
 
-    private void OnDisable()
-    {
-        _unitModel = null;
-    }
+   
 
     private void OnClick_NormalSkill()
     {
+        
         ClearNormalSkillList();
         OnClick_NormalSkillAsync().Forget();
     }
@@ -113,5 +108,16 @@ public class BattleActionPopup : DaniTechUIBase
         }
 
         getComponent.BindOnClickButtonEvent(OnClickSkill);
+    }
+
+    public void RefreshSkillList()
+    {
+        Debug.LogWarning("RefreshSkillList()호출됨");
+        var playerInfo = BattleManager.Inst.GetPlayerModel();
+        Debug.LogWarning("playerInfo :" + (playerInfo == null? "null" : playerInfo.Data.Name));
+        _unitModel = playerInfo;
+        if (_unitModel == null) return;
+        ClearNormalSkillList();
+        OnClick_NormalSkillAsync().Forget();
     }
 }

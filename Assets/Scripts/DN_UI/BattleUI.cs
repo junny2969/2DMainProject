@@ -64,7 +64,11 @@ public class BattleUI : DaniTechUIBase
                 break;
 
             case BattleState.ChoiceAction:
-                DaniTechUIManager.Instance.OpenPopupUI(DaniTechUIType.BattleActionPopup);
+                var popup = DaniTechUIManager.Instance.OpenPopupUI(DaniTechUIType.BattleActionPopup) as BattleActionPopup;
+                if(popup != null)
+                {
+                    popup.RefreshSkillList();
+                }
                 break;
 
             case BattleState.ChoiceTarget:
@@ -212,5 +216,5 @@ public class BattleUI : DaniTechUIBase
 
     }
 
-
+    
 }

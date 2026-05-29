@@ -32,10 +32,12 @@ public class BattleManager : MonoBehaviour
         foreach (string playerId in playerList)
         {
             var playerData = DaniTechGameDataManager.Instance.GetCharacterData(playerId);
+            Debug.LogWarning("playerId:" + playerId);
 
             if(playerData != null)
             {
                 var playerModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), playerData);
+                Debug.LogWarning("playerData: " + (playerData == null ? "null" : playerData.Name));
                 _playerModels.Add(playerModel);
 
                 DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, playerRoot);

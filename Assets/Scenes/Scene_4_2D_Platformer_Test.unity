@@ -249877,11 +249877,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 248192365930352887, guid: 4c1ee9c27cca14e4e9e9c33c3bfa476c, type: 3}
       propertyPath: playerList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 248192365930352887, guid: 4c1ee9c27cca14e4e9e9c33c3bfa476c, type: 3}
       propertyPath: monsterList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 248192365930352887, guid: 4c1ee9c27cca14e4e9e9c33c3bfa476c, type: 3}
       propertyPath: 'playerList.Array.data[0]'
