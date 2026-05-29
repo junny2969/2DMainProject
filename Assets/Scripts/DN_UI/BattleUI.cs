@@ -68,6 +68,7 @@ public class BattleUI : DaniTechUIBase
                 break;
 
             case BattleState.ChoiceTarget:
+                DaniTechUIManager.Instance.ClosePopupUI(DaniTechUIType.BattleActionPopup);
                 break;
 
             case BattleState.PlayerAction:

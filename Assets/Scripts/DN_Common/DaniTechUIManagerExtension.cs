@@ -24,7 +24,8 @@ public enum DaniTechUIType
     InventoryUI,
     BattleUI,
     HudUi,
-    BattleActionPopup
+    BattleActionPopup,
+    SkillConfirmPopup
 
 }
 
@@ -65,8 +66,24 @@ public static class DaniTechUIManagerExtension
         }
     }
 
+    public static void OpenSkillConfirmPopup(this DaniTechUIManager uiManager, string skillId)
+    {
+        var uiBase = uiManager.OpenPopupUI(DaniTechUIType.SkillConfirmPopup);
+        if (uiBase == null)
+        {
+            Debug.LogWarning($"UI가 생성되지 않았습니다");
+            return;
+        }
+
+        if (uiBase is SkillConfirmPopup confirmPopup)
+        {
+            var skillData = DaniTechGameDataManager.Instance.GetSkill(skillId);
+            confirmPopup.PrintConfirmText(skillData.Name);
+        }
+    }
+
     // 신규UI추가 3) 이렇게 어떤 팝업을 열고, 열때 전달해야하는 파라미터가 있다면 이렇게 전달한다.
-        // 추가하기 편하게 그냥 빼둔 확장 메서드이므로, uiManager과 this는 우선 넘어가자
+    // 추가하기 편하게 그냥 빼둔 확장 메서드이므로, uiManager과 this는 우선 넘어가자
     public static void OpenMyProfilePopup(this DaniTechUIManager uiManager, string characterDataId)
     {
         // 신규UI추가 4) 이렇게 UI 타입을 던져서 UI 생성을 요청한다

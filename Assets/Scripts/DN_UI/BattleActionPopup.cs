@@ -99,8 +99,10 @@ public class BattleActionPopup : DaniTechUIBase
 
         void OnClickSkill()
         {
-
+            TurnManager.Inst.OnClick_SkillSlot(dataId);
         }
+
+        getComponent.BindOnClickButtonEvent(OnClickSkill);
     }
 
     

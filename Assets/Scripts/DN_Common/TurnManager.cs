@@ -41,7 +41,7 @@ public class TurnManager : MonoBehaviour
     public void OnClick_SkillSlot(string skillId)
     {
         _selectedSkillId = skillId;
-        ChangeBattleState(BattleState.ChoiceTarget);
+        DaniTechUIManager.Instance.OpenSkillConfirmPopup(skillId);
     }
     
 }
