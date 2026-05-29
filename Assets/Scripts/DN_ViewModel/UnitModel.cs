@@ -52,4 +52,6 @@ public class UnitModel
 
         OnMpChanged?.Invoke(CurrentMp, Data.MaxMp);
     }
+
+
 }

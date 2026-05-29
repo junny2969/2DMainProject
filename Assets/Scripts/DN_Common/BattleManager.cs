@@ -21,6 +21,8 @@ public class BattleManager : MonoBehaviour
         Inst = this;
     }
 
+   
+
     public async UniTask StartBattle(List<string> playerList, List<string> monsterList)
     {
         var battleUi = DaniTechUIManager.Instance.GetOpenedUI(DaniTechUIRootType.ContentUI, DaniTechUIType.BattleUI) as BattleUI;
@@ -40,7 +42,6 @@ public class BattleManager : MonoBehaviour
                 await battleUi.SetPlayerUnit(playerModel);
 
             }
-
         }
 
         foreach (string monsterId in monsterList)
@@ -57,9 +58,7 @@ public class BattleManager : MonoBehaviour
 
             }
         }
-
         TurnManager.Inst.StartBattle();
-
     }
 
     public UnitModel GetPlayerModel()
@@ -68,4 +67,9 @@ public class BattleManager : MonoBehaviour
         return _playerModels[0];
     }
 
+    public UnitModel GetEnemyModel()
+    {
+        if (_enemyModels.Count == 0) return null;
+        return _enemyModels[0]; // TODO 몬스터 늘어날시 개선 필요
+    }
 }

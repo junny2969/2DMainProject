@@ -18,6 +18,7 @@ public class TurnManager : MonoBehaviour
     public event Action<BattleState> OnStateChanged;
 
     private string _selectedSkillId;
+    private UnitModel _targetModel;
 
     public static TurnManager Inst {  get; private set; }
 
@@ -36,6 +37,13 @@ public class TurnManager : MonoBehaviour
     {
         curBattleState = newState;
         OnStateChanged?.Invoke(curBattleState);
+
+        switch(newState)
+        {
+            case BattleState.MonsterTurn:
+                ActionMonster();
+                break;
+        }
     }
    
     public void OnClick_SkillSlot(string skillId)
@@ -43,6 +51,41 @@ public class TurnManager : MonoBehaviour
         _selectedSkillId = skillId;
         DaniTechUIManager.Instance.OpenSkillConfirmPopup(skillId);
     }
+    
+    public BattleState GetCurState()
+    {
+        return curBattleState;
+    }
+
+    public void SaveTarget(UnitModel target)
+    {
+        _targetModel = target;
+        ChangeBattleState(BattleState.PlayerAction);
+        ActivePlayerSkill(_targetModel);
+    }
+
+    public void ActivePlayerSkill(UnitModel targetUnit)
+    {
+        var skillData = DaniTechGameDataManager.Instance.GetSkill(_selectedSkillId);
+        targetUnit.TakeDmage(skillData.Damage);
+
+        var caster = BattleManager.Inst.GetPlayerModel();
+        caster.TakeMp(skillData.CostMp);
+
+        ChangeBattleState(BattleState.MonsterTurn);
+
+    }
+
+    public void ActionMonster()
+    {
+        var attacker = BattleManager.Inst.GetEnemyModel();
+        var damage = attacker.Data.Atk;
+        var target = BattleManager.Inst.GetPlayerModel();
+
+        target.TakeDmage(damage);
+        ChangeBattleState(BattleState.PlayerTurn);
+    }
+
     
 }
 

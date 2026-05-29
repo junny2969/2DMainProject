@@ -29,10 +29,18 @@ public class BattleActionPopup : DaniTechUIBase
     {
         var playerInfo = BattleManager.Inst.GetPlayerModel();
         _unitModel = playerInfo;
-
+        // Debug.LogWarning("playerInfo :" + (_unitModel == null ? "null" : _unitModel.Data.Name));
         Btn_NormalSkill.BindOnClickButtonEvent(OnClick_NormalSkill);
         Btn_SpeacialSkill.BindOnClickButtonEvent(onClick_SpeacialSkill);
         Btn_UseItem.BindOnClickButtonEvent(onClick_UseItem);
+
+        if (_unitModel == null) return;
+        OnClick_NormalSkill();
+    }
+
+    private void OnDisable()
+    {
+        _unitModel = null;
     }
 
     private void OnClick_NormalSkill()
@@ -44,7 +52,6 @@ public class BattleActionPopup : DaniTechUIBase
     private async UniTask OnClick_NormalSkillAsync()
     {
         await GetPlayerSkillList();
-
     }
 
     private void onClick_SpeacialSkill()
@@ -65,6 +72,11 @@ public class BattleActionPopup : DaniTechUIBase
     }
     public async UniTask GetPlayerSkillList()
     {
+        if (_unitModel == null)
+        {
+            Debug.LogWarning("_unitModel이 null");
+            return;
+        }
         var characterData = _unitModel.Data as DNCharacterData;
         if (characterData != null)
         {
@@ -80,8 +92,6 @@ public class BattleActionPopup : DaniTechUIBase
                 await CreateSkillSlot(skillData.Id, SkillPopupCategory.NormalSkill);
             }
         }
-
-       
     }
 
     private async UniTask CreateSkillSlot(string dataId, SkillPopupCategory curCategory)
@@ -104,6 +114,4 @@ public class BattleActionPopup : DaniTechUIBase
 
         getComponent.BindOnClickButtonEvent(OnClickSkill);
     }
-
-    
 }
