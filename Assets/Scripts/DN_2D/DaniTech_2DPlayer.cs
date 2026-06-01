@@ -6,6 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DaniTech_2DPlayer : MonoBehaviour
 {
+    [Header("플레이어 ID")]
+    [SerializeField] private string _characterDataId;
+    [SerializeField] private GameObject Caution_Root;
+
     [Header("이동 설정")]
     [SerializeField] private float _moveSpeed = 8f;
     // [SerializeField] private float _jumpForce = 12f;
@@ -112,10 +116,10 @@ public class DaniTech_2DPlayer : MonoBehaviour
         //    Atk();
         //}
 
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            UseNormalAttack();
-        }
+        //if(Input.GetKeyDown(KeyCode.F))
+        //{
+        //    UseNormalAttack();
+        //}
 
     }
 
@@ -173,30 +177,30 @@ public class DaniTech_2DPlayer : MonoBehaviour
     }
 
     // 6) 적 충돌 시 처리를 해보자
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 6-1) 플레이어의 > 콜리전에 충돌한 객체가 어떤 Tag인지 1차 검사한다.
-            // 지면 같은 오브젝트와 점프시 충돌이 계속 오므로 이렇게 태그로 먼저 비교하는게 좋다
-            // 중단점을 찍어보면서 확인 추천
-        if (collision.gameObject.CompareTag("Enemy") == false)
-        {
-            return;
-        }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    // 6-1) 플레이어의 > 콜리전에 충돌한 객체가 어떤 Tag인지 1차 검사한다.
+    //        // 지면 같은 오브젝트와 점프시 충돌이 계속 오므로 이렇게 태그로 먼저 비교하는게 좋다
+    //        // 중단점을 찍어보면서 확인 추천
+    //    if (collision.gameObject.CompareTag("Enemy") == false)
+    //    {
+    //        return;
+    //    }
 
-        // 6-2) 충돌한 몬스터의 정보를 받아오려고 시도해보자
-        var enemyComponent = collision.gameObject.GetComponent<DaniTech_2DEnemy>();
-        if (enemyComponent == null)
-        {
-            Debug.Log($"충돌한 적 객체에서 컴포넌트를 찾을 수 없습니다 : {gameObject.name}");
-            return;
-        }
+    //    // 6-2) 충돌한 몬스터의 정보를 받아오려고 시도해보자
+    //    var enemyComponent = collision.gameObject.GetComponent<DaniTech_2DEnemy>();
+    //    if (enemyComponent == null)
+    //    {
+    //        Debug.Log($"충돌한 적 객체에서 컴포넌트를 찾을 수 없습니다 : {gameObject.name}");
+    //        return;
+    //    }
 
-        // 6-3) 충돌된 오브젝트를 플레이어가 직접 제거하는게 아니라, Id로 게임오브젝트매니저한테 삭제를 요청한다
-        DaniTechGameObjectManager.Inst.RequestDestroyEntityObject(enemyComponent.EntityInstancId);
+    //    // 6-3) 충돌된 오브젝트를 플레이어가 직접 제거하는게 아니라, Id로 게임오브젝트매니저한테 삭제를 요청한다
+    //    DaniTechGameObjectManager.Inst.RequestDestroyEntityObject(enemyComponent.EntityInstancId);
 
-        // 6-4) 피그미를 잡으면 스코어를 올려주자!
-        AddGameScore();
-    }
+    //    // 6-4) 피그미를 잡으면 스코어를 올려주자!
+    //    AddGameScore();
+    //}
 
     private void AddGameScore()
     {
@@ -213,19 +217,19 @@ public class DaniTech_2DPlayer : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if(collision.CompareTag("Fire"))
-        //{
-        //    ChangePlayerState(EilieAnimState.Hit);
-        //}
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //if(collision.CompareTag("Fire"))
+    //    //{
+    //    //    ChangePlayerState(EilieAnimState.Hit);
+    //    //}
 
-        //if(collision.CompareTag("Apple"))
-        //{
-        //    Debug.LogWarning("사과를 1개 획득했습니다");
-        //    CollectApple(collision.gameObject);
-        //}
-    }
+    //    //if(collision.CompareTag("Apple"))
+    //    //{
+    //    //    Debug.LogWarning("사과를 1개 획득했습니다");
+    //    //    CollectApple(collision.gameObject);
+    //    //}
+    //}
 
     private void CollectApple(GameObject apple)
     {
@@ -245,60 +249,60 @@ public class DaniTech_2DPlayer : MonoBehaviour
         // Todo 로그 대신 클리어 화면 UIManager에 요청해보기
     }
 
-    public bool CheckSkillUseable(bool isShowMsg = true)
-    {
-        //원하는 스킬의 사용가능 조건 추가 Ex) 후딜레이
-        if (_isSkillUsing == true)
-        {
-            if (isShowMsg == true)
-            {
-                DaniTechUIManager.Instance.OpenSimplePopup("스킬이 이미 사용중입니다.");
+    //public bool CheckSkillUseable(bool isShowMsg = true)
+    //{
+    //    //원하는 스킬의 사용가능 조건 추가 Ex) 후딜레이
+    //    if (_isSkillUsing == true)
+    //    {
+    //        if (isShowMsg == true)
+    //        {
+    //            DaniTechUIManager.Instance.OpenSimplePopup("스킬이 이미 사용중입니다.");
 
-            }
-            return false; 
-        }
+    //        }
+    //        return false; 
+    //    }
 
-        return true;
-    }
+    //    return true;
+    //}
 
-    public void UseNormalAttack()
-    {
-        if(CheckSkillUseable(isShowMsg:false) == false) return;
+    //public void UseNormalAttack()
+    //{
+    //    if(CheckSkillUseable(isShowMsg:false) == false) return;
         
-        Collider_PlayerNormalAttack.gameObject.SetActive(true);
-        StartCoroutine(CoStartNormalAttack());
+    //    Collider_PlayerNormalAttack.gameObject.SetActive(true);
+    //    StartCoroutine(CoStartNormalAttack());
 
-        // ChangePlayerState(); 플레이어의 공격모션 변경
-    }
+    //    // ChangePlayerState(); 플레이어의 공격모션 변경
+    //}
 
-    public void UseFirstlSkill()
-    {
-        if (CheckSkillUseable() == false) return;
+    //public void UseFirstlSkill()
+    //{
+    //    if (CheckSkillUseable() == false) return;
 
-    }
+    //}
 
-    public void UseSecondSkill()
-    {
-        if (CheckSkillUseable() == false) return;
+    //public void UseSecondSkill()
+    //{
+    //    if (CheckSkillUseable() == false) return;
 
-    }
+    //}
 
-    public void UseThirdSkill()
-    {
-        if (CheckSkillUseable() == false) return;
-        CreateProjectileSkillObject();
-    }
+    //public void UseThirdSkill()
+    //{
+    //    if (CheckSkillUseable() == false) return;
+    //    CreateProjectileSkillObject();
+    //}
 
-    private void CreateProjectileSkillObject()
-    {
-        var gObj = Instantiate(Prefab_SkillProfectile);
-        if (gObj == null) return;
+    //private void CreateProjectileSkillObject()
+    //{
+    //    var gObj = Instantiate(Prefab_SkillProfectile);
+    //    if (gObj == null) return;
 
-        var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
-        if(skillProjectileComponent == null) return;
+    //    var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
+    //    if(skillProjectileComponent == null) return;
 
-        skillProjectileComponent.InitSkillObject(0, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
-    }
+    //    skillProjectileComponent.InitSkillObject(0, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
+    //}
 
     IEnumerator CoStartNormalAttack()
     {
@@ -361,4 +365,22 @@ public class DaniTech_2DPlayer : MonoBehaviour
     {
         
     }
+
+    public string GetCharacterDataId()
+    {
+        return _characterDataId;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") == false) return;
+        Caution_Root.gameObject.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Caution_Root.gameObject.SetActive(false);
+
+    }
+
 }

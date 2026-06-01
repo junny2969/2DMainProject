@@ -65,6 +65,17 @@ public class BattleManager : MonoBehaviour
         TurnManager.Inst.StartBattle();
     }
 
+    public async UniTaskVoid EnterBattle(List<string> playerList, List<string> monsterList)
+    {
+        Debug.LogWarning("EnterBattle 시작");
+        DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
+        DaniTechGameObjectManager.Inst.HideLocalPlayer();
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
+        Debug.LogWarning("BattleUi 열림");
+        await StartBattle(playerList, monsterList);
+        Debug.LogWarning("StartBattle 완료");
+    }
+
     public UnitModel GetPlayerModel()
     {
         if (_playerModels.Count == 0) return null;

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,7 +11,7 @@ public class GameMonster : MonsterBase
     public float SkillCoolTime;
     public GameObject Prefab_ThisMonsterSkillObject;
     [SerializeField] private SpriteRenderer SpriteRenderer_Monster;
-
+    [SerializeField] private GameObject Caution_Root;
 
 
     [Header("데이터 확인용 임시")]
@@ -49,7 +51,7 @@ public class GameMonster : MonsterBase
             //_baseAtk = _thisMonsterData.BaseAtk;
         }
 
-        StartCoroutine(CheckAndUseSkill());
+        // StartCoroutine(CheckAndUseSkill());
     }
 
     private int GetFinalNormalAktDamage(int baseAtk, float normalAtkMultiple)
@@ -65,21 +67,21 @@ public class GameMonster : MonsterBase
     // 코루틴이 등장한다는건 => 유니테스크로 호환이 가능한다
     // 일정 시간마다 스킬을 사용할 예정
     // 스타트 코루틴은 이 몬스터가 생성된 시점에서 돌아도 됨
-    IEnumerator CheckAndUseSkill()
-    {
-        while (_isAlive)
-        {
-            yield return new WaitForSeconds(SkillCoolTime);
+    //IEnumerator CheckAndUseSkill()
+    //{
+    //    while (_isAlive)
+    //    {
+    //        yield return new WaitForSeconds(SkillCoolTime);
 
-            if (_isAlive == false)
-            {
-                break;
-            }
+    //        if (_isAlive == false)
+    //        {
+    //            break;
+    //        }
 
-            ChangeMonsterDirection(); // 몬스터의 방향전환
-            UseSkill();
-        }
-    }
+    //        ChangeMonsterDirection(); // 몬스터의 방향전환
+    //        UseSkill();
+    //    }
+    //}
 
     void ChangeMonsterDirection()
     {
@@ -94,36 +96,67 @@ public class GameMonster : MonsterBase
         SpriteRenderer_Monster.flipX = (x < 0);
     }
 
-    private void UseSkill()
-    {
-        var gObj = Instantiate(Prefab_ThisMonsterSkillObject, DaniTechGameObjectManager.Inst.transform);
-        if (gObj == null) return;
+    //private void UseSkill()
+    //{
+    //    var gObj = Instantiate(Prefab_ThisMonsterSkillObject, DaniTechGameObjectManager.Inst.transform);
+    //    if (gObj == null) return;
 
-        var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
-        if (skillProjectileComponent == null) return;
+    //    var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
+    //    if (skillProjectileComponent == null) return;
 
 
-        // 확인필요 
+    //    // 확인필요 
 
-        float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
-        float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
-        skillProjectileComponent.InitSkillObject(_instanceId, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
-    }
+    //    float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
+    //    float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
+    //    skillProjectileComponent.InitSkillObject(_instanceId, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
+    //}
 
     // 몬스터가 소환한 투사체의 충돌이 발생 했을때 응답이 온다
     private void OnSkillCollision(int coliedObjectInstanceId, int damage)
     {
         
 
-        if(coliedObjectInstanceId == 0)
-        {
-            var player = DaniTechGameObjectManager.Inst.GetLocalPlayer();
+        //if(coliedObjectInstanceId == 0)
+        //{
+        //    var player = DaniTechGameObjectManager.Inst.GetLocalPlayer();
             
-            //스킬이 충돌한 시점에서 다시한번 대미지를 계산해도 된다
-            //float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
-            //float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
+        //    //스킬이 충돌한 시점에서 다시한번 대미지를 계산해도 된다
+        //    //float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
+        //    //float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
 
-            player.TakeDamage(damage);
-        }
+        //    player.TakeDamage(damage);
+        //}
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player") == false) return;
+
+        var player = collision.gameObject.GetComponent<DaniTech_2DPlayer>();
+        if (player == null) return;
+
+        var playerList = new List<string>();
+        playerList.Add(player.GetCharacterDataId());
+
+        var monsterList = new List<string>();
+        monsterList.Add(_dataId);
+
+        BattleManager.Inst.EnterBattle(playerList, monsterList).Forget();
+    }
+
+    
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Caution_Root.SetActive(true);
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Caution_Root.SetActive(false);
+
     }
 }

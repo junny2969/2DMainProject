@@ -89,49 +89,49 @@ public class BattleUI : DaniTechUIBase
         TurnManager.Inst.ChangeBattleState(BattleState.ChoiceAction);
     }
 
-    public void Onclick_UseNormalAttack()
-    {
-        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
-        localPlayer.UseNormalAttack();
-    }
+    //public void Onclick_UseNormalAttack()
+    //{
+    //    var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+    //    localPlayer.UseNormalAttack();
+    //}
 
-    public void Onclick_UseFirstAttack()
-    {
-        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
-        localPlayer.UseFirstlSkill();
-    }
+    //public void Onclick_UseFirstAttack()
+    //{
+    //    var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+    //    localPlayer.UseFirstlSkill();
+    //}
 
-    public void Onclick_UseSecondAttack()
-    {
-        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
-        localPlayer.UseSecondSkill();
+    //public void Onclick_UseSecondAttack()
+    //{
+    //    var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+    //    localPlayer.UseSecondSkill();
 
-    }
+    //}
 
-    public void Onclick_UseThirdAttack()
-    {
-        var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
-        localPlayer.UseThirdSkill();
+    //public void Onclick_UseThirdAttack()
+    //{
+    //    var localPlayer = DaniTechGameManager.Inst.GetLocalPlayer();
+    //    localPlayer.UseThirdSkill();
 
-    }
+    //}
  
 
-    public void OnClick_OpenMyProfile()
-    {
+    //public void OnClick_OpenMyProfile()
+    //{
 
-    }
+    //}
 
-    public void OnClick_Atk()
-    {
-    }
+    //public void OnClick_Atk()
+    //{
+    //}
 
-    public void OnClick_Jump()
-    {
-    }
+    //public void OnClick_Jump()
+    //{
+    //}
 
-    public void OnClick_Harvest()
-    {
-    }
+    //public void OnClick_Harvest()
+    //{
+    //}
 
     public void OnClick_OpenInventory()
     {
