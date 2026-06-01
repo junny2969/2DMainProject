@@ -29,6 +29,7 @@ public class DaniTech_2DPlayer : MonoBehaviour
     [SerializeField] private int _playerHp = 1000;
     [SerializeField] private int _playerBaseAtk = 100;
 
+    
 
 
     // 우선 직접 들고 있다가 추후에 UI매니저한테 요청하도록 개선해볼 것
@@ -40,6 +41,8 @@ public class DaniTech_2DPlayer : MonoBehaviour
     private float _verticalInput;
     private bool _lookRight = true;
     private bool _isSkillUsing = false;
+
+    
 
     // 추후에는 이런 데이터가 저장될 수 있도록 UI에 있는 것보다 한곳으로 모여지는게 좋다
     private int _currentScore;
@@ -352,5 +355,10 @@ public class DaniTech_2DPlayer : MonoBehaviour
     public void PlayerDie()
     {
         // bool _isAlive = false;
+    }
+
+    public void EnemyReset()
+    {
+        
     }
 }

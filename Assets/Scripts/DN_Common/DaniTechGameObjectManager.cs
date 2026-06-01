@@ -229,4 +229,9 @@ public class DaniTechGameObjectManager : MonoBehaviour
     {
         _localPlayer.gameObject.SetActive(false);
     }
+
+    public void ReSpawnLocalPlayer()
+    {
+        _localPlayer.gameObject.SetActive(true);
+    }
 }

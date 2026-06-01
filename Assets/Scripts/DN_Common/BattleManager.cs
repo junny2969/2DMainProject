@@ -81,9 +81,12 @@ public class BattleManager : MonoBehaviour
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+        _enemyModels.Clear();
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
+        DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
+
         // TODO 마을 귀환
-        
+
     }
 
     private void OnPlayerDead()
@@ -94,8 +97,9 @@ public class BattleManager : MonoBehaviour
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+        _enemyModels.Clear();
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
-
+        DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
     }
 
     private void OnMonsterDead()
