@@ -70,11 +70,12 @@ public class TurnManager : MonoBehaviour
         var skillData = DaniTechGameDataManager.Instance.GetSkill(_selectedSkillId);
         if (skillData == null) return;
 
+        Debug.LogWarning("skillData.AnimTrigger: " + skillData.AnimTrigger);
         var playerModel = BattleManager.Inst.GetPlayerModel();
         var playerView = DaniTechGameObjectManager.Inst.GetBattleUnitView(playerModel.InstanceId);
         if(playerView != null)
         {
-            await playerView.PlayAttackAction(GetCenterPosition());
+            await playerView.PlayAttackAction(GetCenterPosition(), skillData.AnimTrigger);
         }
 
 
@@ -91,7 +92,7 @@ public class TurnManager : MonoBehaviour
         var monsterView = DaniTechGameObjectManager.Inst.GetBattleUnitView(enemyModel.InstanceId);
         if(monsterView != null)
         {
-            await monsterView.PlayAttackAction(GetCenterPosition());
+            await monsterView.PlayAttackAction(GetCenterPosition(), "isAtk");
         }
 
         var playerModel = BattleManager.Inst.GetPlayerModel();

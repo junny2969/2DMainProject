@@ -43,25 +43,15 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     }
 
 
-    public async UniTask PlayAttackAction(Vector3 centerPosition)
+    public async UniTask PlayAttackAction(Vector3 centerPosition, string animTrigger)
     {
-        if(AnimController_Unit == null)
-        {
-            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-            return;
-        }
+        await MoveToPosition(centerPosition, 0.3f);
+        await PlayAttackAnimation(animTrigger);
+        await MoveToPosition(_originPosition, 0.3f);
 
-        AnimController_Unit.SetState(BattleUnitAnimState.Atk);
 
-        bool isAtkState = false;
-        while (isAtkState == false)
-        {
-            isAtkState = AnimController_Unit.IsCurrentState("Atk");
-            await UniTask.Yield();
-        }
 
-        float atkLength = AnimController_Unit.GetCurrentStateLength();
-        await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
+       
     }
 
     private async UniTask MoveToPosition(Vector3 targetPosition, float duration)
@@ -71,16 +61,19 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
         while(elapsed < duration)
         {
+            if(this == null) return;
+
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
             transform.position = Vector3.Lerp(startPosition, targetPosition, t);
             await UniTask.Yield();
         }
 
+        if (this == null) return;
         transform.position = targetPosition;
     }
 
-    private async UniTask PlayAttackAnimation()
+    private async UniTask PlayAttackAnimation(string animTrigger)
     {
         if(AnimController_Unit == null)
         {
@@ -88,17 +81,21 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             return;
         }
 
-        AnimController_Unit.SetState(BattleUnitAnimState.Atk);
+        AnimController_Unit.SetAtkState(animTrigger);
+        Debug.Log("트리거 설정 : " + animTrigger);
 
         bool isAtkState = false;
         while(isAtkState == false)
         {
             if (AnimController_Unit == null) return;
+            string currentState = AnimController_Unit.GetCurrentStateName();
+            Debug.LogWarning("현재 애니메이터 상태 : " + currentState);
 
-            isAtkState = AnimController_Unit.IsCurrentState("Atk");
+            isAtkState = AnimController_Unit.IsCurrentState(animTrigger);
+            Debug.Log("현재 상태 : " + isAtkState);
+            await UniTask.Yield();
         }
 
-        await UniTask.Yield();
 
         var atkLength = AnimController_Unit.GetCurrentStateLength();
         await UniTask.Delay(TimeSpan.FromSeconds(atkLength));

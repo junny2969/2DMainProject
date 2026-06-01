@@ -49,10 +49,11 @@ public class DNSkillData : GameDataBase
     public string Name;
     public string Description;
     public string IconPath;
-    public string MotionPath;
+    // public string MotionPath;
     public int Damage;
     public int CostMp;
     public string SkillType;
+    public string AnimTrigger;
 }
 
 [System.Serializable]
