@@ -17,9 +17,23 @@ public class DaniTechGameManager : MonoBehaviour
 
     private void Start()
     {
-        LoadSaveData();
+        // LoadSaveData();
     }
 
+    public void StartNewGame()
+    {
+        _playerModel = DaniTechNetworkManager.Inst.GetDefaultPlayerData();
+        DaniTechNetworkManager.Inst.RequstSaveData(_playerModel);
+    }
+
+    public bool LoadAndStartGame()
+    {
+        DaniTechPlayerModel loaded = DaniTechNetworkManager.Inst.RequstLoadSaveData();
+        if (loaded == null) return false;
+
+        _playerModel = loaded;
+        return true;
+    }
     public void SaveData()
     {
         DaniTechNetworkManager.Inst.RequstSaveData(_playerModel);
@@ -95,4 +109,22 @@ public class DaniTechGameManager : MonoBehaviour
     {
         return DaniTechGameObjectManager.Inst.GetLocalPlayer();
     }
+
+    public List<string> GetPlayerSkillList()
+    {
+        return _playerModel.OwnedSkillIdList;
+    }
+
+    [ContextMenu("SaveData 경로 열기")]
+    private void OpenSaveDataPath()
+    {
+        string path = Application.persistentDataPath;
+        Debug.Log($"저장경로 : {path}");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.RevealInFinder(path);
+#endif
+
+    }
+
 }

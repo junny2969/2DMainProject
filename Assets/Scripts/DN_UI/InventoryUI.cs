@@ -51,7 +51,7 @@ public class InventoryUI : DaniTechUIBase
         Button_OpenEqupment.BindOnClickButtonEvent(OnClick_OpenEqupment);
         Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
 
-        Button_UseItem.gameObject.SetActive(false);
+        // Button_UseItem.gameObject.SetActive(false);
     }
 
     private void OnClick_CloseInventory()

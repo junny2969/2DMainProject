@@ -31,20 +31,32 @@ public class DaniTechNetworkManager : MonoBehaviour
     public DaniTechPlayerModel RequstLoadSaveData()
     {
         string path = GetPath();
-        if (File.Exists(path))
+        if(File.Exists(path) == false)
         {
-            string json = File.ReadAllText(path);
-            DaniTechPlayerModel data = JsonUtility.FromJson<DaniTechPlayerModel>(json);
-            Debug.Log("데이터를 불러왔습니다.");
-            return data;
+            Debug.LogWarning("세이브 파일이 없습니다");
+            return null;
         }
-        else
-        {
-            Debug.LogWarning("세이브 파일이 없습니다. 새 데이터를 생성합니다.");
-            var playerData = GetDefaultPlayerData();
-            RequstSaveData(GetDefaultPlayerData());
-            return playerData;
-        }
+
+        string json = File.ReadAllText(path);
+        DaniTechPlayerModel data = JsonUtility.FromJson<DaniTechPlayerModel>(json);
+        Debug.LogWarning("데이터 로드 성공");
+        return data;
+
+        //string path = GetPath();
+        //if (File.Exists(path))
+        //{
+        //    string json = File.ReadAllText(path);
+        //    DaniTechPlayerModel data = JsonUtility.FromJson<DaniTechPlayerModel>(json);
+        //    Debug.Log("데이터를 불러왔습니다.");
+        //    return data;
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("세이브 파일이 없습니다. 새 데이터를 생성합니다.");
+        //    var playerData = GetDefaultPlayerData();
+        //    RequstSaveData(GetDefaultPlayerData());
+        //    return playerData;
+        //}
     }
 
     public DaniTechPlayerModel GetDefaultPlayerData()
@@ -52,6 +64,9 @@ public class DaniTechNetworkManager : MonoBehaviour
         var newPlayerData = new DaniTechPlayerModel();
         newPlayerData.PlayerName = "NoName";
         newPlayerData.PlayerTotalExp = 0;
+        newPlayerData.OwnedSkillIdList.Add("skill_swing_01");
+        newPlayerData.OwnedSkillIdList.Add("skill_fireball_02");
+
         return newPlayerData;
     }
 }
