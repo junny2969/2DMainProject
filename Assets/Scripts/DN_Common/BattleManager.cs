@@ -77,14 +77,30 @@ public class BattleManager : MonoBehaviour
         return _enemyModels[0]; // TODO 몬스터 늘어날시 개선 필요
     }
 
-    private void OnPlayerDead()
+    private async UniTaskVoid OnPlayerDeadAsyck()
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
+        await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+        DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
+        // TODO 마을 귀환
+        
+    }
+
+    private void OnPlayerDead()
+    {
+        OnPlayerDeadAsyck().Forget();
+    }
+    private async UniTaskVoid OnMonsterDeadAsyck()
+    {
+        DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
+        await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+        DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
+
     }
 
     private void OnMonsterDead()
     {
-        DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
-
+        OnMonsterDeadAsyck().Forget();
     }
+
 }
