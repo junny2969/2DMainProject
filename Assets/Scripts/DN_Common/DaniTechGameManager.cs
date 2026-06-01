@@ -115,6 +115,22 @@ public class DaniTechGameManager : MonoBehaviour
         return _playerModel.OwnedSkillIdList;
     }
 
+    public List<string> GetPlayerSkillListByType(string skillType)
+    {
+        var filteredList = new List<string>();
+        foreach (string skillId in _playerModel.OwnedSkillIdList)
+        {
+            var skillData = DaniTechGameDataManager.Instance.GetSkill(skillId);
+            if (skillData == null) continue;
+            if (skillData.SkillType == skillType)
+            {
+                filteredList.Add(skillId);
+            }
+        }
+        return filteredList;
+
+    }
+
     [ContextMenu("SaveData 경로 열기")]
     private void OpenSaveDataPath()
     {

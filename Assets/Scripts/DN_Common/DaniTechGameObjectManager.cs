@@ -225,6 +225,18 @@ public class DaniTechGameObjectManager : MonoBehaviour
         }
     }
 
+    public BattleUnitView GetBattleUnitView(int instanceId)
+    {
+        if(_createdGameObjectContainer.ContainsKey(instanceId) == false)
+        {
+            Debug.LogWarning($"{instanceId} 에 해당하는 유닛 없음");
+            return null;
+        }
+
+        var gObj = _createdGameObjectContainer[instanceId];
+        return gObj.GetComponent<BattleUnitView>();
+    }
+
     public void HideLocalPlayer()
     {
         _localPlayer.gameObject.SetActive(false);

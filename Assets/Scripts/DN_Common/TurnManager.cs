@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cysharp.Threading.Tasks;
+using System;
 using UnityEngine;
 
 public enum BattleState
@@ -41,7 +42,7 @@ public class TurnManager : MonoBehaviour
         switch(newState)
         {
             case BattleState.MonsterTurn:
-                ActionMonster();
+                ActionMonsterAsync().Forget();
                 break;
         }
     }
@@ -61,29 +62,49 @@ public class TurnManager : MonoBehaviour
     {
         _targetModel = target;
         ChangeBattleState(BattleState.PlayerAction);
-        ActivePlayerSkill(_targetModel);
+        ActivePlayerSkill(_targetModel).Forget();
     }
 
-    public void ActivePlayerSkill(UnitModel targetUnit)
+    private async UniTaskVoid ActivePlayerSkill(UnitModel targetUnit)
     {
         var skillData = DaniTechGameDataManager.Instance.GetSkill(_selectedSkillId);
-        targetUnit.TakeDmage(skillData.Damage);
+        if (skillData == null) return;
 
-        var caster = BattleManager.Inst.GetPlayerModel();
-        caster.TakeMp(skillData.CostMp);
+        var playerModel = BattleManager.Inst.GetPlayerModel();
+        var playerView = DaniTechGameObjectManager.Inst.GetBattleUnitView(playerModel.InstanceId);
+        if(playerView != null)
+        {
+            await playerView.PlayAttackAction(GetCenterPosition());
+        }
+
+
+        targetUnit.TakeDamage(skillData.Damage);
+        playerModel.TakeMp(skillData.CostMp);
 
         ChangeBattleState(BattleState.MonsterTurn);
-
     }
 
-    public void ActionMonster()
+    private async UniTaskVoid ActionMonsterAsync()
     {
-        var attacker = BattleManager.Inst.GetEnemyModel();
-        var damage = attacker.Data.Atk;
-        var target = BattleManager.Inst.GetPlayerModel();
+        var enemyModel = BattleManager.Inst.GetEnemyModel();
 
-        target.TakeDmage(damage);
+        var monsterView = DaniTechGameObjectManager.Inst.GetBattleUnitView(enemyModel.InstanceId);
+        if(monsterView != null)
+        {
+            await monsterView.PlayAttackAction(GetCenterPosition());
+        }
+
+        var playerModel = BattleManager.Inst.GetPlayerModel();
+        playerModel.TakeDamage(enemyModel.Data.Atk);
+
         ChangeBattleState(BattleState.PlayerTurn);
+    }
+
+   
+
+    private Vector3 GetCenterPosition()
+    {
+        return BattleManager.Inst.GetBattleCenterPosition();
     }
 
     

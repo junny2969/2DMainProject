@@ -1119,8 +1119,7 @@ MonoBehaviour:
   Btn_NormalSkill: {fileID: 4217351868295691039}
   Btn_SpeacialSkill: {fileID: 4585581050775578508}
   Btn_UseItem: {fileID: 182530365649922425}
-  Root_SkillList: {fileID: 6486227267870141827}
-  Btn_SkillSlot: {fileID: 8291188887756187821, guid: bd6fafafe8c82824f89da07b4fcd2d5d, type: 3}
+  Root_SlotList: {fileID: 6486227267870141827}
 --- !u!1 &6832962588716865678
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
     // [SerializeField] private Transform Root_BattlePlayer;
     [SerializeField] private GameObject Prefab_BattleMonster;
     // [SerializeField] private Transform Root_BattleMonster;
+    [SerializeField] private Transform Transform_BattleCenter;
 
     private List<UnitModel> _playerModels = new List<UnitModel>();
     private List<UnitModel> _enemyModels = new List<UnitModel>();
@@ -118,4 +119,13 @@ public class BattleManager : MonoBehaviour
         OnMonsterDeadAsyck().Forget();
     }
 
+    public Vector3 GetBattleCenterPosition()
+    {
+        if(Transform_BattleCenter == null)
+        {
+            Debug.LogWarning("BattleCenter가 null");
+            return Vector3.zero;
+        }
+        return Transform_BattleCenter.position;
+    }
 }

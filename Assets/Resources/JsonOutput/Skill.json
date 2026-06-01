@@ -6,7 +6,8 @@
     "IconPath": null,
     "MotionPath": null,
     "Damage": null,
-    "CostMp": null
+    "CostMp": null,
+    "SkillType": null
   },
   {
     "Id": "skill_normalSword_01",
@@ -15,7 +16,8 @@
     "IconPath": null,
     "MotionPath": null,
     "Damage": null,
-    "CostMp": null
+    "CostMp": null,
+    "SkillType": null
   },
   {
     "Id": "skill_rest_coffee_01",
@@ -24,7 +26,8 @@
     "IconPath": null,
     "MotionPath": null,
     "Damage": null,
-    "CostMp": null
+    "CostMp": null,
+    "SkillType": null
   },
   {
     "Id": "skill_swing_01",
@@ -33,7 +36,8 @@
     "IconPath": "Icon/Icon_skill_swing_01",
     "MotionPath": null,
     "Damage": 10,
-    "CostMp": 10
+    "CostMp": 10,
+    "SkillType": "Normal"
   },
   {
     "Id": "skill_fireball_02",
@@ -42,7 +46,8 @@
     "IconPath": "Icon/icon_skill_fireball_02",
     "MotionPath": null,
     "Damage": 30,
-    "CostMp": 20
+    "CostMp": 20,
+    "SkillType": "Normal"
   },
   {
     "Id": "skill_explosion_01",
@@ -51,6 +56,37 @@
     "IconPath": "Icon/Icon_skill_explosion_01",
     "MotionPath": null,
     "Damage": 100,
-    "CostMp": 40
+    "CostMp": 40,
+    "SkillType": "Normal"
+  },
+  {
+    "Id": "skill_swing_01_special",
+    "Name": "필살 풀 스윙",
+    "Description": "필살 휘두르기",
+    "IconPath": "Icon/Icon_skill_swing_01_special",
+    "MotionPath": null,
+    "Damage": 25,
+    "CostMp": 30,
+    "SkillType": "Special"
+  },
+  {
+    "Id": "skill_fireball_02_special",
+    "Name": "필살 파이어볼",
+    "Description": "필살 파이어볼!!",
+    "IconPath": "Icon/icon_skill_fireball_02_special",
+    "MotionPath": null,
+    "Damage": 70,
+    "CostMp": 40,
+    "SkillType": "Special"
+  },
+  {
+    "Id": "skill_explosion_01_special",
+    "Name": "필살 익스플로젼",
+    "Description": "특 급 대 폭 발",
+    "IconPath": "Icon/Icon_skill_explosion_01_special",
+    "MotionPath": null,
+    "Damage": 200,
+    "CostMp": 60,
+    "SkillType": "Special"
   }
 ]

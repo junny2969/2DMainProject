@@ -29,7 +29,7 @@ public class UnitModel
         CurrentMp = data.MaxMp;
     }
 
-    public void TakeDmage(int damage)
+    public void TakeDamage(int damage)
     {
         CurrentHp = CurrentHp - damage;
         if(CurrentHp <= 0)

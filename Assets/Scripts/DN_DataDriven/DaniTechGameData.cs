@@ -52,6 +52,7 @@ public class DNSkillData : GameDataBase
     public string MotionPath;
     public int Damage;
     public int CostMp;
+    public string SkillType;
 }
 
 [System.Serializable]

@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11c1ebc636ad8e741b5b616dd1c2ea10
+    m_Address: Icon/Icon_skill_explosion_01_special
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12067ce958e7ecc49b880f97831a762b
     m_Address: 2DObject/Monster_RedSnake
     m_ReadOnly: 0

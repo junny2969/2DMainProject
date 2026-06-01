@@ -64,8 +64,30 @@ public class DaniTechNetworkManager : MonoBehaviour
         var newPlayerData = new DaniTechPlayerModel();
         newPlayerData.PlayerName = "NoName";
         newPlayerData.PlayerTotalExp = 0;
+
         newPlayerData.OwnedSkillIdList.Add("skill_swing_01");
         newPlayerData.OwnedSkillIdList.Add("skill_fireball_02");
+
+        newPlayerData.OwnedSkillIdList.Add("skill_explosion_01_special");
+
+        newPlayerData.ItemList.Add(new DaniTechItemModel
+        {
+            ItemDataId = "Item_Gold_1", 
+            ItemStackCount = 5,
+        });
+
+        newPlayerData.ItemList.Add(new DaniTechItemModel
+        {
+            ItemDataId = "Item_Potion_1",
+            ItemStackCount = 10,
+        }); 
+        
+        newPlayerData.ItemList.Add(new DaniTechItemModel
+        {
+            ItemDataId = "Item_Weapon_1",
+            ItemStackCount = 1,
+        });
+
 
         return newPlayerData;
     }

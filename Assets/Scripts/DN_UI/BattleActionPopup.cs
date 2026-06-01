@@ -1,4 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.CompilerServices;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,105 +21,160 @@ public class BattleActionPopup : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_SpeacialSkill;
     [SerializeField] private DaniTechUIButton Btn_UseItem;
 
-    [Header("하단 버튼")]
-    [SerializeField] private Transform Root_SkillList;
-    [SerializeField] private DaniTechUIButton Btn_SkillSlot;
+    [Header("슬롯 루트")]
+    [SerializeField] private Transform Root_SlotList;
+
+    //[Header("하단 버튼")]
+    //[SerializeField] private Transform Root_SkillList;
+    // [SerializeField] private DaniTechUIButton Btn_SkillSlot;
 
     private UnitModel _unitModel;
+    private SkillPopupCategory _curCategory = SkillPopupCategory.None;
+
+    private int _generatedKey = 0;
+    private Dictionary<int, DaniTechUIButton> _slotList = new Dictionary<int, DaniTechUIButton>();
 
     private void OnEnable()
     {
         
         Btn_NormalSkill.BindOnClickButtonEvent(OnClick_NormalSkill);
-        Btn_SpeacialSkill.BindOnClickButtonEvent(onClick_SpeacialSkill);
-        Btn_UseItem.BindOnClickButtonEvent(onClick_UseItem);
+        Btn_SpeacialSkill.BindOnClickButtonEvent(OnClick_SpeacialSkill);
+        Btn_UseItem.BindOnClickButtonEvent(OnClick_UseItem);
 
         
     }
-
-   
+    public void RefreshSkillList()
+    {
+        var playerInfo = BattleManager.Inst.GetPlayerModel();
+        Debug.LogWarning("playerInfo: " + (playerInfo == null ? "null" : playerInfo.Data.Name));
+        _unitModel = playerInfo;
+        if (_unitModel == null) return;
+        _curCategory = SkillPopupCategory.None;
+        OnClick_NormalSkill();
+    }
 
     private void OnClick_NormalSkill()
     {
-        
-        ClearNormalSkillList();
-        OnClick_NormalSkillAsync().Forget();
+        if (_curCategory == SkillPopupCategory.NormalSkill) return;
+        _curCategory = SkillPopupCategory.NormalSkill;
+
+        ClearSlotList();
+        RefreshNormalSkillAsync().Forget();
     }
 
-    private async UniTask OnClick_NormalSkillAsync()
+    private void OnClick_SpeacialSkill()
     {
-        await GetPlayerSkillList();
+        if (_curCategory == SkillPopupCategory.SpeacialSkill) return;
+        _curCategory = SkillPopupCategory.SpeacialSkill;
+
+        ClearSlotList();
+        RefreshSpecialSkillAsync().Forget();
+    }
+    private void OnClick_UseItem()
+    {
+        Debug.LogWarning("아이템 탭 클릭됨");
+
+        if (_curCategory == SkillPopupCategory.UseItem) return;
+        _curCategory = SkillPopupCategory.UseItem;
+
+        ClearSlotList();
+        RefreshItemAsync().Forget();
     }
 
-    private void onClick_SpeacialSkill()
+    private void ClearSlotList()
     {
-
-    }
-
-    private void onClick_UseItem()
-    {
-    }
-
-    private void ClearNormalSkillList()
-    {
-        foreach (Transform child in Root_SkillList)
+        foreach (var slot in _slotList)
         {
-            Destroy(child.gameObject);
+            Destroy(slot.Value.gameObject);
+        }
+        _slotList.Clear();
+        _generatedKey = 0;
+    }
+
+    private async UniTaskVoid RefreshNormalSkillAsync()
+    {
+        var skillIdList = DaniTechGameManager.Inst.GetPlayerSkillListByType("Normal");
+        foreach(string skillId in skillIdList)
+        {
+            await CreateSkillSlot(skillId);
         }
     }
-    public async UniTask GetPlayerSkillList()
+    private async UniTaskVoid RefreshSpecialSkillAsync()
     {
-        if (_unitModel == null)
-        {
-            Debug.LogWarning("_unitModel이 null");
-            return;
-        }
-        var characterData = _unitModel.Data as DNCharacterData;
-        if (characterData != null)
-        {
-            var skillList = characterData.SkillList;
-            var playerSkill = skillList.Split(",");
+        var skillIdList = DaniTechGameManager.Inst.GetPlayerSkillListByType("Special");
+        Debug.LogWarning("Special 스킬 개수 : " + skillIdList);
 
-            foreach(var skill in playerSkill)
-            {
-                var usableSkill = skill.Trim();
-                var skillData = DaniTechGameDataManager.Instance.GetSkill(usableSkill);
-                if (skillData == null) return;
-
-                await CreateSkillSlot(skillData.Id, SkillPopupCategory.NormalSkill);
-            }
+        foreach (string skillId in skillIdList)
+        {
+            var skillData = DaniTechGameDataManager.Instance.GetSkill(skillId);
+            Debug.LogWarning(skillId + "skillType::" + (skillData == null ? "null" : skillData.SkillType));
+            await CreateSkillSlot(skillId);
         }
     }
 
-    private async UniTask CreateSkillSlot(string dataId, SkillPopupCategory curCategory)
+    private async UniTaskVoid RefreshItemAsync()
     {
-        var gObj = Instantiate(Prefab_Slot, Root_SkillList);
+        var itemList = DaniTechGameManager.Inst.GetPlayerItemList();
+        Debug.LogWarning("보유 아이템 개수 : " + itemList.Count);
+
+        foreach (var itemModel in itemList)
+        {
+            Debug.LogWarning("아이템 슬롯 생성 시도 :" + itemModel);
+
+            await CreateItemSlot(itemModel);
+        }
+    }
+
+    private async UniTask CreateSkillSlot(string skillId)
+    {
+        var skillData = DaniTechGameDataManager.Instance.GetSkill(skillId);
+        if (skillData == null) return;
+
+        var gObj = Instantiate(Prefab_Slot, Root_SlotList);
         if (gObj == null) return;
 
-        var getComponent = gObj.GetComponent<DaniTechUIButton>();
-        var skillData = DaniTechGameDataManager.Instance.GetSkill(dataId);
+        var slotButton = gObj.GetComponent<DaniTechUIButton>();
+        if(slotButton == null) return;
 
-        if(getComponent == null) return;
-        getComponent.ChangeButtonText(skillData.Name);
-        
-        await getComponent.ChangeButtonImage(skillData.IconPath);
+        slotButton.ChangeButtonText(skillData.Name);
+        await slotButton.ChangeButtonImage(skillData.IconPath);
 
+        string capturedSkillId = skillId;
         void OnClickSkill()
         {
-            TurnManager.Inst.OnClick_SkillSlot(dataId);
+            TurnManager.Inst.OnClick_SkillSlot(capturedSkillId);
+        }
+        slotButton.BindOnClickButtonEvent(OnClickSkill);
+
+        _generatedKey++;
+        _slotList.Add(_generatedKey, slotButton);
+    }
+
+    private async UniTask CreateItemSlot(DaniTechItemModel itemModel)
+    {
+        var itemData = DaniTechGameDataManager.Instance.GetDNItemData(itemModel.ItemDataId);
+        if (itemData == null) return;
+
+        var gObj = Instantiate(Prefab_Slot, Root_SlotList);
+        if (gObj == null) return;
+
+        var slotButton = gObj.GetComponent<DaniTechUIButton>();
+        if (slotButton == null) return;
+
+        slotButton.ChangeButtonText(itemData.Name);
+        await slotButton.ChangeButtonImage(itemData.IconPath);
+
+        string capturedItemId = itemModel.ItemDataId;
+
+        void OnClickItem()
+        {
+            Debug.Log($"아이템 사용 : {capturedItemId}");
         }
 
-        getComponent.BindOnClickButtonEvent(OnClickSkill);
-    }
+        slotButton.BindOnClickButtonEvent(OnClickItem);
 
-    public void RefreshSkillList()
-    {
-        Debug.LogWarning("RefreshSkillList()호출됨");
-        var playerInfo = BattleManager.Inst.GetPlayerModel();
-        Debug.LogWarning("playerInfo :" + (playerInfo == null? "null" : playerInfo.Data.Name));
-        _unitModel = playerInfo;
-        if (_unitModel == null) return;
-        ClearNormalSkillList();
-        OnClick_NormalSkillAsync().Forget();
+        _generatedKey++;
+        _slotList.Add(_generatedKey,slotButton);
     }
+    
 }
