@@ -164,6 +164,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3894001653890512518}
   - component: {fileID: 3807858464591528013}
+  - component: {fileID: 9008422849573284783}
+  - component: {fileID: 9037640658263785918}
   m_Layer: 5
   m_Name: Player_BattleUnit
   m_TagString: Untagged
@@ -206,3 +208,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerView
   Image_Character: {fileID: 7456553411444007366}
   Text_Name: {fileID: 7440843446431987419}
+  Button_Target: {fileID: 0}
+  AnimController_Unit: {fileID: 9008422849573284783}
+--- !u!114 &9008422849573284783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064152871609354133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e895723b460261439f44fbf1fe1ef29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimatorController
+  Animator_Unit: {fileID: 9037640658263785918}
+--- !u!95 &9037640658263785918
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064152871609354133}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d14468945bc99834dafdb35f86ec3e47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

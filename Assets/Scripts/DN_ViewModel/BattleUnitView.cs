@@ -14,7 +14,7 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [SerializeField] private DaniTechUIButton Button_Target;
 
     [Header("애니메이터")]
-    [SerializeField] private Animator Animator_Unit;
+    [SerializeField] private BattleUnitAnimatorController AnimController_Unit;
 
     private BattleState _curState;
     
@@ -45,11 +45,23 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public async UniTask PlayAttackAction(Vector3 centerPosition)
     {
-        await MoveToPosition(centerPosition, 0.3f);
+        if(AnimController_Unit == null)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+            return;
+        }
 
-        await PlayAttackAnimation();
+        AnimController_Unit.SetState(BattleUnitAnimState.Atk);
 
-        await MoveToPosition(_originPosition, 0.3f);
+        bool isAtkState = false;
+        while (isAtkState == false)
+        {
+            isAtkState = AnimController_Unit.IsCurrentState("Atk");
+            await UniTask.Yield();
+        }
+
+        float atkLength = AnimController_Unit.GetCurrentStateLength();
+        await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
     }
 
     private async UniTask MoveToPosition(Vector3 targetPosition, float duration)
@@ -70,17 +82,26 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private async UniTask PlayAttackAnimation()
     {
-        if(Animator_Unit == null)
+        if(AnimController_Unit == null)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             return;
         }
 
-        Animator_Unit.SetTrigger("Attack");
+        AnimController_Unit.SetState(BattleUnitAnimState.Atk);
+
+        bool isAtkState = false;
+        while(isAtkState == false)
+        {
+            if (AnimController_Unit == null) return;
+
+            isAtkState = AnimController_Unit.IsCurrentState("Atk");
+        }
 
         await UniTask.Yield();
-        var stateInfo = Animator_Unit.GetCurrentAnimatorStateInfo(0);
-        await UniTask.Delay(TimeSpan.FromSeconds(stateInfo.length));
+
+        var atkLength = AnimController_Unit.GetCurrentStateLength();
+        await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
     }
 
 

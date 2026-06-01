@@ -67,8 +67,8 @@
       2
     ],
     "IconPath": "Icon/Icon_redSnake_1",
-    "PrefabPath": "2DObject/Monster_RedSnake",
-    "MaxHp": 150,
+    "PrefabPath": "2DObject/Monster_RedSnake_Battle",
+    "MaxHp": 250,
     "MaxMp": 200
   },
   {
@@ -83,8 +83,8 @@
       5
     ],
     "IconPath": "Icon/Icon_greenSnake_1",
-    "PrefabPath": "2DObject/Monster_GreenSnake",
-    "MaxHp": 300,
+    "PrefabPath": "2DObject/Monster_GreenSnake_Battle",
+    "MaxHp": 400,
     "MaxMp": 200
   }
 ]

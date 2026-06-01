@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32cddacf724b65b499ced6a83d9200c6
+    m_Address: 2DObject/Monster_GreenSnake_Battle
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33c2a6ef9d1bb454d8bd604420f84878
     m_Address: Icon/Icon_slime
     m_ReadOnly: 0
@@ -187,6 +192,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eefcbd87f902fe743be14a23f0b611a0
     m_Address: Icon/Icon_Item_Apple_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef15ec3c40c09124291de56463bd1d7d
+    m_Address: 2DObject/Monster_RedSnake_Battle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
