@@ -60,15 +60,9 @@ public class HJ_MainUI : DaniTechUIBase
 
     public void OnClick_Test()
     {
-        OnClick_TestAsync().Forget();
+        BattleManager.Inst.EnterBattle(playerList, monsterList).Forget();
     }
 
-    public async UniTask OnClick_TestAsync()
-    {
-        DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
-        DaniTechGameObjectManager.Inst.HideLocalPlayer();
-        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
-        await BattleManager.Inst.StartBattle(playerList, monsterList);
-    }
+   
 
 }

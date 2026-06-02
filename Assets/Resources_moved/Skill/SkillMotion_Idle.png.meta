@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a7f5793dd6ce0c499d9f39666652896
+guid: ac1a44d48603dff4eb8eb8f7079429d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 0.5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SkillMotion_Idle_0
+      name: image_4083231a-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 405
-        width: 155
-        height: 317
+        x: 27
+        y: 198
+        width: 76
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49d45d26503f2a47810e913849003bd
-      internalID: -451712077
+      spriteID: f0ec27e9eee7a234c88b149d7476a549
+      internalID: -1077856314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_1
+      name: image_4083231a-removebg-preview_1
       rect:
         serializedVersion: 2
-        x: 273
-        y: 404
-        width: 153
-        height: 319
+        x: 131
+        y: 198
+        width: 78
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7be9d7dca7396d4caddc9a019537467
-      internalID: 185198818
+      spriteID: d28b7b8428b7d684f94d807482eae3c0
+      internalID: -949326152
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_2
+      name: image_4083231a-removebg-preview_2
       rect:
         serializedVersion: 2
-        x: 489
-        y: 406
-        width: 159
-        height: 317
+        x: 239
+        y: 198
+        width: 76
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9ed9dad194c85041848fa7a93f9899e
-      internalID: 1978808114
+      spriteID: a97536e9d3e14744897c8fbf63b58503
+      internalID: -976107959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_3
+      name: image_4083231a-removebg-preview_3
       rect:
         serializedVersion: 2
-        x: 707
-        y: 405
-        width: 155
-        height: 317
+        x: 344
+        y: 198
+        width: 75
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c51c513c46890744e9309f716271e3d6
-      internalID: 1292220184
+      spriteID: be957a663853f624c84ef192a3deea46
+      internalID: 696681354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_4
+      name: image_4083231a-removebg-preview_4
       rect:
         serializedVersion: 2
-        x: 919
-        y: 406
-        width: 161
-        height: 316
+        x: 450
+        y: 198
+        width: 76
+        height: 154
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d00e24b685384f418ea03f86c12b102
-      internalID: 960397486
+      spriteID: e9c510114800b074a9143798b9b3a99c
+      internalID: 1420390555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_5
+      name: image_4083231a-removebg-preview_5
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 404
-        width: 160
-        height: 313
+        x: 555
+        y: 198
+        width: 75
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0102effa6e87e29419f8e17d81bf4790
-      internalID: 448516091
+      spriteID: 79811d733b552164fa8c47f2e67d6a13
+      internalID: -1874452795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_6
+      name: image_4083231a-removebg-preview_6
       rect:
         serializedVersion: 2
-        x: 60
-        y: 46
-        width: 153
-        height: 321
+        x: 29
+        y: 23
+        width: 74
+        height: 155
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e4d34759bdec84e8c601f9070f079b
-      internalID: -1213432694
+      spriteID: ea70d016792a0614fafc58e0c6116974
+      internalID: 1835400598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_7
+      name: image_4083231a-removebg-preview_7
       rect:
         serializedVersion: 2
-        x: 279
-        y: 45
-        width: 150
-        height: 322
+        x: 136
+        y: 23
+        width: 71
+        height: 155
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0069ba308bfd67a46ba8e08ef170ef33
-      internalID: -583248375
+      spriteID: d34909a58ffcde94b8e86ff98a5ab084
+      internalID: -1671027706
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_8
+      name: image_4083231a-removebg-preview_8
       rect:
         serializedVersion: 2
-        x: 495
-        y: 46
-        width: 150
-        height: 319
+        x: 240
+        y: 23
+        width: 73
+        height: 154
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,20 +301,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a2d3acc31ab548449e51b943ebfe713
-      internalID: -1336718198
+      spriteID: 8bca6e3634cd7974582cc23d3aeb17ec
+      internalID: 1577725233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_9
+      name: image_4083231a-removebg-preview_9
       rect:
         serializedVersion: 2
-        x: 703
-        y: 47
-        width: 159
-        height: 317
+        x: 344
+        y: 23
+        width: 75
+        height: 156
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,20 +323,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f020e6804513043409da02e083b1636a
-      internalID: -1584690617
+      spriteID: e907039a345983446b8b78a94f99e853
+      internalID: 205732671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_10
+      name: image_4083231a-removebg-preview_10
       rect:
         serializedVersion: 2
-        x: 932
-        y: 46
-        width: 146
-        height: 318
+        x: 453
+        y: 24
+        width: 72
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -345,20 +345,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1cb03aba01c9a24ca90b2e3bc47662d
-      internalID: 349542715
+      spriteID: 9ef80a2b9b6ee4e4c8fd5d5bdbce6c3b
+      internalID: -1720798963
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SkillMotion_Idle_11
+      name: image_4083231a-removebg-preview_11
       rect:
         serializedVersion: 2
-        x: 1136
-        y: 47
-        width: 157
-        height: 321
+        x: 556
+        y: 23
+        width: 74
+        height: 156
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -367,8 +367,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 179d7de341777f74e82c1db1a254910e
-      internalID: 261552373
+      spriteID: a4ba3977a31234f45a8e657e9b27796f
+      internalID: -1189456864
       vertices: []
       indices: 
       edges: []
@@ -377,7 +377,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0af87c18adbab2a4cad6d37059daab1b
+    spriteID: d4e00921b983f0749b45fadb90869e03
     internalID: 0
     vertices: []
     indices: 
@@ -387,22 +387,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":224.0,"y":392.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
-      - key: SpriteEditor.SliceOnImport
-        value: False
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":109.0,"y":190.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      SkillMotion_Idle_0: -451712077
-      SkillMotion_Idle_1: 185198818
-      SkillMotion_Idle_10: 349542715
-      SkillMotion_Idle_11: 261552373
-      SkillMotion_Idle_2: 1978808114
-      SkillMotion_Idle_3: 1292220184
-      SkillMotion_Idle_4: 960397486
-      SkillMotion_Idle_5: 448516091
-      SkillMotion_Idle_6: -1213432694
-      SkillMotion_Idle_7: -583248375
-      SkillMotion_Idle_8: -1336718198
-      SkillMotion_Idle_9: -1584690617
+      image_4083231a-removebg-preview_0: -1077856314
+      image_4083231a-removebg-preview_1: -949326152
+      image_4083231a-removebg-preview_10: -1720798963
+      image_4083231a-removebg-preview_11: -1189456864
+      image_4083231a-removebg-preview_2: -976107959
+      image_4083231a-removebg-preview_3: 696681354
+      image_4083231a-removebg-preview_4: 1420390555
+      image_4083231a-removebg-preview_5: -1874452795
+      image_4083231a-removebg-preview_6: 1835400598
+      image_4083231a-removebg-preview_7: -1671027706
+      image_4083231a-removebg-preview_8: 1577725233
+      image_4083231a-removebg-preview_9: 205732671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

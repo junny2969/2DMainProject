@@ -1,39 +1,39 @@
 ﻿using Cysharp.Threading.Tasks;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BattleUnitView : MonoBehaviour
 {
     [Header("유닛 정보")]
-    [SerializeField] private Image Image_Character;
-    [SerializeField] private Text Text_Name;
+    [SerializeField] private SpriteRenderer SpriteRenderer_Character;
+    // [SerializeField] private TextMeshPro Text_Name;
 
-    [Header("클릭 버튼")]
-    [SerializeField] private DaniTechUIButton Button_Target;
+    //[Header("클릭 버튼")]
+    //[SerializeField] private DaniTechUIButton Button_Target;
 
     [Header("애니메이터")]
     [SerializeField] private BattleUnitAnimatorController AnimController_Unit;
 
-    private BattleState _curState;
+    // private BattleState _curState;
     
     private UnitModel _model;
     private Vector3 _originPosition;
 
     private void OnEnable()
     {
-        if (Button_Target == null) return;
-        Button_Target.BindOnClickButtonEvent(OnClick_Target);
+        
     }
     public void InitBattleUnit(UnitModel model)
     {
-        Text_Name.text = model.Data.Name;
+        // Text_Name.text = model.Data.Name;
         _model = model;
         _originPosition = transform.position;
     }
 
-    private void OnClick_Target()
+    private void OnMouseDown()
     {
         var curState = TurnManager.Inst.GetCurState();
         if(curState == BattleState.ChoiceTarget)
@@ -41,17 +41,25 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             TurnManager.Inst.SaveTarget(_model);
         }
     }
+    private void OnMouseOver()
+    {
+        var curState = TurnManager.Inst.GetCurState();
+        if(curState == BattleState.ChoiceTarget)
+        {
+            SpriteRenderer_Character.color = Color.yellow;
+        }
+    }
 
+    private void OnMouseExit()
+    {
+        SpriteRenderer_Character.color = Color.white;
+    }
 
     public async UniTask PlayAttackAction(Vector3 centerPosition, string animTrigger)
     {
         await MoveToPosition(centerPosition, 0.3f);
         await PlayAttackAnimation(animTrigger);
         await MoveToPosition(_originPosition, 0.3f);
-
-
-
-       
     }
 
     private async UniTask MoveToPosition(Vector3 targetPosition, float duration)
@@ -87,39 +95,14 @@ public class BattleUnitView : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         bool isAtkState = false;
         while(isAtkState == false)
         {
-            if (AnimController_Unit == null) return;
-            string currentState = AnimController_Unit.GetCurrentStateName();
-            Debug.LogWarning("현재 애니메이터 상태 : " + currentState);
-
+            if (this == null) return;
             isAtkState = AnimController_Unit.IsCurrentState(animTrigger);
-            Debug.Log("현재 상태 : " + isAtkState);
             await UniTask.Yield();
         }
 
 
         var atkLength = AnimController_Unit.GetCurrentStateLength();
         await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
-    }
-
-
-
-
-
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        var curState = TurnManager.Inst.GetCurState();
-        if (curState == BattleState.ChoiceTarget)
-        {
-            Image_Character.color = Color.yellow;
-
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Image_Character.color = Color.white;
-
     }
 
 }

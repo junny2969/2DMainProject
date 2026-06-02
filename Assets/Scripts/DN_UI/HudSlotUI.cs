@@ -60,6 +60,7 @@ public class HudSlotUI : MonoBehaviour
         // 참조형을 캐싱할때는 꼭 널체크를 사용부에서 체크하기
         if(_targetTransform != null)
         {
+            if (Camera.main == null) return;
             // this.gameObject.transform.position = _targetTransform.position;
 
             // World > 스크린 좌표

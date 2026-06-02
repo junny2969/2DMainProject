@@ -7,10 +7,12 @@ public class BattleManager : MonoBehaviour
 {
     [Header("전투유닛 위치")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
-    // [SerializeField] private Transform Root_BattlePlayer;
+    [SerializeField] private Transform Root_BattlePlayer;
     [SerializeField] private GameObject Prefab_BattleMonster;
-    // [SerializeField] private Transform Root_BattleMonster;
+    [SerializeField] private Transform Root_BattleMonster;
     [SerializeField] private Transform Transform_BattleCenter;
+
+    [SerializeField] private GameObject BattleCamera;
 
     private List<UnitModel> _playerModels = new List<UnitModel>();
     private List<UnitModel> _enemyModels = new List<UnitModel>();
@@ -27,8 +29,8 @@ public class BattleManager : MonoBehaviour
     public async UniTask StartBattle(List<string> playerList, List<string> monsterList)
     {
         var battleUi = DaniTechUIManager.Instance.GetOpenedUI(DaniTechUIRootType.ContentUI, DaniTechUIType.BattleUI) as BattleUI;
-        var playerRoot = battleUi.GetPlayerRoot();
-        var monsterRoot = battleUi.GetPMonsterRoot();
+        //var playerRoot = battleUi.GetPlayerRoot();
+        //var monsterRoot = battleUi.GetPMonsterRoot();
 
         foreach (string playerId in playerList)
         {
@@ -42,7 +44,7 @@ public class BattleManager : MonoBehaviour
                 //Debug.LogWarning("playerData: " + (playerData == null ? "null" : playerData.Name));
                 _playerModels.Add(playerModel);
 
-                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, playerRoot);
+                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(playerModel.InstanceId, playerModel, Prefab_BattlePlayer, Root_BattlePlayer);
                 await battleUi.SetPlayerUnit(playerModel);
 
             }
@@ -58,7 +60,7 @@ public class BattleManager : MonoBehaviour
                 mobModel.OnDead += OnMonsterDead;
                 _enemyModels.Add(mobModel);
 
-                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, Prefab_BattleMonster, monsterRoot);
+                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, Prefab_BattleMonster, Root_BattleMonster);
                 battleUi.SetMonsterUnit(mobModel);
 
             }
@@ -68,13 +70,26 @@ public class BattleManager : MonoBehaviour
 
     public async UniTaskVoid EnterBattle(List<string> playerList, List<string> monsterList)
     {
-        Debug.LogWarning("EnterBattle 시작");
+        Debug.LogWarning("EnterBattle 호출");
+        Debug.LogWarning("BattleCamera null 여부 : " + (BattleCamera == null));
         DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         DaniTechGameObjectManager.Inst.HideLocalPlayer();
+
+        var mainCamera = Camera.main;
+        var cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SetFollowActive(false);
+        }
+
+        BattleCamera.SetActive(true);
+
+        Camera.main.gameObject.SetActive(false);
+
+        
+
         DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.BattleUI);
-        Debug.LogWarning("BattleUi 열림");
         await StartBattle(playerList, monsterList);
-        Debug.LogWarning("StartBattle 완료");
     }
 
     public UnitModel GetPlayerModel()
@@ -103,6 +118,16 @@ public class BattleManager : MonoBehaviour
 
     private void OnPlayerDead()
     {
+        BattleCamera.SetActive(false);
+
+        Camera.main.gameObject.SetActive(true);
+        var cameraFollow = Camera.main.gameObject.GetComponent<CameraFollow>();
+        if(cameraFollow != null)
+        {
+            cameraFollow.SetFollowActive(true);
+        }
+
+
         OnPlayerDeadAsyck().Forget();
     }
     private async UniTaskVoid OnMonsterDeadAsyck()
@@ -116,6 +141,15 @@ public class BattleManager : MonoBehaviour
 
     private void OnMonsterDead()
     {
+        BattleCamera.SetActive(false);
+
+        Camera.main.gameObject.SetActive(true);
+        var cameraFollow = Camera.main.gameObject.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SetFollowActive(true);
+        }
+
         OnMonsterDeadAsyck().Forget();
     }
 
@@ -127,5 +161,15 @@ public class BattleManager : MonoBehaviour
             return Vector3.zero;
         }
         return Transform_BattleCenter.position;
+    }
+
+    public Transform GetBattlePlayerRoot()
+    {
+        return Root_BattlePlayer;
+    }
+
+    public Transform GetBattleMonsterRoot()
+    {
+        return Root_BattleMonster;
     }
 }

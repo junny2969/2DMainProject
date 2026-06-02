@@ -13,4 +13,9 @@ public class CameraFollow : MonoBehaviour
         Vector3 targetPosition = Transform_Player.position + _offset;
         transform.position = Vector3.Lerp(transform.position, targetPosition, _smoothSpeed);
     }
+
+    public void SetFollowActive(bool isActive)
+    {
+        enabled = isActive;
+    }
 }
