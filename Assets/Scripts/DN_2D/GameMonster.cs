@@ -8,8 +8,6 @@ using UnityEngine.EventSystems;
 public class GameMonster : MonsterBase
 {
     [Header("몬스터 프리팹에서 미리 세팅할 데이터")]
-    public float SkillCoolTime;
-    public GameObject Prefab_ThisMonsterSkillObject;
     [SerializeField] private SpriteRenderer SpriteRenderer_Monster;
     [SerializeField] private GameObject Caution_Root;
 
@@ -17,132 +15,56 @@ public class GameMonster : MonsterBase
     [Header("데이터 확인용 임시")]
     public int _instanceId; // 게임에서 태어날때 부여된 고유번호 (중복불가) > 게임 오브젝트 매니저에서 찾기용
     public string _dataId; // 내가 누구인지 나중에 찾을수 있는 호출번호 (중복가능??) > 데이터 드리븐용 (아이디를 통해 부가데이터 찾기)
+    public bool _isAlive;
+
+    public int GetInstanceId() { return _instanceId; }
+    public string GetDataId() { return _dataId; }
+    public bool GetIsAlive() { return _isAlive; }
 
 
-    // DNMonsterData _thisMonsterData;
-    [Header("받아왔는데 전투에서 필요한 데이터")]
-    private DNMonsterData _thisMonsterData;
-    public int _baseHp;
-    public int _baseAtk;
-    public bool _isAlive = true;
-    private bool _lookRight = true;
-
-    private Vector3 _moveDirection;
-
-
-    private void OnDisable()
-    {
-        _isAlive = false;
-    }
-
-    // 태어난 시점에서 어떤 정보를 저장해주자
-    public void InitMonster(int instanceId, string dataId)
+    public async void InitMonster(int instanceId, string dataId)
     {
         _instanceId = instanceId;
         _dataId = dataId;
+        _isAlive = true;
 
-        // 초기화 한 다음에 그 객체가 가지고 있는 데이터를 찾아와서 필요한 세팅을 해준다
-        var monsterData = DaniTechGameDataManager.Instance.GetDNMonsterData(dataId);
-        if (monsterData != null)
+        if(Caution_Root != null)
         {
-            // 이 몬스터가 생성된 시점에서 자신의 엑셀에서 받아온 json을 거친 데이터를 캐싱해둔다(보관)
-            _thisMonsterData = monsterData;
-            //_baseHp = _thisMonsterData.BaseHP;
-            //_baseAtk = _thisMonsterData.BaseAtk;
+            Caution_Root.SetActive(false);
         }
 
-        // StartCoroutine(CheckAndUseSkill());
     }
 
-    private int GetFinalNormalAktDamage(int baseAtk, float normalAtkMultiple)
-    {
-        return GetFinalSkillDamage(baseAtk, normalAtkMultiple);
-    }
 
-    private int GetFinalSkillDamage(int baseAtk, float skillMultiple)
-    {
-        return (int)(baseAtk * skillMultiple);
-    }
-
-    // 코루틴이 등장한다는건 => 유니테스크로 호환이 가능한다
-    // 일정 시간마다 스킬을 사용할 예정
-    // 스타트 코루틴은 이 몬스터가 생성된 시점에서 돌아도 됨
-    //IEnumerator CheckAndUseSkill()
-    //{
-    //    while (_isAlive)
-    //    {
-    //        yield return new WaitForSeconds(SkillCoolTime);
-
-    //        if (_isAlive == false)
-    //        {
-    //            break;
-    //        }
-
-    //        ChangeMonsterDirection(); // 몬스터의 방향전환
-    //        UseSkill();
-    //    }
-    //}
-
-    void ChangeMonsterDirection()
-    {
-        _lookRight = !_lookRight;
-        _moveDirection = new Vector3(_lookRight ? 1 : -1, 0, 0);
-        SetMeshDirectionByMoveDirection((int)_moveDirection.x);
-    }
-    void SetMeshDirectionByMoveDirection(int x)
-    {
-        // + 디테일을 살리기 위해 방향에 따라 캐릭터 리소스를 뒤집는다
-        // 역시 중요한 로직은 아니다!
-        SpriteRenderer_Monster.flipX = (x < 0);
-    }
-
-    //private void UseSkill()
-    //{
-    //    var gObj = Instantiate(Prefab_ThisMonsterSkillObject, DaniTechGameObjectManager.Inst.transform);
-    //    if (gObj == null) return;
-
-    //    var skillProjectileComponent = gObj.GetComponent<SkillProjectile>();
-    //    if (skillProjectileComponent == null) return;
-
-
-    //    // 확인필요 
-
-    //    float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
-    //    float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
-    //    skillProjectileComponent.InitSkillObject(_instanceId, _lookRight, this.transform.position, 50, tag, OnSkillCollision);
-    //}
-
-    // 몬스터가 소환한 투사체의 충돌이 발생 했을때 응답이 온다
-    private void OnSkillCollision(int coliedObjectInstanceId, int damage)
-    {
-        
-
-        //if(coliedObjectInstanceId == 0)
-        //{
-        //    var player = DaniTechGameObjectManager.Inst.GetLocalPlayer();
-            
-        //    //스킬이 충돌한 시점에서 다시한번 대미지를 계산해도 된다
-        //    //float skillMultiple = _thisMonsterData.SkillAtkMultipleList.Count > 0 ? _thisMonsterData.SkillAtkMultipleList[0] : 0;
-        //    //float finalSkillDamage = GetFinalSkillDamage(_baseAtk, skillMultiple);
-
-        //    player.TakeDamage(damage);
-        //}
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") == false) return;
+        if (_isAlive == false)
+        {
+            return;
+        }
 
-        var player = collision.gameObject.GetComponent<DaniTech_2DPlayer>();
-        if (player == null) return;
+        if(collision.gameObject.CompareTag("player") == false)
+        {
+            return;
+        }
 
-        var playerList = new List<string>();
-        playerList.Add(player.GetCharacterDataId());
+        //TODO 다이얼로그 띄우기, 응답후 전투 진입
+        BattleManager.Inst.EnterBattleFromField(_dataId);
 
-        var monsterList = new List<string>();
-        monsterList.Add(_dataId);
 
-        BattleManager.Inst.EnterBattle(playerList, monsterList).Forget();
+        //if (collision.gameObject.CompareTag("Player") == false) return;
+
+        //var player = collision.gameObject.GetComponent<DaniTech_2DPlayer>();
+        //if (player == null) return;
+
+        //var playerList = new List<string>();
+        //playerList.Add(player.GetCharacterDataId());
+
+        //var monsterList = new List<string>();
+        //monsterList.Add(_dataId);
+
+        //BattleManager.Inst.EnterBattle(playerList, monsterList).Forget();
     }
 
     
@@ -150,13 +72,21 @@ public class GameMonster : MonsterBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Caution_Root.SetActive(true);
+        if (collision.CompareTag("Player") == false) return;
+        if (Caution_Root != null)
+        {
+            Caution_Root.SetActive(true);
+        }
 
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        Caution_Root.SetActive(false);
+        if (collision.CompareTag("Player") == false) return;
+        if (Caution_Root != null)
+        {
+            Caution_Root.SetActive(false);
+        }
 
     }
 }

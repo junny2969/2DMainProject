@@ -125,6 +125,7 @@ public class DNMonsterData : BattleUnitDataBase
     public float NormalAtkMultiple;
     public List<float> SkillAtkMultipleList;
     public string PrefabPath;
+    public string FieldSpritePath;
     //public int MaxHp;
     //public int MaxMp;
 }

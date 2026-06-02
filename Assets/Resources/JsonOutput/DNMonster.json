@@ -13,7 +13,8 @@
     "PrefabPath": "2DObject/Monster_Slime",
     "MaxHp": null,
     "MaxMp": null,
-    "Atk": null
+    "Atk": null,
+    "FieldPath": null
   },
   {
     "Id": "mob_dog_1",
@@ -27,7 +28,8 @@
     "PrefabPath": null,
     "MaxHp": null,
     "MaxMp": null,
-    "Atk": null
+    "Atk": null,
+    "FieldPath": null
   },
   {
     "Id": "mob_pigme_1",
@@ -41,7 +43,8 @@
     "PrefabPath": null,
     "MaxHp": null,
     "MaxMp": null,
-    "Atk": null
+    "Atk": null,
+    "FieldPath": null
   },
   {
     "Id": "mob_bear_1",
@@ -58,7 +61,8 @@
     "PrefabPath": "2DObject/Monster_Bear",
     "MaxHp": null,
     "MaxMp": null,
-    "Atk": null
+    "Atk": null,
+    "FieldPath": null
   },
   {
     "Id": "mob_redSnake_1",
@@ -74,7 +78,8 @@
     "PrefabPath": "2DObject/Monster_RedSnake_Battle",
     "MaxHp": 400,
     "MaxMp": 200,
-    "Atk": 40
+    "Atk": 40,
+    "FieldPath": "Monster/image_redSnake_Idle"
   },
   {
     "Id": "mob_greenSnake_1",
@@ -91,6 +96,7 @@
     "PrefabPath": "2DObject/Monster_GreenSnake_Battle",
     "MaxHp": 250,
     "MaxMp": 200,
-    "Atk": 20
+    "Atk": 20,
+    "FieldPath": null
   }
 ]

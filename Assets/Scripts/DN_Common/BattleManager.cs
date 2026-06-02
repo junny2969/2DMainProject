@@ -90,6 +90,16 @@ public class BattleManager : MonoBehaviour
         await StartBattle(playerList, monsterList);
     }
 
+    public void EnterBattleFromField(string monsterDataId)
+    {
+        List<string> playerList = new List<string>();
+        playerList.Add("character_ellie_01");
+
+        List<string> monsterList = new List<string>();
+        monsterList.Add(monsterDataId);
+
+        EnterBattle(playerList, monsterList).Forget();
+    }
     public UnitModel GetPlayerModel()
     {
         if (_playerModels.Count == 0) return null;
