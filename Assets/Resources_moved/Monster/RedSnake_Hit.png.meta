@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36fb2a7922604964e9ef396bdb187d7e
+guid: 35cf2eba93a7f654aa44eff6d53d4ff6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 1
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image_redSnakeAttack_0
+      name: RedSnake_Hit_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 336
-        width: 136
-        height: 139
+        x: 23
+        y: 195
+        width: 83
+        height: 77
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c473ba924c66ce643b31a8812bf64db1
-      internalID: -755353539
+      spriteID: ab2e33c31b5a2844d975bd7eb6cda55a
+      internalID: 1515068889
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_1
+      name: RedSnake_Hit_1
       rect:
         serializedVersion: 2
-        x: 184
-        y: 336
-        width: 136
-        height: 137
+        x: 139
+        y: 196
+        width: 87
+        height: 82
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0297792d5bf36524282d9da99be4e43e
-      internalID: -892512562
+      spriteID: e98c0313d2754884ebcae589dc453b5b
+      internalID: -1926498672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_2
+      name: RedSnake_Hit_2
       rect:
         serializedVersion: 2
-        x: 348
-        y: 336
-        width: 138
-        height: 143
+        x: 261
+        y: 196
+        width: 88
+        height: 85
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1714185c77bc2b44f90bfe36c4f88b9c
-      internalID: 1984607861
+      spriteID: 8d347fbe38dbe0e40aa256864b9836a5
+      internalID: -1982151257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_3
+      name: RedSnake_Hit_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 170
-        width: 219
-        height: 141
+        x: 22
+        y: 78
+        width: 84
+        height: 80
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ffa96adbb945f499bb95fc6e6f401a
-      internalID: -1595752040
+      spriteID: a3bfea00ce9d5934bb6eadc9e32c71f6
+      internalID: 876254631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_4
+      name: RedSnake_Hit_4
       rect:
         serializedVersion: 2
-        x: 269
-        y: 170
-        width: 217
-        height: 145
+        x: 142
+        y: 78
+        width: 85
+        height: 77
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a273f44ba233f49b493e27aa9e8fc3
-      internalID: 1346910014
+      spriteID: 64c9ed2e25830d645aaa85603fc7d322
+      internalID: -545776762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_6
+      name: RedSnake_Hit_5
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 151
-        height: 141
+        x: 263
+        y: 78
+        width: 83
+        height: 76
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,52 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0c0db2a38f39c44a426dedfee06e4d
-      internalID: 85291917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redSnakeAttack_7
-      rect:
-        serializedVersion: 2
-        x: 183
-        y: 7
-        width: 140
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54058f45a4e39a446b0c0ebbf03466b7
-      internalID: 1783132202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redSnakeAttack_8
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 7
-        width: 139
-        height: 136
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 896130441db74ce41b935dbffc45f6ea
-      internalID: 1507932379
+      spriteID: e2bcb9eadee9a194b98b5fc9ed630b9b
+      internalID: -563073334
       vertices: []
       indices: 
       edges: []
@@ -289,7 +245,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dece565f2c1fa544e9865f72fea127bb
+    spriteID: 4e5707096d540074fb20ae3879320c6b
     internalID: 0
     vertices: []
     indices: 
@@ -299,20 +255,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":2.0},"gridSpriteSize":{"x":222.0,"y":187.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      image_redSnakeAttack_0: -755353539
-      image_redSnakeAttack_1: -892512562
-      image_redSnakeAttack_10: 1965588023
-      image_redSnakeAttack_11: -1834604217
-      image_redSnakeAttack_2: 1984607861
-      image_redSnakeAttack_3: -1595752040
-      image_redSnakeAttack_4: 1346910014
-      image_redSnakeAttack_5: -1342913602
-      image_redSnakeAttack_6: 85291917
-      image_redSnakeAttack_7: 1783132202
-      image_redSnakeAttack_8: 1507932379
-      image_redSnakeAttack_9: -266064032
+      RedSnake_Hit_0: 1515068889
+      RedSnake_Hit_1: -1926498672
+      RedSnake_Hit_2: -1982151257
+      RedSnake_Hit_3: 876254631
+      RedSnake_Hit_4: -545776762
+      RedSnake_Hit_5: -563073334
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -46,7 +46,7 @@ public static class DaniTechUIManagerExtension
     {
         // uiManager.OpenLoadingUI();
         uiManager.OpenContentUI(DaniTechUIType.Lobby_UI);
-        uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
+        // uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
         uiManager.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         // 게임 로비 UI를 여기서 오픈해주자 -> uiManager.
         // MainUI도
@@ -141,29 +141,29 @@ public static class DaniTechUIManagerExtension
         }
     }
 
-    public static void AddHudSlot(this DaniTechUIManager uiManager, int instanceId, Transform targetTransform) 
-    {
-        var uiBase = uiManager.GetOpenedUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
-        if (uiBase == null) return;
+    //public static void AddHudSlot(this DaniTechUIManager uiManager, int instanceId, Transform targetTransform) 
+    //{
+    //    var uiBase = uiManager.GetOpenedUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
+    //    if (uiBase == null) return;
 
-        // 기존에 GetComponent를 하던 부분이 클래스 형변환을 해도 되도록 개선 (UIBase를 상속받기 때문)
-        if(uiBase is HudUI hudUi)
-        {
-            // 대상이 생성될때 호출 / 몬스터 동적생성이 잡혀있으면 그걸 이용할수 있다
-            hudUi.AddHudSlot(instanceId, targetTransform);
-        }
-    }
+    //    // 기존에 GetComponent를 하던 부분이 클래스 형변환을 해도 되도록 개선 (UIBase를 상속받기 때문)
+    //    if(uiBase is HudUI hudUi)
+    //    {
+    //        // 대상이 생성될때 호출 / 몬스터 동적생성이 잡혀있으면 그걸 이용할수 있다
+    //        hudUi.AddHudSlot(instanceId, targetTransform);
+    //    }
+    //}
 
-    public static void RemoveHudSlot(this DaniTechUIManager uiManager) //  대상이 죽엇을때 호출
-    {
-        var uiBase = uiManager.GetOpenedUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
-        if (uiBase == null) return;
+    //public static void RemoveHudSlot(this DaniTechUIManager uiManager) //  대상이 죽엇을때 호출
+    //{
+    //    var uiBase = uiManager.GetOpenedUI(DaniTechUIRootType.MainUI, DaniTechUIType.HudUi);
+    //    if (uiBase == null) return;
 
-        if (uiBase is HudUI hudUi)
-        {
-            hudUi.RemoveHudSlot();
-        }
-    }
+    //    if (uiBase is HudUI hudUi)
+    //    {
+    //        hudUi.RemoveHudSlot();
+    //    }
+    //}
 
     public static void OpenBattleResultPopup(this DaniTechUIManager uiManager, string msg)
     {

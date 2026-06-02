@@ -70,7 +70,7 @@ public class TurnManager : MonoBehaviour
         var skillData = DaniTechGameDataManager.Instance.GetSkill(_selectedSkillId);
         if (skillData == null) return;
 
-        Debug.LogWarning("skillData.AnimTrigger: " + skillData.AnimTrigger);
+        // Debug.LogWarning("skillData.AnimTrigger: " + skillData.AnimTrigger);
         var playerModel = BattleManager.Inst.GetPlayerModel();
         var playerView = DaniTechGameObjectManager.Inst.GetBattleUnitView(playerModel.InstanceId);
         if(playerView != null)
@@ -80,23 +80,36 @@ public class TurnManager : MonoBehaviour
 
 
         targetUnit.TakeDamage(skillData.Damage);
-        playerModel.TakeMp(skillData.CostMp);
 
+        var targetView = DaniTechGameObjectManager.Inst.GetBattleUnitView(targetUnit.InstanceId);
+        if (targetView != null)
+        {
+            await targetView.PlayHitAnimation();
+            DaniTechGameObjectManager.Inst.SpawnDamageText(skillData.Damage, targetView.GetPosition());
+        }
+
+        playerModel.TakeMp(skillData.CostMp);
         ChangeBattleState(BattleState.MonsterTurn);
     }
 
     private async UniTaskVoid ActionMonsterAsync()
     {
         var enemyModel = BattleManager.Inst.GetEnemyModel();
-
         var monsterView = DaniTechGameObjectManager.Inst.GetBattleUnitView(enemyModel.InstanceId);
-        if(monsterView != null)
+        if (monsterView != null)
         {
-            await monsterView.PlayAttackAction(GetCenterPosition(), "isAtk");
+            await monsterView.PlayAttackAction(GetCenterPosition(), "IsAtk");
         }
-
         var playerModel = BattleManager.Inst.GetPlayerModel();
         playerModel.TakeDamage(enemyModel.Data.Atk);
+
+        var playerView = DaniTechGameObjectManager.Inst.GetBattleUnitView(playerModel.InstanceId);
+        if (playerView != null)
+        {
+            await playerView.PlayHitAnimation();
+
+            DaniTechGameObjectManager.Inst.SpawnDamageText(enemyModel.Data.Atk, playerView.GetPosition());
+        }
 
         ChangeBattleState(BattleState.PlayerTurn);
     }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36fb2a7922604964e9ef396bdb187d7e
+guid: ca0a8c9c971c38e4380c840b1e9fb260
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 0.5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image_redSnakeAttack_0
+      name: SkillMotion_Swing_fix_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 336
-        width: 136
-        height: 139
+        x: 8
+        y: 198
+        width: 101
+        height: 155
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c473ba924c66ce643b31a8812bf64db1
-      internalID: -755353539
+      spriteID: 9c9bf0b4e95b5bf46ab6832e2491d8a6
+      internalID: -117178185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_1
+      name: SkillMotion_Swing_fix_1
       rect:
         serializedVersion: 2
-        x: 184
-        y: 336
-        width: 136
-        height: 137
+        x: 114
+        y: 198
+        width: 95
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0297792d5bf36524282d9da99be4e43e
-      internalID: -892512562
+      spriteID: 27bd1a2cd3bcf7948839d3016560022e
+      internalID: -858919567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_2
+      name: SkillMotion_Swing_fix_2
       rect:
         serializedVersion: 2
-        x: 348
-        y: 336
-        width: 138
-        height: 143
+        x: 218
+        y: 198
+        width: 96
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1714185c77bc2b44f90bfe36c4f88b9c
-      internalID: 1984607861
+      spriteID: 1a0538c6c0d508540810d25dfb54746d
+      internalID: -825748362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_3
+      name: SkillMotion_Swing_fix_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 170
-        width: 219
-        height: 141
+        x: 327
+        y: 198
+        width: 93
+        height: 153
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ffa96adbb945f499bb95fc6e6f401a
-      internalID: -1595752040
+      spriteID: ba134c69079b8864ea869d084d221ee6
+      internalID: 1235385485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_4
+      name: SkillMotion_Swing_fix_6
       rect:
         serializedVersion: 2
-        x: 269
-        y: 170
-        width: 217
-        height: 145
+        x: 12
+        y: 25
+        width: 97
+        height: 155
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a273f44ba233f49b493e27aa9e8fc3
-      internalID: 1346910014
+      spriteID: 75ecc9dc543adfa4d9e02bddff464acc
+      internalID: -1177588048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_6
+      name: SkillMotion_Swing_fix_10
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 151
-        height: 141
+        x: 450
+        y: 23
+        width: 76
+        height: 157
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,52 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0c0db2a38f39c44a426dedfee06e4d
-      internalID: 85291917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redSnakeAttack_7
-      rect:
-        serializedVersion: 2
-        x: 183
-        y: 7
-        width: 140
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54058f45a4e39a446b0c0ebbf03466b7
-      internalID: 1783132202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redSnakeAttack_8
-      rect:
-        serializedVersion: 2
-        x: 347
-        y: 7
-        width: 139
-        height: 136
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 896130441db74ce41b935dbffc45f6ea
-      internalID: 1507932379
+      spriteID: a71fe6b65adbdf043ae69e1bacb5a528
+      internalID: -48883166
       vertices: []
       indices: 
       edges: []
@@ -289,7 +245,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dece565f2c1fa544e9865f72fea127bb
+    spriteID: 01284d2dfc928e04cbf86d7a00d5102f
     internalID: 0
     vertices: []
     indices: 
@@ -299,20 +255,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":109.0,"y":190.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      image_redSnakeAttack_0: -755353539
-      image_redSnakeAttack_1: -892512562
-      image_redSnakeAttack_10: 1965588023
-      image_redSnakeAttack_11: -1834604217
-      image_redSnakeAttack_2: 1984607861
-      image_redSnakeAttack_3: -1595752040
-      image_redSnakeAttack_4: 1346910014
-      image_redSnakeAttack_5: -1342913602
-      image_redSnakeAttack_6: 85291917
-      image_redSnakeAttack_7: 1783132202
-      image_redSnakeAttack_8: 1507932379
-      image_redSnakeAttack_9: -266064032
+      SkillMotion_Swing_fix_0: -117178185
+      SkillMotion_Swing_fix_1: -858919567
+      SkillMotion_Swing_fix_10: -48883166
+      SkillMotion_Swing_fix_11: 1014660663
+      SkillMotion_Swing_fix_2: -825748362
+      SkillMotion_Swing_fix_3: 1235385485
+      SkillMotion_Swing_fix_4: 447133098
+      SkillMotion_Swing_fix_5: 276949800
+      SkillMotion_Swing_fix_6: -1177588048
+      SkillMotion_Swing_fix_7: 103389528
+      SkillMotion_Swing_fix_8: -1518456477
+      SkillMotion_Swing_fix_9: -761414577
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

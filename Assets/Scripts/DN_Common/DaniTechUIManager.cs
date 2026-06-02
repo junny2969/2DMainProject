@@ -37,6 +37,7 @@ public class DaniTechUIManager : MonoBehaviour
 
         bool isSetActiveOnOpen = (isInitialHide == false); // 열었을 때 기본적으로 숨겨서 열 것인지 체크
         if (_openedUIDic.Contains(uiType) == false)
+            //Debug.Log("OpenUI 호출: " + uiType + " / 이미 열려있음: " + _openedUIDic.Contains(uiType)); 
         {
             openedUI.gameObject.SetActive(isSetActiveOnOpen);
             _openedUIDic.Add(uiType);
@@ -47,6 +48,7 @@ public class DaniTechUIManager : MonoBehaviour
 
     public void CloseUI(DaniTechUIRootType uiRootType, DaniTechUIType uiType)
     {
+        //Debug.Log("CloseUI 호출: " + uiType + " / 열려있음: " + _openedUIDic.Contains(uiType));
         if (_openedUIDic.Contains(uiType))
         {
             var openedUi = _createdUIDic[uiType];

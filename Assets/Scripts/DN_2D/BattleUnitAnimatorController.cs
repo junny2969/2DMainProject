@@ -55,7 +55,7 @@ public class BattleUnitAnimatorController : MonoBehaviour
         _cureentAnimState = BattleUnitAnimState.None;
         _cureentAnimState = BattleUnitAnimState.Atk;
         Animator_Unit.SetTrigger(animTrigger);
-        Debug.LogWarning("트리거 발동 : " + animTrigger);
+        // Debug.LogWarning("트리거 발동 : " + animTrigger);
     }
 
     public string GetCurrentStateName()
@@ -67,5 +67,10 @@ public class BattleUnitAnimatorController : MonoBehaviour
     {
         _cureentAnimState = BattleUnitAnimState.None;
         SetState(BattleUnitAnimState.Idle);
+    }
+
+    public void SetHitState(bool isHit)
+    {
+        Animator_Unit.SetBool("IsHit", isHit);
     }
 }

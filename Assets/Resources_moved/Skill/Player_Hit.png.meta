@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36fb2a7922604964e9ef396bdb187d7e
+guid: f0341e39d5f929d458a176a05acebb36
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 0.5
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image_redSnakeAttack_0
+      name: image_aa80ae98-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 336
-        width: 136
-        height: 139
+        x: 35
+        y: 198
+        width: 74
+        height: 154
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c473ba924c66ce643b31a8812bf64db1
-      internalID: -755353539
+      spriteID: 24d07a6865723214f8416e82c6daf4fe
+      internalID: -200933861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_1
+      name: image_aa80ae98-removebg-preview_1
       rect:
         serializedVersion: 2
-        x: 184
-        y: 336
-        width: 136
-        height: 137
+        x: 135
+        y: 198
+        width: 78
+        height: 150
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0297792d5bf36524282d9da99be4e43e
-      internalID: -892512562
+      spriteID: 36d228d9b44d08246b91e1c0ce4722a2
+      internalID: -2103868146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_2
+      name: image_aa80ae98-removebg-preview_2
       rect:
         serializedVersion: 2
-        x: 348
-        y: 336
-        width: 138
-        height: 143
+        x: 239
+        y: 199
+        width: 90
+        height: 152
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1714185c77bc2b44f90bfe36c4f88b9c
-      internalID: 1984607861
+      spriteID: 6c401663a94e1fe4f89fa53b38321a37
+      internalID: -2117721716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_3
+      name: image_aa80ae98-removebg-preview_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 170
-        width: 219
-        height: 141
+        x: 344
+        y: 198
+        width: 82
+        height: 154
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2ffa96adbb945f499bb95fc6e6f401a
-      internalID: -1595752040
+      spriteID: 09410d404d4fc734b955b4845bfce0fd
+      internalID: 1443614038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_4
+      name: image_aa80ae98-removebg-preview_4
       rect:
         serializedVersion: 2
-        x: 269
-        y: 170
-        width: 217
-        height: 145
+        x: 448
+        y: 199
+        width: 79
+        height: 150
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a273f44ba233f49b493e27aa9e8fc3
-      internalID: 1346910014
+      spriteID: aa5d71f3d7c2b33488d31b0a20fc17ba
+      internalID: -376290787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_6
+      name: image_aa80ae98-removebg-preview_5
       rect:
         serializedVersion: 2
-        x: 11
-        y: 6
-        width: 151
-        height: 141
+        x: 549
+        y: 198
+        width: 86
+        height: 147
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca0c0db2a38f39c44a426dedfee06e4d
-      internalID: 85291917
+      spriteID: a149c4ed00f2f8447aa5a78e3a46b2fb
+      internalID: -139607542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_7
+      name: image_aa80ae98-removebg-preview_6
       rect:
         serializedVersion: 2
-        x: 183
-        y: 7
-        width: 140
-        height: 143
+        x: 29
+        y: 25
+        width: 78
+        height: 154
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54058f45a4e39a446b0c0ebbf03466b7
-      internalID: 1783132202
+      spriteID: 978f8da2a17c6004dbfc400a1ea4c165
+      internalID: -1404098089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redSnakeAttack_8
+      name: image_aa80ae98-removebg-preview_7
       rect:
         serializedVersion: 2
-        x: 347
-        y: 7
-        width: 139
-        height: 136
+        x: 135
+        y: 23
+        width: 76
+        height: 157
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,8 +279,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896130441db74ce41b935dbffc45f6ea
-      internalID: 1507932379
+      spriteID: c2437ee4067870d41b71eb629e74c374
+      internalID: -1060905712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: image_aa80ae98-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 28
+        width: 85
+        height: 150
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 689c39bff07695c40a118e5e01676432
+      internalID: 507822233
       vertices: []
       indices: 
       edges: []
@@ -289,7 +311,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dece565f2c1fa544e9865f72fea127bb
+    spriteID: 058939c23a4a291438097b6d97c852b9
     internalID: 0
     vertices: []
     indices: 
@@ -299,20 +321,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":2.0},"gridSpriteSize":{"x":109.0,"y":190.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      image_redSnakeAttack_0: -755353539
-      image_redSnakeAttack_1: -892512562
-      image_redSnakeAttack_10: 1965588023
-      image_redSnakeAttack_11: -1834604217
-      image_redSnakeAttack_2: 1984607861
-      image_redSnakeAttack_3: -1595752040
-      image_redSnakeAttack_4: 1346910014
-      image_redSnakeAttack_5: -1342913602
-      image_redSnakeAttack_6: 85291917
-      image_redSnakeAttack_7: 1783132202
-      image_redSnakeAttack_8: 1507932379
-      image_redSnakeAttack_9: -266064032
+      image_aa80ae98-removebg-preview_0: -200933861
+      image_aa80ae98-removebg-preview_1: -2103868146
+      image_aa80ae98-removebg-preview_10: 702430622
+      image_aa80ae98-removebg-preview_11: 793967397
+      image_aa80ae98-removebg-preview_2: -2117721716
+      image_aa80ae98-removebg-preview_3: 1443614038
+      image_aa80ae98-removebg-preview_4: -376290787
+      image_aa80ae98-removebg-preview_5: -139607542
+      image_aa80ae98-removebg-preview_6: -1404098089
+      image_aa80ae98-removebg-preview_7: -1060905712
+      image_aa80ae98-removebg-preview_8: 1691917081
+      image_aa80ae98-removebg-preview_9: 507822233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

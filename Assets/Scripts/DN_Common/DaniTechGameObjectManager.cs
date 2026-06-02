@@ -8,6 +8,8 @@ public class DaniTechGameObjectManager : MonoBehaviour
     [SerializeField] private GameObject Prefab_Enemy;
     [SerializeField] private Transform Root_Enemy;
 
+    [SerializeField] private GameObject Prefab_DamageText;
+
     [Header("전투 유닛 정보")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
     [SerializeField] private GameObject Prefab_BattleMonster;
@@ -245,5 +247,24 @@ public class DaniTechGameObjectManager : MonoBehaviour
     public void ReSpawnLocalPlayer()
     {
         _localPlayer.gameObject.SetActive(true);
+    }
+
+    public void SpawnDamageText(int damage, Vector3 position)
+    {
+        if(Prefab_DamageText == null)
+        {
+            Debug.LogWarning("Prefab_Damage가 등록되지 않았습니다");
+            return;
+        }
+
+        Vector3 spawnPosition = position + new Vector3(0f, 500f, 0f);
+
+        var gObj = Instantiate(Prefab_DamageText);
+        var damageText = gObj.GetComponent<DamageTextController>();
+        if(damageText != null)
+        {
+            damageText.PlayDamageText(damage, spawnPosition).Forget();
+        }
+
     }
 }

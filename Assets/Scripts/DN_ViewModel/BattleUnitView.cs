@@ -18,13 +18,13 @@ public class BattleUnitView : MonoBehaviour
     [SerializeField] private BattleUnitAnimatorController AnimController_Unit;
 
     // private BattleState _curState;
-    
+
     private UnitModel _model;
     private Vector3 _originPosition;
 
     private void OnEnable()
     {
-        
+
     }
     public void InitBattleUnit(UnitModel model)
     {
@@ -36,7 +36,7 @@ public class BattleUnitView : MonoBehaviour
     private void OnMouseDown()
     {
         var curState = TurnManager.Inst.GetCurState();
-        if(curState == BattleState.ChoiceTarget)
+        if (curState == BattleState.ChoiceTarget)
         {
             TurnManager.Inst.SaveTarget(_model);
         }
@@ -44,7 +44,7 @@ public class BattleUnitView : MonoBehaviour
     private void OnMouseOver()
     {
         var curState = TurnManager.Inst.GetCurState();
-        if(curState == BattleState.ChoiceTarget)
+        if (curState == BattleState.ChoiceTarget)
         {
             SpriteRenderer_Character.color = Color.yellow;
         }
@@ -72,9 +72,9 @@ public class BattleUnitView : MonoBehaviour
         Vector3 startPosition = transform.position;
         float elapsed = 0f;
 
-        while(elapsed < duration)
+        while (elapsed < duration)
         {
-            if(this == null) return;
+            if (this == null) return;
 
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / duration);
@@ -97,15 +97,49 @@ public class BattleUnitView : MonoBehaviour
         AnimController_Unit.SetAtkState(animTrigger);
 
         bool isAtkState = false;
+        int frameCount = 0;
         while (isAtkState == false)
         {
-            if (this == null) return;
+            if (AnimController_Unit == null) break;  // return 대신 break
+            frameCount++;
+            if (frameCount > 300)
+            {
+                // Debug.LogWarning("애니메이션 전환 타임아웃");
+                break;  // return 대신 break
+            }
             isAtkState = AnimController_Unit.IsCurrentState(animTrigger);
             await UniTask.Yield();
         }
 
-        float atkLength = AnimController_Unit.GetCurrentStateLength();
-        await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
+        if (isAtkState == true)
+        {
+            float atkLength = AnimController_Unit.GetCurrentStateLength();
+            await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
+        }
     }
 
+    public async UniTask PlayHitAnimation()
+    {
+        if (AnimController_Unit == null) return;
+
+        AnimController_Unit.SetHitState(true);
+
+        bool isHitState = false;
+        while (isHitState == false)
+        {
+            if (this == null) return;
+            isHitState = AnimController_Unit.IsCurrentState("Hit");
+            await UniTask.Yield();
+        }
+
+        float hitLength = AnimController_Unit.GetCurrentStateLength();
+        await UniTask.Delay(TimeSpan.FromSeconds(hitLength));
+
+        AnimController_Unit.SetHitState(false);
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 }
