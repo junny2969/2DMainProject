@@ -42,9 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4423482395433395808}
   - component: {fileID: 879830361472422558}
-  - component: {fileID: 8755105029001722773}
   - component: {fileID: 737994564690472926}
-  - component: {fileID: 8681967382098032988}
   m_Layer: 0
   m_Name: Prefab_BattleRedSnake
   m_TagString: Untagged
@@ -61,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 4097386035346360130}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74, y: 20, z: 0}
+  m_LocalPosition: {x: -74, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81,20 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnitView
   SpriteRenderer_Character: {fileID: 6109786837623103412}
-  AnimController_Unit: {fileID: 8755105029001722773}
---- !u!114 &8755105029001722773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4097386035346360130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e895723b460261439f44fbf1fe1ef29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimatorController
-  Animator_Unit: {fileID: 8681967382098032988}
+  AnimController_Unit: {fileID: 1125670266309286559}
 --- !u!61 &737994564690472926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,7 +114,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 3.1704407, y: 196.11557}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -139,30 +124,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 64, y: 64}
+  m_Size: {x: 434.4909, y: 405.50385}
   m_EdgeRadius: 0
---- !u!95 &8681967382098032988
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4097386035346360130}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e9b8cd94cdda4144b89c82d86c9c5be6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5454406317981388265
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +135,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509239744831595963}
+  - component: {fileID: 1125670266309286559}
   - component: {fileID: 6109786837623103412}
+  - component: {fileID: 4266361062621876266}
   m_Layer: 0
   m_Name: Sprite_Character
   m_TagString: Untagged
@@ -195,6 +160,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6999917145346660143}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1125670266309286559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454406317981388265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e895723b460261439f44fbf1fe1ef29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimatorController
+  Animator_Unit: {fileID: 4266361062621876266}
 --- !u!212 &6109786837623103412
 SpriteRenderer:
   serializedVersion: 2
@@ -254,3 +232,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &4266361062621876266
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454406317981388265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 64e51a1e4307ee141bd51f6a83f59ad3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

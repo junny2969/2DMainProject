@@ -46,7 +46,7 @@ public class BattleActionPopup : DaniTechUIBase
     public void RefreshSkillList()
     {
         var playerInfo = BattleManager.Inst.GetPlayerModel();
-        Debug.LogWarning("playerInfo: " + (playerInfo == null ? "null" : playerInfo.Data.Name));
+        // Debug.LogWarning("playerInfo: " + (playerInfo == null ? "null" : playerInfo.Data.Name));
         _unitModel = playerInfo;
         if (_unitModel == null) return;
         _curCategory = SkillPopupCategory.None;

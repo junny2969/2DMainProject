@@ -32,8 +32,9 @@ public class BattleUnitAnimatorController : MonoBehaviour
 
     public bool IsCurrentState(string stateName)
     {
-        bool result = Animator_Unit.GetCurrentAnimatorStateInfo(0).IsName(stateName);
-        Debug.LogWarning("IsName 체크 - 찾는 이름: " + stateName + "/ 결과 :" + result);
+        var stateInfo = Animator_Unit.GetCurrentAnimatorStateInfo(0);
+        // ... 여러 Debug.Log들 ...
+        bool result = stateInfo.IsName("Base Layer." + stateName);
         return result;
     }
 

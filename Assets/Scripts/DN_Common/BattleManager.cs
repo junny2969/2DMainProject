@@ -35,7 +35,7 @@ public class BattleManager : MonoBehaviour
         foreach (string playerId in playerList)
         {
             var playerData = DaniTechGameDataManager.Instance.GetCharacterData(playerId);
-            Debug.LogWarning("playerId:" + playerId);
+            // Debug.LogWarning("playerId:" + playerId);
 
             if(playerData != null)
             {
@@ -70,8 +70,8 @@ public class BattleManager : MonoBehaviour
 
     public async UniTaskVoid EnterBattle(List<string> playerList, List<string> monsterList)
     {
-        Debug.LogWarning("EnterBattle 호출");
-        Debug.LogWarning("BattleCamera null 여부 : " + (BattleCamera == null));
+        //Debug.LogWarning("EnterBattle 호출");
+        //Debug.LogWarning("BattleCamera null 여부 : " + (BattleCamera == null));
         DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         DaniTechGameObjectManager.Inst.HideLocalPlayer();
 

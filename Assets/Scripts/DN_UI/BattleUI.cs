@@ -53,6 +53,7 @@ public class BattleUI : DaniTechUIBase
 
     private void OnBattleStateChanged(BattleState curBattleState)
     {
+        if (Image_ArrowPlayer == null) return;
         Image_ArrowPlayer.gameObject.SetActive(false);
 
         switch (curBattleState)

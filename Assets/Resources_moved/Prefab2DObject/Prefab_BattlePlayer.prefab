@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6884045346108407108}
+  - component: {fileID: 6874492447526873296}
   - component: {fileID: 1349410704546076349}
+  - component: {fileID: 3080913105704658180}
   m_Layer: 0
   m_Name: Sprite_Character
   m_TagString: Untagged
@@ -32,6 +34,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3788048581732641475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6874492447526873296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401796078724080965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e895723b460261439f44fbf1fe1ef29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimatorController
+  Animator_Unit: {fileID: 3080913105704658180}
 --- !u!212 &1349410704546076349
 SpriteRenderer:
   serializedVersion: 2
@@ -91,6 +106,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &3080913105704658180
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401796078724080965}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8657d8ea163553b42a161e9c013bcc40, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6165317741682455608
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,9 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 799033094652268891}
   - component: {fileID: 1441113202836422177}
-  - component: {fileID: 2772543014519786995}
   - component: {fileID: 5585884604379259476}
-  - component: {fileID: 2791130110060157437}
   m_Layer: 0
   m_Name: Prefab_BattlePlayer
   m_TagString: Untagged
@@ -140,20 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnitView
   SpriteRenderer_Character: {fileID: 1349410704546076349}
-  AnimController_Unit: {fileID: 2772543014519786995}
---- !u!114 &2772543014519786995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165317741682455608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e895723b460261439f44fbf1fe1ef29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleUnitAnimatorController
-  Animator_Unit: {fileID: 2791130110060157437}
+  AnimController_Unit: {fileID: 6874492447526873296}
 --- !u!61 &5585884604379259476
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,37 +213,15 @@ BoxCollider2D:
   m_Offset: {x: 2.363388, y: 153.6208}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 152, y: 306}
+    newSize: {x: 152, y: 306}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Size: {x: 152.23349, y: 311.36887}
   m_EdgeRadius: 0
---- !u!95 &2791130110060157437
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165317741682455608}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8657d8ea163553b42a161e9c013bcc40, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7569190448000646700
 GameObject:
   m_ObjectHideFlags: 0

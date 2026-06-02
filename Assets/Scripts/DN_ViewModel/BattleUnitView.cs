@@ -58,6 +58,11 @@ public class BattleUnitView : MonoBehaviour
     public async UniTask PlayAttackAction(Vector3 centerPosition, string animTrigger)
     {
         await MoveToPosition(centerPosition, 0.3f);
+
+        // 이동 완료 후 한 프레임 더 대기
+        await UniTask.Yield();
+        await UniTask.Yield();
+
         await PlayAttackAnimation(animTrigger);
         await MoveToPosition(_originPosition, 0.3f);
     }
@@ -83,25 +88,23 @@ public class BattleUnitView : MonoBehaviour
 
     private async UniTask PlayAttackAnimation(string animTrigger)
     {
-        if(AnimController_Unit == null)
+        if (AnimController_Unit == null)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
             return;
         }
 
         AnimController_Unit.SetAtkState(animTrigger);
-        Debug.Log("트리거 설정 : " + animTrigger);
 
         bool isAtkState = false;
-        while(isAtkState == false)
+        while (isAtkState == false)
         {
             if (this == null) return;
             isAtkState = AnimController_Unit.IsCurrentState(animTrigger);
             await UniTask.Yield();
         }
 
-
-        var atkLength = AnimController_Unit.GetCurrentStateLength();
+        float atkLength = AnimController_Unit.GetCurrentStateLength();
         await UniTask.Delay(TimeSpan.FromSeconds(atkLength));
     }
 
