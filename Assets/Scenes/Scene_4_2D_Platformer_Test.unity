@@ -1523,18 +1523,12 @@ Transform:
   - {fileID: 1939027878}
   - {fileID: 892546878}
   - {fileID: 485198803}
-  - {fileID: 1449157435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1449149169 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2516827094399032336, guid: 4f8a08d42790ee847839e429309c43c4, type: 3}
   m_PrefabInstance: {fileID: 1449421216071433859}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1449157435 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-  m_PrefabInstance: {fileID: 4939759281731075865}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1699085702 stripped
 RectTransform:
@@ -2316,6 +2310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad51fe945df160a4d8cf552353b4aa7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
+  MainCameraObject: {fileID: 255376333}
   Prefab_BattlePlayer: {fileID: 6165317741682455608, guid: ed1d11519e47bc0498ece153b3617724, type: 3}
   Root_BattlePlayer: {fileID: 1939027878}
   Prefab_BattleMonster: {fileID: 4097386035346360130, guid: 488672ed2be40914cad00b348895059e, type: 3}
@@ -250505,67 +250500,6 @@ MonoBehaviour:
   Canvas_ContentRoot: {fileID: 725669495695448888}
   Canvas_PopupRoot: {fileID: 7688415540342099882}
   Canvas_VeryFrontRoot: {fileID: 9011225294624153234}
---- !u!1001 &4939759281731075865
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1447537262}
-    m_Modifications:
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -64.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -69.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862892670183814239, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995688439252661288, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_Name
-      value: Root_FieldMonster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8995688439252661288, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fa5e99bbc6b36034ba9e727f9623b2dc, type: 3}
 --- !u!224 &4994114885574614169
 RectTransform:
   m_ObjectHideFlags: 0

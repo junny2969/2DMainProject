@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
+    [Header("메인카메라")]
+    [SerializeField] private GameObject MainCameraObject;
+
     [Header("전투유닛 위치")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
     [SerializeField] private Transform Root_BattlePlayer;
@@ -73,8 +76,8 @@ public class BattleManager : MonoBehaviour
         DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         DaniTechGameObjectManager.Inst.HideLocalPlayer();
 
-        var mainCamera = Camera.main;
-        var cameraFollow = Camera.main.GetComponent<CameraFollow>();
+        
+        var cameraFollow = MainCameraObject.GetComponent<CameraFollow>();
         if (cameraFollow != null)
         {
             cameraFollow.SetFollowActive(false);
@@ -82,7 +85,7 @@ public class BattleManager : MonoBehaviour
 
         BattleCamera.SetActive(true);
 
-        Camera.main.gameObject.SetActive(false);
+        MainCameraObject.SetActive(false);
 
         
 
@@ -112,53 +115,39 @@ public class BattleManager : MonoBehaviour
         return _enemyModels[0]; // TODO 몬스터 늘어날시 개선 필요
     }
 
-    private async UniTaskVoid OnPlayerDeadAsyck()
+    
+
+    private void OnPlayerDead()
+    {
+        OnPlayerDeadAsyck().Forget();
+    }
+
+    private async UniTask OnPlayerDeadAsyck()
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
-        _enemyModels.Clear();
-        DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
-        DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
+        RestoreFromBattle();
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
+        //DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
+
 
         // TODO 마을 귀환
 
     }
 
-    private void OnPlayerDead()
+    private void OnMonsterDead()
     {
-        BattleCamera.SetActive(false);
-
-        Camera.main.gameObject.SetActive(true);
-        var cameraFollow = Camera.main.gameObject.GetComponent<CameraFollow>();
-        if(cameraFollow != null)
-        {
-            cameraFollow.SetFollowActive(true);
-        }
-
-
-        OnPlayerDeadAsyck().Forget();
+        OnMonsterDeadAsyck().Forget();
     }
-    private async UniTaskVoid OnMonsterDeadAsyck()
+    private async UniTask OnMonsterDeadAsyck()
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
-        _enemyModels.Clear();
-        DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
-        DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
-    }
 
-    private void OnMonsterDead()
-    {
-        BattleCamera.SetActive(false);
+        RestoreFromBattle();
+        DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
 
-        Camera.main.gameObject.SetActive(true);
-        var cameraFollow = Camera.main.gameObject.GetComponent<CameraFollow>();
-        if (cameraFollow != null)
-        {
-            cameraFollow.SetFollowActive(true);
-        }
-
-        OnMonsterDeadAsyck().Forget();
+        //TODO 승리 다이얼로그 > 엔딩
     }
 
     public Vector3 GetBattleCenterPosition()
@@ -179,5 +168,24 @@ public class BattleManager : MonoBehaviour
     public Transform GetBattleMonsterRoot()
     {
         return Root_BattleMonster;
+    }
+
+    private void RestoreFromBattle()
+    {
+        BattleCamera.SetActive(false);
+        MainCameraObject.SetActive(true);
+        var cameraFollow = MainCameraObject.GetComponent<CameraFollow>();
+        if (cameraFollow != null)
+        {
+            cameraFollow.SetFollowActive(true);
+        }
+
+        _playerModels.Clear();
+        _enemyModels.Clear();
+
+        DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
+        DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
+       
+        // DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
     }
 }
