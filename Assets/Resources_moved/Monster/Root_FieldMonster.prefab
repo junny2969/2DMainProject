@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2039397702, guid: c465adc21a2d4024faabe46644f55713, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc8e2be9532fbc543af51c6932181466, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,14 +230,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a020a1c068b53ce48b44543b3d59aa39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMonster
-  SkillCoolTime: 0
-  Prefab_ThisMonsterSkillObject: {fileID: 0}
   SpriteRenderer_Monster: {fileID: 3717567016367902324}
   Caution_Root: {fileID: 282511524649740460}
   _instanceId: 0
   _dataId: 
-  _baseHp: 0
-  _baseAtk: 0
   _isAlive: 1
 --- !u!61 &1553126712926901414
 BoxCollider2D:

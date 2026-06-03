@@ -22,7 +22,7 @@ public class GameMonster : MonsterBase
     public bool GetIsAlive() { return _isAlive; }
 
 
-    public async void InitMonster(int instanceId, string dataId)
+    public async UniTask InitMonster(int instanceId, string dataId)
     {
         _instanceId = instanceId;
         _dataId = dataId;
@@ -33,22 +33,42 @@ public class GameMonster : MonsterBase
             Caution_Root.SetActive(false);
         }
 
+        DNMonsterData data = DaniTechGameDataManager.Instance.GetDNMonsterData(_dataId);
+        if(data == null)
+        {
+            //Debug.LogWarning($"몬스터 데이터 조회 실패. dataId : {_dataId}");
+            return;
+        }
+
+        Sprite sprite = await DaniTechResourceManager.Inst.LoadSprite(data.FieldSpritePath);
+        if (sprite == null)
+        {
+            //Debug.LogWarning($"몬스터 스프라이트 로드 실패. key : {data.FieldSpritePath}");
+            return;
+        }
+
+        if(SpriteRenderer_Monster != null)
+        {
+            SpriteRenderer_Monster.sprite = sprite;
+        }
+
     }
 
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Debug.LogWarning($"충돌감지 :  {collision.gameObject.name}");
         if (_isAlive == false)
         {
             return;
         }
 
-        if(collision.gameObject.CompareTag("player") == false)
+        if(collision.gameObject.CompareTag("Player") == false)
         {
             return;
         }
-
+        //Debug.LogWarning("전투 진입 호출 직전");
         //TODO 다이얼로그 띄우기, 응답후 전투 진입
         BattleManager.Inst.EnterBattleFromField(_dataId);
 

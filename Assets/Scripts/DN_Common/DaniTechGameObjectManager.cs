@@ -9,6 +9,8 @@ public class DaniTechGameObjectManager : MonoBehaviour
     [SerializeField] private Transform Root_Enemy;
 
     [SerializeField] private GameObject Prefab_DamageText;
+    [SerializeField] private GameObject Prefab_FieldMonster;
+
 
     [Header("전투 유닛 정보")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
@@ -128,14 +130,20 @@ public class DaniTechGameObjectManager : MonoBehaviour
     }
 
     //[몬스터 오브젝트] ====================================================================================================
-    public async UniTaskVoid CreateMonsterObject(string monsterDataId, Transform spawnSpot)
+    public void CreateMonsterObject(string monsterDataId, Transform spawnSpot)
     {
         // 만드려는 몬스터 정보 받아오기
         var monsterData = DaniTechGameDataManager.Instance.GetDNMonsterData(monsterDataId);
         if (monsterData == null) return;
 
+        if(Prefab_FieldMonster == null)
+        {
+            Debug.LogWarning("Prefab_FieldMonster 등록안됨");
+            return;
+        }
+
         // 비동기라 조금 어려우므로 일단 따라치기
-        var createdObj = await DaniTechResourceManager.Inst.InstantiateAsync(monsterData.PrefabPath, Root_Enemy, true);
+        var createdObj = Instantiate(Prefab_FieldMonster, Root_Enemy);
         createdObj.transform.position = spawnSpot.position; // 위치를 스폰스팟의 위치로 조정
 
         AddMonsterObjectOnCreate(createdObj, monsterDataId);
@@ -154,7 +162,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
         _monsterObjectContainer.Add(generatedInstanceId, monsterComponent);
 
         // UI든 필드 오브젝트든 몬스터든 만들어지는 시점에서 Init(생성자처럼 정보를 세팅해주는 함수는 거의 자주 보게된다
-        monsterComponent.InitMonster(generatedInstanceId, monsterDataId);
+        monsterComponent.InitMonster(generatedInstanceId, monsterDataId).Forget();
     }
 
 

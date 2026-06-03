@@ -14,7 +14,7 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldPath": null
+    "FieldSpritePath": null
   },
   {
     "Id": "mob_dog_1",
@@ -29,7 +29,7 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldPath": null
+    "FieldSpritePath": null
   },
   {
     "Id": "mob_pigme_1",
@@ -44,7 +44,7 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldPath": null
+    "FieldSpritePath": null
   },
   {
     "Id": "mob_bear_1",
@@ -62,7 +62,7 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldPath": null
+    "FieldSpritePath": null
   },
   {
     "Id": "mob_redSnake_1",
@@ -79,7 +79,7 @@
     "MaxHp": 400,
     "MaxMp": 200,
     "Atk": 40,
-    "FieldPath": "Monster/image_redSnake_Idle"
+    "FieldSpritePath": "Monster/image_redSnake_Idle"
   },
   {
     "Id": "mob_greenSnake_1",
@@ -97,6 +97,6 @@
     "MaxHp": 250,
     "MaxMp": 200,
     "Atk": 20,
-    "FieldPath": null
+    "FieldSpritePath": null
   }
 ]

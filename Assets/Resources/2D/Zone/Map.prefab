@@ -45,8 +45,91 @@ Transform:
   - {fileID: 3943166586645290579}
   - {fileID: 4622417370296061245}
   - {fileID: 7749416264445133162}
+  - {fileID: 2238249357734283316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &94406393117238767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1746999660469632758}
+    m_Modifications:
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Radius
+      value: 7.3456545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -63.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -67.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180363546269119021, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: _startSpawnType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180363546269119021, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: _spawnObjectDataId
+      value: mob_redSnake_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842466901107213727, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Name
+      value: SpawnSpot_Monster (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+--- !u!4 &2238249357734283316 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+  m_PrefabInstance: {fileID: 94406393117238767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &395608456485742120
 PrefabInstance:
   m_ObjectHideFlags: 0
