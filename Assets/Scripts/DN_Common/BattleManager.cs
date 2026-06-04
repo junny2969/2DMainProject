@@ -49,6 +49,8 @@ public class BattleManager : MonoBehaviour
             if(playerData != null)
             {
                 var playerModel = new UnitModel(DaniTechGameObjectManager.Inst.GenerateInstanceId(), playerData);
+                int savedHp = DaniTechGameManager.Inst.GetPlayerCurrentHp();
+                int savedMp = DaniTechGameManager.Inst.GetPlayerCurrentMp();
                 playerModel.OnDead += OnPlayerDead;
                 //Debug.LogWarning("playerData: " + (playerData == null ? "null" : playerData.Name));
                 _playerModels.Add(playerModel);
@@ -137,6 +139,9 @@ public class BattleManager : MonoBehaviour
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+
+        RecoverPlayerToFull();
+
         RestoreFromBattle();
         DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
         //DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
@@ -161,6 +166,8 @@ public class BattleManager : MonoBehaviour
             _fieldMonsterInstanceId = -1;
 
         }
+
+        SaveBattleResultToPlayerModel();
 
         RestoreFromBattle();
         DaniTechUIManager.Instance.OpenDialogueUI(_winDialogueId, OnWinDialogueEnd);
@@ -213,5 +220,20 @@ public class BattleManager : MonoBehaviour
         DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();
        
         // DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
+    }
+
+    private void SaveBattleResultToPlayerModel()
+    {
+        var playerUnit = GetPlayerModel();
+        if (playerUnit == null) return;
+        DaniTechGameManager.Inst.SetPlayerCurrentStat(playerUnit.CurrentHp, playerUnit.CurrentMp);
+    }
+
+    private void RecoverPlayerToFull()
+    {
+        var playerUnit = GetPlayerModel();
+        if(playerUnit == null) return;
+
+        DaniTechGameManager.Inst.SetPlayerCurrentStat(playerUnit.Data.MaxHp, playerUnit.Data.MaxMp);
     }
 }

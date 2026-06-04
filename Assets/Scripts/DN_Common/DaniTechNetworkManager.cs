@@ -65,6 +65,25 @@ public class DaniTechNetworkManager : MonoBehaviour
         newPlayerData.PlayerName = "NoName";
         newPlayerData.PlayerTotalExp = 0;
 
+        newPlayerData.PlayerCharacterDataId = "character_ellie_01";
+        var charData = DaniTechGameDataManager.Instance.GetCharacterData(newPlayerData.PlayerCharacterDataId);
+        if(charData != null)
+        {
+            newPlayerData.CurrentHp = charData.MaxHp;
+            newPlayerData.CurrentMp = charData.MaxMp;
+            newPlayerData.CurLevel = charData.Level;
+            newPlayerData.CurAtk = charData.Atk;
+            newPlayerData.CurDef = charData.Def;
+            newPlayerData.CurInt = charData.Int;
+            newPlayerData.CurDex = charData.Dex;
+            newPlayerData.CurLuk = charData.Luk;
+        }
+
+        else
+        {
+            Debug.LogWarning($"캐릭터 데이터 조회 실패 {newPlayerData.PlayerCharacterDataId}");
+        }
+
         newPlayerData.OwnedSkillIdList.Add("skill_swing_01");
         newPlayerData.OwnedSkillIdList.Add("skill_fireball_02");
 

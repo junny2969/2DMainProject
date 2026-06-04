@@ -1,5 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,27 @@ public class InventoryUI : DaniTechUIBase
     [SerializeField] DaniTechUIButton Button_OpenEqupment;
     [SerializeField] DaniTechUIButton Button_Weapon;
     [SerializeField] DaniTechUIButton Button_UseItem;
+
+    [Header("상단 스탯")]
+    [SerializeField] Text Text_Level_Stat;
+    [SerializeField] Text Text_Hp_Stat;
+    [SerializeField] Text Text_Mp_Stat;
+    [SerializeField] Text Text_Exp_Stat;
+
+    [SerializeField] Text Text_Atk_Stat;
+    [SerializeField] Text Text_Def_Stat;
+    [SerializeField] Text Text_Int_Stat;
+    [SerializeField] Text Text_Dex_Stat;
+    [SerializeField] Text Text_Luk_Stat;
+
+
+    [Header("캐릭터 정보")]
+    [SerializeField] Text Text_PlayerName;
+    [SerializeField] Slider Slider_Hp;
+    [SerializeField] Text Text_PlayerHp;
+    [SerializeField] Slider Slider_Mp;
+    [SerializeField] Text Text_PlayerMp;
+    [SerializeField] Slider Slider_Exp;
 
 
 
@@ -51,6 +73,7 @@ public class InventoryUI : DaniTechUIBase
         Button_OpenEqupment.BindOnClickButtonEvent(OnClick_OpenEqupment);
         Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
 
+        InitCharacterStatus();
         // Button_UseItem.gameObject.SetActive(false);
     }
 
@@ -66,17 +89,7 @@ public class InventoryUI : DaniTechUIBase
 
     private void OnDisable()
     {
-        //ClearSlotList();
-
-        //if (_slotList.Count > 0)
-        //{
-        //    foreach (var slotKv in _SlotList)
-        //    {
-        //        var slot = slotKv.Value;
-        //        DestroyImmediate(slot.gameObject);
-        //    }
-        //    _SlotList.Clear();
-        //}
+       
     }
 
     private void OnClick_OpenSkill()
@@ -288,9 +301,45 @@ public class InventoryUI : DaniTechUIBase
             var dataId = slot.GetSlotDataId();
             slot.SetSelectedUI(slotDataId == dataId);
 
-            
-
         }
+    }
+
+    private void InitCharacterStatus()
+    {
+
+        string characterDataId = DaniTechGameManager.Inst.GetPlayerCharacterDataId();
+        var charData = DaniTechGameDataManager.Instance.GetCharacterData(characterDataId);
+        if (charData == null) return;
+
+        int curLevel = DaniTechGameManager.Inst.GetPlayerCurLevel();
+        int curAtk = DaniTechGameManager.Inst.GetPlayerCurAtk();
+        int curDef = DaniTechGameManager.Inst.GetPlayerCurDef();
+        int curInt = DaniTechGameManager.Inst.GetPlayerCurInt();
+        int curDex = DaniTechGameManager.Inst.GetPlayerCurDex();
+        int curLuk = DaniTechGameManager.Inst.GetPlayerCurLuk();
+
+        int currentHp = DaniTechGameManager.Inst.GetPlayerCurrentHp();
+        int currentMp = DaniTechGameManager.Inst.GetPlayerCurrentMp();
+
+        Text_Level_Stat.text = $"{curLevel}";
+        Text_Hp_Stat.text = $"{currentHp} / {charData.MaxHp}";
+        Text_Mp_Stat.text = $"{currentMp} / {charData.MaxMp}";
+        Text_Atk_Stat.text = $"{curAtk}";
+        Text_Def_Stat.text = $"{curDef}";
+        Text_Int_Stat.text = $"{curInt}";
+        Text_Dex_Stat.text = $"{curDex}";
+        Text_Luk_Stat.text = $"{curLuk}";
+
+
+
+        
+
+        Text_PlayerName.text = charData.Name;
+        Text_PlayerHp.text = $"{currentHp} / {charData.MaxHp}";
+        Text_PlayerMp.text = $"{currentMp} / {charData.MaxMp}";
+
+        Slider_Hp.value = (float)(currentHp / charData.MaxHp);
+        Slider_Mp.value = (float)(currentMp / charData.MaxMp);
 
     }
 }

@@ -6,7 +6,7 @@ public class DaniTechGameManager : MonoBehaviour
     public static DaniTechGameManager Inst { get; set; }
 
     // 플레이어를 캐싱
-   //  public DaniTech_2DPlayer LocalPlayer; > GameObjectManager 또는 GameManager로 역할 이전
+    //  public DaniTech_2DPlayer LocalPlayer; > GameObjectManager 또는 GameManager로 역할 이전
     // 플레이 중에 저장되어야 하는 정보들이 있는 위치
     private DaniTechPlayerModel _playerModel = new DaniTechPlayerModel();
 
@@ -70,7 +70,7 @@ public class DaniTechGameManager : MonoBehaviour
 
         _playerModel.ItemList.Add(newItem);
 
-        if(itemDataId == "Item_Apple_1")
+        if (itemDataId == "Item_Apple_1")
         {
             CheckGameClear(itemDataId);
         }
@@ -86,9 +86,9 @@ public class DaniTechGameManager : MonoBehaviour
     {
 
         int appleCount = 0;
-        foreach(var item in _playerModel.ItemList )
+        foreach (var item in _playerModel.ItemList)
         {
-            if(item.ItemDataId == "Item_Apple_1")
+            if (item.ItemDataId == "Item_Apple_1")
             {
                 appleCount += item.ItemStackCount;
             }
@@ -115,6 +115,52 @@ public class DaniTechGameManager : MonoBehaviour
         return _playerModel.OwnedSkillIdList;
     }
 
+    public string GetPlayerCharacterDataId()
+    {
+        return _playerModel.PlayerCharacterDataId;
+    }
+    public void SetPlayerCurrentStat(int hp, int mp)
+    {
+        _playerModel.CurrentHp = hp;
+        _playerModel.CurrentMp = mp;
+
+    }
+    public int GetPlayerCurrentHp()
+    {
+        return _playerModel.CurrentHp;
+    }
+
+    public int GetPlayerCurrentMp()
+    {
+        return _playerModel.CurrentMp;
+    }
+
+    public int GetPlayerCurLevel()
+    {
+        return _playerModel.CurLevel;
+    }
+    public int GetPlayerCurAtk()
+    {
+        return _playerModel.CurAtk;
+    }
+    public int GetPlayerCurDef()
+    {
+        return _playerModel.CurDef;
+    }
+    public int GetPlayerCurInt()
+    {
+        return _playerModel.CurInt;
+    }
+    public int GetPlayerCurDex()
+    {
+        return _playerModel.CurDex;
+    }
+    public int GetPlayerCurLuk()
+    {
+        return _playerModel.CurLuk;
+    }
+   
+
     public List<string> GetPlayerSkillListByType(string skillType)
     {
         var filteredList = new List<string>();
@@ -128,7 +174,6 @@ public class DaniTechGameManager : MonoBehaviour
             }
         }
         return filteredList;
-
     }
 
     [ContextMenu("SaveData 경로 열기")]

@@ -24,4 +24,14 @@ public class DaniTechPlayerModel
     public List<DaniTechItemModel> ItemList = new List<DaniTechItemModel>();
 
     public List<string> OwnedSkillIdList = new List<string>();
+
+    public string PlayerCharacterDataId;
+    public int CurrentHp;
+    public int CurrentMp;
+    public int CurLevel;
+    public int CurAtk;
+    public int CurDef;
+    public int CurInt;
+    public int CurDex;
+    public int CurLuk;
 }

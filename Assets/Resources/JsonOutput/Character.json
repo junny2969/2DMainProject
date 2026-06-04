@@ -8,7 +8,13 @@
     "BasicCostumeId": "Costume_03",
     "MaxHp": null,
     "MaxMp": null,
-    "IconPath": null
+    "IconPath": null,
+    "Level": null,
+    "Atk": null,
+    "Def": null,
+    "Int": null,
+    "Dex": null,
+    "Luk": null
   },
   {
     "Id": "character_victor_01",
@@ -19,7 +25,13 @@
     "BasicCostumeId": null,
     "MaxHp": null,
     "MaxMp": null,
-    "IconPath": null
+    "IconPath": null,
+    "Level": null,
+    "Atk": null,
+    "Def": null,
+    "Int": null,
+    "Dex": null,
+    "Luk": null
   },
   {
     "Id": "character_daniel_01",
@@ -30,7 +42,13 @@
     "BasicCostumeId": null,
     "MaxHp": null,
     "MaxMp": null,
-    "IconPath": null
+    "IconPath": null,
+    "Level": null,
+    "Atk": null,
+    "Def": null,
+    "Int": null,
+    "Dex": null,
+    "Luk": null
   },
   {
     "Id": "character_ellie_01",
@@ -41,6 +59,12 @@
     "BasicCostumeId": null,
     "MaxHp": 300,
     "MaxMp": 200,
-    "IconPath": "Icon/Icon_ellie"
+    "IconPath": "Icon/Icon_ellie",
+    "Level": 1,
+    "Atk": 15,
+    "Def": 10,
+    "Int": 20,
+    "Dex": 4,
+    "Luk": 8
   }
 ]

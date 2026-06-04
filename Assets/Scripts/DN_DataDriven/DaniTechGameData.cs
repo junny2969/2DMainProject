@@ -33,6 +33,12 @@ public class DNCharacterData : BattleUnitDataBase
     public string SkillList;
     public string UseWeaponId;
     public string Description;
+    public int Def;
+    public int Int;
+    public int Dex;
+    public int Luk;
+    public int Level;
+    
 
 
     // public int Id;

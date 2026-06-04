@@ -101,7 +101,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51052ce95f0d2e3429a7059c17e2f979
-    m_Address: Icon_skill_swing_01_special
+    m_Address: Icon/Icon_skill_swing_01_special
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

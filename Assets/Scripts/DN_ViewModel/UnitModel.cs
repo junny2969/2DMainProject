@@ -55,5 +55,10 @@ public class UnitModel
         OnMpChanged?.Invoke(CurrentMp, Data.MaxMp);
     }
 
+    public void RestoreCurrentStat(int hp, int mp)
+    {
+        CurrentHp = hp;
+        CurrentMp = mp;
+    }
 
 }
