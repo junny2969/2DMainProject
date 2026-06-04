@@ -8,6 +8,9 @@ public class BattleManager : MonoBehaviour
     [Header("메인카메라")]
     [SerializeField] private GameObject MainCameraObject;
 
+    [Header("엔딩 로그")]
+    [SerializeField] private string _winDialogueId;
+
     [Header("전투유닛 위치")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
     [SerializeField] private Transform Root_BattlePlayer;
@@ -20,6 +23,9 @@ public class BattleManager : MonoBehaviour
     private List<UnitModel> _playerModels = new List<UnitModel>();
     private List<UnitModel> _enemyModels = new List<UnitModel>();
 
+    private bool _isInBattle = false;
+
+    private int _fieldMonsterInstanceId = -1;
     public static BattleManager Inst { get; private set; }
 
     private void Awake()
@@ -93,8 +99,13 @@ public class BattleManager : MonoBehaviour
         await StartBattle(playerList, monsterList);
     }
 
-    public void EnterBattleFromField(string monsterDataId)
+    public void EnterBattleFromField(string monsterDataId, int fieldMonsterInstanceId)
     {
+        if (_isInBattle == true) return;
+        _isInBattle = true;
+
+        _fieldMonsterInstanceId = fieldMonsterInstanceId;
+
         List<string> playerList = new List<string>();
         playerList.Add("character_ellie_01");
 
@@ -144,10 +155,24 @@ public class BattleManager : MonoBehaviour
         DaniTechUIManager.Instance.OpenBattleResultPopup("승 리");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
 
+        if(_fieldMonsterInstanceId != -1)
+        {
+            DaniTechGameObjectManager.Inst.RequestDestroyMonsterObject(_fieldMonsterInstanceId);
+            _fieldMonsterInstanceId = -1;
+
+        }
+
         RestoreFromBattle();
-        DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
+        DaniTechUIManager.Instance.OpenDialogueUI(_winDialogueId, OnWinDialogueEnd);
+       //  DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
 
         //TODO 승리 다이얼로그 > 엔딩
+    }
+
+    private void OnWinDialogueEnd()
+    {
+        DaniTechGameManager.Inst.SaveData();
+        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
     }
 
     public Vector3 GetBattleCenterPosition()
@@ -172,6 +197,7 @@ public class BattleManager : MonoBehaviour
 
     private void RestoreFromBattle()
     {
+        _isInBattle = false;
         BattleCamera.SetActive(false);
         MainCameraObject.SetActive(true);
         var cameraFollow = MainCameraObject.GetComponent<CameraFollow>();

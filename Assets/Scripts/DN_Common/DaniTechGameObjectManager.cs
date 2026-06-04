@@ -273,6 +273,18 @@ public class DaniTechGameObjectManager : MonoBehaviour
         {
             damageText.PlayDamageText(damage, spawnPosition).Forget();
         }
+    }
 
+    public void RequestDestroyMonsterObject(int instanceId)
+    {
+        if(_monsterObjectContainer.ContainsKey(instanceId) == false)
+        {
+            Debug.LogWarning($"{instanceId} 몬스터가 존재하지 않음");
+            return;
+        }
+
+        var monster = _monsterObjectContainer[instanceId];
+        _monsterObjectContainer.Remove(instanceId);
+        Destroy(monster.gameObject);
     }
 }

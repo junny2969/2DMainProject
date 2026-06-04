@@ -14,7 +14,8 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldSpritePath": null
+    "FieldSpritePath": null,
+    "BattleDialogueId": null
   },
   {
     "Id": "mob_dog_1",
@@ -29,7 +30,8 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldSpritePath": null
+    "FieldSpritePath": null,
+    "BattleDialogueId": null
   },
   {
     "Id": "mob_pigme_1",
@@ -44,7 +46,8 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldSpritePath": null
+    "FieldSpritePath": null,
+    "BattleDialogueId": null
   },
   {
     "Id": "mob_bear_1",
@@ -62,11 +65,12 @@
     "MaxHp": null,
     "MaxMp": null,
     "Atk": null,
-    "FieldSpritePath": null
+    "FieldSpritePath": null,
+    "BattleDialogueId": null
   },
   {
     "Id": "mob_redSnake_1",
-    "Name": "레드 스네이크",
+    "Name": "한달 묵은 뱀",
     "Description": "붉은색의 뱀이다. 뭔가 화끈해보인다.",
     "BaseHP": 500,
     "BaseAtk": 20,
@@ -79,7 +83,8 @@
     "MaxHp": 400,
     "MaxMp": 200,
     "Atk": 40,
-    "FieldSpritePath": "Monster/image_redSnake_Idle"
+    "FieldSpritePath": "Monster/image_redSnake_Idle",
+    "BattleDialogueId": "dialogue_enterbattle_1_1"
   },
   {
     "Id": "mob_greenSnake_1",
@@ -97,6 +102,7 @@
     "MaxHp": 250,
     "MaxMp": 200,
     "Atk": 20,
-    "FieldSpritePath": null
+    "FieldSpritePath": null,
+    "BattleDialogueId": null
   }
 ]

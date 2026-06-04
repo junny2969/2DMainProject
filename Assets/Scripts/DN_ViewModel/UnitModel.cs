@@ -31,6 +31,8 @@ public class UnitModel
 
     public void TakeDamage(int damage)
     {
+        if (IsAlive == false) return;
+
         CurrentHp = CurrentHp - damage;
         if(CurrentHp <= 0)
         {

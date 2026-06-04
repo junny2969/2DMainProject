@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class DaniTech_DialogueUI : DaniTechUIBase
 
     private string _currentDialogueId;
     private Queue<string> _descriptionQueue = new Queue<string>();
+    private Action _onDialogueEnd;
 
     private void OnEnable()
     {
@@ -33,6 +35,11 @@ public class DaniTech_DialogueUI : DaniTechUIBase
         if(isNextDialogueExist == false)
         {
             DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.DNDialogueUI);
+            if(_onDialogueEnd != null)
+            {
+                _onDialogueEnd.Invoke();
+                _onDialogueEnd = null;
+            }
         }
     }
 
@@ -49,7 +56,7 @@ public class DaniTech_DialogueUI : DaniTechUIBase
         string nextDialogueId = dialogueData.NextDialogueId;
         if (string.IsNullOrEmpty(nextDialogueId) == false)
         {
-            StartDialogue(nextDialogueId);
+            StartDialogue(nextDialogueId, _onDialogueEnd);
             return true;
         }
 
@@ -57,8 +64,10 @@ public class DaniTech_DialogueUI : DaniTechUIBase
     }
 
     // 다이얼로그를 시작하는 메서드 (외부에서 UIManager를 통해 다이얼로그 시작을 요청할때도 쓴다!)
-    public void StartDialogue(string dialogeId)
+    public void StartDialogue(string dialogeId, Action onDialogueEnd)
     {
+        _onDialogueEnd = onDialogueEnd;
+
         var dialogueData = DaniTechGameDataManager.Instance.GetDNDialogueData(dialogeId);
         if (dialogueData == null)
         {

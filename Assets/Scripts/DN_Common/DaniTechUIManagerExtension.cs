@@ -126,7 +126,7 @@ public static class DaniTechUIManagerExtension
         uiManager.CloseUI(DaniTechUIRootType.VeryFrontUI, DaniTechUIType.DNLoadingUI);
     }
 
-    public static void OpenDialogueUI(this DaniTechUIManager uiManager, string startDialogueId)
+    public static void OpenDialogueUI(this DaniTechUIManager uiManager, string startDialogueId, System.Action onDialogueEnd = null)
     {
         var uiBase = uiManager.OpenContentUI(DaniTechUIType.DNDialogueUI);
         if(uiBase == null)
@@ -137,7 +137,7 @@ public static class DaniTechUIManagerExtension
 
         if (uiBase is DaniTech_DialogueUI dialogueUi)
         {
-            dialogueUi.StartDialogue(startDialogueId);
+            dialogueUi.StartDialogue(startDialogueId, onDialogueEnd);
         }
     }
 

@@ -74,5 +74,65 @@
     "SelectionDialogueIdList": null,
     "TexturePath": null,
     "VoicePath": null
+  },
+  {
+    "Id": "dialogue_mainstory_1_1",
+    "CharacterDataId": "character_ellie_01",
+    "Description": "여긴 어디지...?",
+    "NextDialogueId": "dialogue_mainstory_1_2",
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_mainstory_1_2",
+    "CharacterDataId": "character_ellie_01",
+    "Description": "분명 처음 보는 풍경인데",
+    "NextDialogueId": "dialogue_mainstory_1_3",
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_mainstory_1_3",
+    "CharacterDataId": "character_ellie_01",
+    "Description": "뭔가 한달 내내 본것같은 지긋지긋한 느낌이다.",
+    "NextDialogueId": null,
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_enterbattle_1_1",
+    "CharacterDataId": null,
+    "Description": "거대한 뱀이 공격해온다!",
+    "NextDialogueId": null,
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_clearbattle_1_1",
+    "CharacterDataId": null,
+    "Description": "한달 묵은것치곤 많이 허술한 뱀이였다..",
+    "NextDialogueId": "dialogue_clearbattle_1_2",
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_clearbattle_1_2",
+    "CharacterDataId": null,
+    "Description": "일단 쓰러트렸으니 돌아갈 수 있을것 같다.",
+    "NextDialogueId": null,
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
   }
 ]

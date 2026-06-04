@@ -16,6 +16,9 @@ public class GameMonster : MonsterBase
     public int _instanceId; // 게임에서 태어날때 부여된 고유번호 (중복불가) > 게임 오브젝트 매니저에서 찾기용
     public string _dataId; // 내가 누구인지 나중에 찾을수 있는 호출번호 (중복가능??) > 데이터 드리븐용 (아이디를 통해 부가데이터 찾기)
     public bool _isAlive;
+    public string _battleDialogueId;
+    private bool _isEnteringBattle = false;
+    
 
     public int GetInstanceId() { return _instanceId; }
     public string GetDataId() { return _dataId; }
@@ -40,6 +43,8 @@ public class GameMonster : MonsterBase
             return;
         }
 
+        _battleDialogueId = data.BattleDialogueId;
+
         Sprite sprite = await DaniTechResourceManager.Inst.LoadSprite(data.FieldSpritePath);
         if (sprite == null)
         {
@@ -58,6 +63,7 @@ public class GameMonster : MonsterBase
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+       
         //Debug.LogWarning($"충돌감지 :  {collision.gameObject.name}");
         if (_isAlive == false)
         {
@@ -68,23 +74,20 @@ public class GameMonster : MonsterBase
         {
             return;
         }
+
+        if(_isEnteringBattle == true)
+        {
+            return;
+        }
         //Debug.LogWarning("전투 진입 호출 직전");
         //TODO 다이얼로그 띄우기, 응답후 전투 진입
-        BattleManager.Inst.EnterBattleFromField(_dataId);
+        _isEnteringBattle = true;
+        DaniTechUIManager.Instance.OpenDialogueUI(_battleDialogueId, OnDialogueEndEnterBattle);
+    }
 
-
-        //if (collision.gameObject.CompareTag("Player") == false) return;
-
-        //var player = collision.gameObject.GetComponent<DaniTech_2DPlayer>();
-        //if (player == null) return;
-
-        //var playerList = new List<string>();
-        //playerList.Add(player.GetCharacterDataId());
-
-        //var monsterList = new List<string>();
-        //monsterList.Add(_dataId);
-
-        //BattleManager.Inst.EnterBattle(playerList, monsterList).Forget();
+    private void OnDialogueEndEnterBattle()
+    {
+        BattleManager.Inst.EnterBattleFromField(_dataId, _instanceId);
     }
 
     
