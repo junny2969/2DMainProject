@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 282511524649740460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78, y: 2.6, z: 0}
+  m_LocalPosition: {x: 1.36, y: 3.94, z: 0}
   m_LocalScale: {x: 0.17436299, y: 0.14802165, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4862892670183814239}
@@ -172,7 +172,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: cc8e2be9532fbc543af51c6932181466, type: 3}
+  m_Sprite: {fileID: -2039397702, guid: c465adc21a2d4024faabe46644f55713, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -210,7 +210,7 @@ Transform:
   m_GameObject: {fileID: 8995688439252661288}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.57, y: -69.11, z: 0}
+  m_LocalPosition: {x: -64.57, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -235,6 +235,7 @@ MonoBehaviour:
   _instanceId: 0
   _dataId: 
   _isAlive: 1
+  _battleDialogueId: 
 --- !u!61 &1553126712926901414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -269,7 +270,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.010274887, y: 1.1662827}
+  m_Offset: {x: 0.04582596, y: 2.020382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -279,7 +280,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.6441002, y: 2.428299}
+  m_Size: {x: 4.7180862, y: 4.140541}
   m_EdgeRadius: 0
 --- !u!58 &8597868880748907518
 CircleCollider2D:
@@ -315,5 +316,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.030359268, y: 1.1609039}
-  m_Radius: 3.5760288
+  m_Offset: {x: -0.064248085, y: 1.881958}
+  m_Radius: 3.5412493

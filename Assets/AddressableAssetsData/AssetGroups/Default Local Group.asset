@@ -100,6 +100,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51052ce95f0d2e3429a7059c17e2f979
+    m_Address: Icon_skill_swing_01_special
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 577273a3d93688449bd2a519761b4697
     m_Address: Icon/Icon_greenSnake_1
     m_ReadOnly: 0
@@ -157,6 +162,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bab0dab329b3a2e45bff7ba9f9c889b4
     m_Address: Sound/Pugmia_Bgm_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c21ca00e0efb4c546bed89fc55261574
+    m_Address: Icon/icon_skill_fireball_02_special
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
