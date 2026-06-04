@@ -70,7 +70,6 @@ public class TurnManager : MonoBehaviour
         var skillData = DaniTechGameDataManager.Instance.GetSkill(_selectedSkillId);
         if (skillData == null) return;
 
-        // Debug.LogWarning("skillData.AnimTrigger: " + skillData.AnimTrigger);
         var playerModel = BattleManager.Inst.GetPlayerModel();
         var playerView = DaniTechGameObjectManager.Inst.GetBattleUnitView(playerModel.InstanceId);
         if(playerView != null)
@@ -81,6 +80,7 @@ public class TurnManager : MonoBehaviour
 
         targetUnit.TakeDamage(skillData.Damage);
 
+        
         var targetView = DaniTechGameObjectManager.Inst.GetBattleUnitView(targetUnit.InstanceId);
         if (targetView != null)
         {
@@ -89,6 +89,10 @@ public class TurnManager : MonoBehaviour
         }
 
         playerModel.TakeMp(skillData.CostMp);
+        if(targetUnit.IsAlive == false)
+        {
+            return;
+        }
         ChangeBattleState(BattleState.MonsterTurn);
     }
 
@@ -110,7 +114,10 @@ public class TurnManager : MonoBehaviour
 
             DaniTechGameObjectManager.Inst.SpawnDamageText(enemyModel.Data.Atk, playerView.GetPosition());
         }
-
+        if (playerModel.IsAlive == false)
+        {
+            return;
+        }
         ChangeBattleState(BattleState.PlayerTurn);
     }
 
