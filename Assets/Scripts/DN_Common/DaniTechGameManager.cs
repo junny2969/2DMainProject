@@ -159,6 +159,26 @@ public class DaniTechGameManager : MonoBehaviour
     {
         return _playerModel.CurLuk;
     }
+
+    public string GetEquippedWeaponId()
+    {
+        return _playerModel.EquippedWeaponId;
+    }
+
+    public string GetEquippedArmorId()
+    {
+        return _playerModel.EquippedArmorId;
+    }
+
+    public void SetEquippedWeaponId(string weaponId)
+    {
+        _playerModel.EquippedWeaponId = weaponId;
+    }
+
+    public void SetEquippedArmorId(string armorId)
+    {
+        _playerModel.EquippedArmorId = armorId;
+    }
    
 
     public List<string> GetPlayerSkillListByType(string skillType)

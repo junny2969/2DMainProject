@@ -104,5 +104,21 @@
     "Atk": 20,
     "FieldSpritePath": null,
     "BattleDialogueId": null
+  },
+  {
+    "Id": "mob_redDrgon_1",
+    "Name": "한달 묵은 용",
+    "Description": null,
+    "BaseHP": null,
+    "BaseAtk": null,
+    "NormalAtkMultiple": null,
+    "SkillAtkMultipleList": null,
+    "IconPath": "Icon/Icon_redDragon_1",
+    "PrefabPath": "2DObject/Monster_RedDrgon_Battle",
+    "MaxHp": 600,
+    "MaxMp": 300,
+    "Atk": 80,
+    "FieldSpritePath": "Monster/image_redDragon_Idle",
+    "BattleDialogueId": "dialogue_enterbattle_2_1"
   }
 ]

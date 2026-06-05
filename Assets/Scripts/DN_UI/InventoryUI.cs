@@ -18,34 +18,43 @@ public class InventoryUI : DaniTechUIBase
     [Header("동적 생성할 프리팹")]
     [SerializeField] private GameObject Prefab_Slot;
 
+    [Header("장착한 아이템 정보")]
+    [SerializeField] private Image Image_CurWeapon;
+    [SerializeField] private Text Text_CurWeapon;
+    [SerializeField] private Image Image_CurEqupment;
+    [SerializeField] private Text Text_CurEqupment;
+
+
     [Header("버튼리스트")]
-    [SerializeField] DaniTechUIButton Button_CloseInventory;
-    [SerializeField] DaniTechUIButton Button_OpenSkill;
-    [SerializeField] DaniTechUIButton Button_OpenPotion;
-    [SerializeField] DaniTechUIButton Button_OpenEqupment;
-    [SerializeField] DaniTechUIButton Button_Weapon;
-    [SerializeField] DaniTechUIButton Button_UseItem;
+    [SerializeField] private DaniTechUIButton Button_CloseInventory;
+    [SerializeField] private DaniTechUIButton Button_OpenSkill;
+    [SerializeField] private DaniTechUIButton Button_OpenPotion;
+    [SerializeField] private DaniTechUIButton Button_OpenEqupment;
+    [SerializeField] private DaniTechUIButton Button_Weapon;
+    [SerializeField] private DaniTechUIButton Button_UseItem;
 
     [Header("상단 스탯")]
-    [SerializeField] Text Text_Level_Stat;
-    [SerializeField] Text Text_Hp_Stat;
-    [SerializeField] Text Text_Mp_Stat;
-    [SerializeField] Text Text_Exp_Stat;
+    [SerializeField] private Image Image_PlayerIcon;
+    [SerializeField] private Text Text_PlayerName_Top;
+    [SerializeField] private Text Text_Level_Stat;
+    [SerializeField] private Text Text_Hp_Stat;
+    [SerializeField] private Text Text_Mp_Stat;
+    [SerializeField] private Text Text_Exp_Stat;
 
-    [SerializeField] Text Text_Atk_Stat;
-    [SerializeField] Text Text_Def_Stat;
-    [SerializeField] Text Text_Int_Stat;
-    [SerializeField] Text Text_Dex_Stat;
-    [SerializeField] Text Text_Luk_Stat;
+    [SerializeField] private Text Text_Atk_Stat;
+    [SerializeField] private Text Text_Def_Stat;
+    [SerializeField] private Text Text_Int_Stat;
+    [SerializeField] private Text Text_Dex_Stat;
+    [SerializeField] private Text Text_Luk_Stat;
 
 
     [Header("캐릭터 정보")]
-    [SerializeField] Text Text_PlayerName;
-    [SerializeField] Slider Slider_Hp;
-    [SerializeField] Text Text_PlayerHp;
-    [SerializeField] Slider Slider_Mp;
-    [SerializeField] Text Text_PlayerMp;
-    [SerializeField] Slider Slider_Exp;
+    [SerializeField] private Text Text_PlayerName;
+    [SerializeField] private Slider Slider_Hp;
+    [SerializeField] private Text Text_PlayerHp;
+    [SerializeField] private Slider Slider_Mp;
+    [SerializeField] private Text Text_PlayerMp;
+    [SerializeField] private Slider Slider_Exp;
 
 
 
@@ -74,6 +83,7 @@ public class InventoryUI : DaniTechUIBase
         Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
 
         InitCharacterStatus();
+        RefreshEquipmentSlot();
         // Button_UseItem.gameObject.SetActive(false);
     }
 
@@ -321,6 +331,12 @@ public class InventoryUI : DaniTechUIBase
         int currentHp = DaniTechGameManager.Inst.GetPlayerCurrentHp();
         int currentMp = DaniTechGameManager.Inst.GetPlayerCurrentMp();
 
+        if(Image_PlayerIcon != null && string.IsNullOrEmpty(charData.IconPath) == false)
+        {
+            DaniTechGameUtil.LoadAndSetSpriteImage(Image_PlayerIcon, charData.IconPath).Forget();
+        }
+
+        Text_PlayerName_Top.text = charData.Name;
         Text_Level_Stat.text = $"{curLevel}";
         Text_Hp_Stat.text = $"{currentHp} / {charData.MaxHp}";
         Text_Mp_Stat.text = $"{currentMp} / {charData.MaxMp}";
@@ -330,16 +346,50 @@ public class InventoryUI : DaniTechUIBase
         Text_Dex_Stat.text = $"{curDex}";
         Text_Luk_Stat.text = $"{curLuk}";
 
-
-
-        
-
         Text_PlayerName.text = charData.Name;
         Text_PlayerHp.text = $"{currentHp} / {charData.MaxHp}";
         Text_PlayerMp.text = $"{currentMp} / {charData.MaxMp}";
 
-        Slider_Hp.value = (float)(currentHp / charData.MaxHp);
-        Slider_Mp.value = (float)(currentMp / charData.MaxMp);
+        Slider_Hp.value = (float)currentHp / charData.MaxHp;
+        Slider_Mp.value = (float)currentMp / charData.MaxMp;
 
+    }
+
+    private void RefreshEquipmentSlot()
+    {
+        string weaponId = DaniTechGameManager.Inst.GetEquippedWeaponId();
+        if(string.IsNullOrEmpty(weaponId) == false)
+        {
+            var weaponData = DaniTechGameDataManager.Instance.GetWeaponData(weaponId);
+            if(weaponData != null)
+            {
+                Text_CurWeapon.text = weaponData.Name;
+                DaniTechGameUtil.LoadAndSetSpriteImage(Image_CurWeapon, weaponData.IconPath).Forget();
+                Image_CurWeapon.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            Text_CurWeapon.text = "";
+            Image_CurWeapon.gameObject.SetActive (false);
+        }
+
+        string armorId = DaniTechGameManager.Inst.GetEquippedArmorId();
+        if(string.IsNullOrEmpty (armorId) == false)
+        {
+            var armorData = DaniTechGameDataManager.Instance.GetEqupmentData(armorId);
+            if(armorData != null)
+            {
+                Text_CurEqupment.text = armorData.Name;
+                DaniTechGameUtil.LoadAndSetSpriteImage(Image_CurEqupment, armorData.IconPath).Forget();
+                Image_CurEqupment.gameObject.SetActive(true);
+            }
+
+            else
+            {
+                Text_CurEqupment.text = "";
+                Image_CurEqupment.gameObject.SetActive(false);
+            }
+        }
     }
 }

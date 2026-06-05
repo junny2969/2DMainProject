@@ -46,6 +46,7 @@ Transform:
   - {fileID: 4622417370296061245}
   - {fileID: 7749416264445133162}
   - {fileID: 2238249357734283316}
+  - {fileID: 1241460803430781610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &94406393117238767
@@ -58,7 +59,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_Radius
-      value: 7.3456545
+      value: 5.6403112
       objectReference: {fileID: 0}
     - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_Offset.x
@@ -66,11 +67,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_Offset.y
-      value: 0
+      value: -0.16503239
       objectReference: {fileID: 0}
     - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.83
+      value: -57.54
       objectReference: {fileID: 0}
     - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -114,11 +115,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3180363546269119021, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: _spawnObjectDataId
-      value: mob_redSnake_1
+      value: mob_redDrgon_1
       objectReference: {fileID: 0}
     - target: {fileID: 6842466901107213727, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_Name
-      value: SpawnSpot_Monster (3)
+      value: SpawnSpot_Dragon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -219,6 +220,88 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2179951074649632219, guid: 65d0cd4b3c0ade544b63228ec3338473, type: 3}
   m_PrefabInstance: {fileID: 395608456485742120}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1115260990308024177
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1746999660469632758}
+    m_Modifications:
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Radius
+      value: 4.055992
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039119099879299171, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.7493515
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -68.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -67.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180363546269119021, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: _startSpawnType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3180363546269119021, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: _spawnObjectDataId
+      value: mob_redSnake_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842466901107213727, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_Name
+      value: SpawnSpot_RedSnake
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+--- !u!4 &1241460803430781610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2179951074649632219, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+  m_PrefabInstance: {fileID: 1115260990308024177}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1770339204066351959
 PrefabInstance:
@@ -952,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnSpot_Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 6842466901107213727, guid: 386c3410caab67144be3af3a01f78a97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1435,6 +1522,10 @@ PrefabInstance:
     - target: {fileID: 6842466901107213727, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
       propertyPath: m_Name
       value: SpawnSpot_Monster (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842466901107213727, guid: cbf6d4af87c80424093069d3fa186d07, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

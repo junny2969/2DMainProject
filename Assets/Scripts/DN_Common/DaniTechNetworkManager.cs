@@ -69,6 +69,7 @@ public class DaniTechNetworkManager : MonoBehaviour
         var charData = DaniTechGameDataManager.Instance.GetCharacterData(newPlayerData.PlayerCharacterDataId);
         if(charData != null)
         {
+            newPlayerData.PlayerName = charData.Name;
             newPlayerData.CurrentHp = charData.MaxHp;
             newPlayerData.CurrentMp = charData.MaxMp;
             newPlayerData.CurLevel = charData.Level;
@@ -77,6 +78,9 @@ public class DaniTechNetworkManager : MonoBehaviour
             newPlayerData.CurInt = charData.Int;
             newPlayerData.CurDex = charData.Dex;
             newPlayerData.CurLuk = charData.Luk;
+
+            newPlayerData.EquippedWeaponId = "Item_Weapon_1";
+            newPlayerData.EquippedArmorId = "Item_Armor_1";
         }
 
         else

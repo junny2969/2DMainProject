@@ -234,7 +234,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
             _createdGameObjectContainer.Add(instanceId, unit);
         }
     }
-
+    
     public BattleUnitView GetBattleUnitView(int instanceId)
     {
         if(_createdGameObjectContainer.ContainsKey(instanceId) == false)

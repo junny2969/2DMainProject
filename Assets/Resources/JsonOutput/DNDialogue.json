@@ -128,7 +128,37 @@
   {
     "Id": "dialogue_clearbattle_1_2",
     "CharacterDataId": null,
-    "Description": "일단 쓰러트렸으니 돌아갈 수 있을것 같다.",
+    "Description": "일단 해치운것같다.",
+    "NextDialogueId": null,
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_enterbattle_2_1",
+    "CharacterDataId": null,
+    "Description": "뱀 다음은 용이라니!",
+    "NextDialogueId": null,
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_clearbattle_2_1",
+    "CharacterDataId": null,
+    "Description": "이제 진짜 끝인건가..?",
+    "NextDialogueId": "dialogue_clearbattle_2_2",
+    "SelectionNameList": null,
+    "SelectionDialogueIdList": null,
+    "TexturePath": null,
+    "VoicePath": null
+  },
+  {
+    "Id": "dialogue_clearbattle_2_2",
+    "CharacterDataId": null,
+    "Description": "주위를 살펴보자.",
     "NextDialogueId": null,
     "SelectionNameList": null,
     "SelectionDialogueIdList": null,

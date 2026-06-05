@@ -14,7 +14,9 @@
     "Def": null,
     "Int": null,
     "Dex": null,
-    "Luk": null
+    "Luk": null,
+    "StartingWeapon": null,
+    "StartingEqupment": null
   },
   {
     "Id": "character_victor_01",
@@ -31,7 +33,9 @@
     "Def": null,
     "Int": null,
     "Dex": null,
-    "Luk": null
+    "Luk": null,
+    "StartingWeapon": null,
+    "StartingEqupment": null
   },
   {
     "Id": "character_daniel_01",
@@ -48,7 +52,9 @@
     "Def": null,
     "Int": null,
     "Dex": null,
-    "Luk": null
+    "Luk": null,
+    "StartingWeapon": null,
+    "StartingEqupment": null
   },
   {
     "Id": "character_ellie_01",
@@ -65,6 +71,8 @@
     "Def": 10,
     "Int": 20,
     "Dex": 4,
-    "Luk": 8
+    "Luk": 8,
+    "StartingWeapon": "Item_Weapon_1",
+    "StartingEqupment": "Item_Armor_1"
   }
 ]

@@ -34,4 +34,7 @@ public class DaniTechPlayerModel
     public int CurInt;
     public int CurDex;
     public int CurLuk;
+
+    public string EquippedWeaponId;
+    public string EquippedArmorId;
 }
