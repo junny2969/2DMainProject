@@ -101,7 +101,7 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 50,
-    "IconPath": "Icon/Icon_Item_Armor_1",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_0]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -113,7 +113,7 @@
     "Grade": "Rare",
     "MaxStackCount": 10,
     "SellingPrice": 150,
-    "IconPath": "Icon/Icon_Item_Armor_2",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_1]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -125,7 +125,7 @@
     "Grade": "Epic",
     "MaxStackCount": 10,
     "SellingPrice": 450,
-    "IconPath": "Icon/Icon_Item_Armor_3",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_2]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -137,7 +137,7 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 10,
-    "IconPath": "Icon/Icon_Item_Potion_1",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_3]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -149,7 +149,7 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 30,
-    "IconPath": "Icon/Icon_Item_Potion_2",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_4]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -161,7 +161,7 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 100,
-    "IconPath": "Icon/Icon_Item_Potion_3",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_5]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -173,7 +173,7 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 10,
-    "IconPath": "Icon/Icon_Item_Weapon_1",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_6]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -185,7 +185,7 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 50,
-    "IconPath": "Icon/Icon_Item_Weapon_2",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_8]",
     "UseItemType": null,
     "UseItemParameterList": null
   },
@@ -197,7 +197,7 @@
     "Grade": "Epic",
     "MaxStackCount": 10,
     "SellingPrice": 200,
-    "IconPath": "Icon/Icon_Item_Weapon_3",
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_7]",
     "UseItemType": null,
     "UseItemParameterList": null
   }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72911ee0ac1b37a4594f544a6969bca9
+guid: c7aa0ab51a3e84f498a3ac9c7c1a5340
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,177 +110,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image_redDragon_Hit_0
+      name: Icon_ItemList_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 98
         y: 301
-        width: 130
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        width: 105
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 7, z: 11, w: 6}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d88d5af110fecf6468fd6eed791302d7
-      internalID: -1782620639
+      spriteID: 63e5983db9407e540baae130b557400c
+      internalID: 468158790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_1
+      name: Icon_ItemList_1
       rect:
         serializedVersion: 2
-        x: 135
-        y: 300
-        width: 114
-        height: 147
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 244
+        y: 301
+        width: 106
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 7, z: 11, w: 6}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f7477d797adc34cb8d565ba13fdb5a
-      internalID: 520317074
+      spriteID: 447c6bb9b75844849bd2350d1fa38e34
+      internalID: -1868086717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_2
+      name: Icon_ItemList_2
       rect:
         serializedVersion: 2
-        x: 250
-        y: 300
-        width: 117
-        height: 151
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 392
+        y: 301
+        width: 105
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 7, z: 10, w: 6}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8572eb190943c4b92565ebb905d76e
-      internalID: 1080599686
+      spriteID: 6c037dd05681a01488d572f573a0346c
+      internalID: -2085302644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_3
+      name: Icon_ItemList_3
       rect:
         serializedVersion: 2
-        x: 369
-        y: 298
-        width: 127
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 98
+        y: 168
+        width: 105
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 11, z: 15, w: 11}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf94d3897e3b3c4da8371304da0f2d1
-      internalID: -446978184
+      spriteID: c3cfc97a850d4bc45950c1cdc2ad8c02
+      internalID: -1639865295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_4
+      name: Icon_ItemList_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 125
-        height: 129
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 245
+        y: 168
+        width: 105
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 15, y: 11, z: 17, w: 12}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a4c498eaac417742ae44884ebf0306a
-      internalID: -1863333999
+      spriteID: 4345ce82bcd681048b77ef946010985c
+      internalID: -1200529575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_5
+      name: Icon_ItemList_5
       rect:
         serializedVersion: 2
-        x: 125
-        y: 38
-        width: 125
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 392
+        y: 168
+        width: 104
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 15, y: 10, z: 15, w: 10}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14a568bcae154284e8d1d17713692fe7
-      internalID: -1015215168
+      spriteID: b7889f118f4f2cc40ad3a13a9a868947
+      internalID: -2073531818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_6
+      name: Icon_ItemList_6
       rect:
         serializedVersion: 2
-        x: 250
+        x: 98
         y: 37
-        width: 125
-        height: 133
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        width: 105
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 10, y: 10, z: 12, w: 10}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ef1866b5733a56409835ade7caf5606
-      internalID: -702789291
+      spriteID: 4e68a226fcf121540a5a3b70db61134e
+      internalID: 621590158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_7
+      name: Icon_ItemList_7
       rect:
         serializedVersion: 2
-        x: 375
-        y: 33
-        width: 125
-        height: 130
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 245
+        y: 37
+        width: 105
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 9, z: 9, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b52079a1c717bc41a4c3105095317ed
-      internalID: 217459033
+      spriteID: 414597986ef375a49b61254eade98bc4
+      internalID: -575798083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_ItemList_8
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 37
+        width: 105
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 9, z: 9, w: 8}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17ceed2139e59ef46ab79bb1e2fe9907
+      internalID: -1577909858
       vertices: []
       indices: 
       edges: []
@@ -289,7 +311,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9eb518951664eee4a97c3a4bf530040d
+    spriteID: 5abd0535df7db0c49869be0f447c73f8
     internalID: 0
     vertices: []
     indices: 
@@ -299,16 +321,17 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":125.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":193.0,"y":143.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      image_redDragon_Hit_0: -1782620639
-      image_redDragon_Hit_1: 520317074
-      image_redDragon_Hit_2: 1080599686
-      image_redDragon_Hit_3: -446978184
-      image_redDragon_Hit_4: -1863333999
-      image_redDragon_Hit_5: -1015215168
-      image_redDragon_Hit_6: -702789291
-      image_redDragon_Hit_7: 217459033
+      Icon_ItemList_0: 468158790
+      Icon_ItemList_1: -1868086717
+      Icon_ItemList_2: -2085302644
+      Icon_ItemList_3: -1639865295
+      Icon_ItemList_4: -1200529575
+      Icon_ItemList_5: -2073531818
+      Icon_ItemList_6: 621590158
+      Icon_ItemList_7: -575798083
+      Icon_ItemList_8: -1577909858
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -70,6 +70,8 @@ public class DNWeaponData : GameDataBase
     public string Name;
     public string Description;
     public string IconPath;
+    public int AtkBonus;
+    public int IntBonus;
 }
 
 [System.Serializable] 
@@ -135,6 +137,7 @@ public class DNMonsterData : BattleUnitDataBase
     public string PrefabPath;
     public string FieldSpritePath;
     public string BattleDialogueId;
+    public string WinDialogueId;
     //public int MaxHp;
     //public int MaxMp;
 }
@@ -154,4 +157,7 @@ public class EqupmentData : GameDataBase
     public string Name;
     public string Description;
     public string IconPath;
+    public int DefBonus;
+    public int DexBonus;
+    public int LukBonus;
 }

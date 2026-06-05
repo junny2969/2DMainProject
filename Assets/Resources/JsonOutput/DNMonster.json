@@ -15,7 +15,8 @@
     "MaxMp": null,
     "Atk": null,
     "FieldSpritePath": null,
-    "BattleDialogueId": null
+    "BattleDialogueId": null,
+    "WinDialogueId": null
   },
   {
     "Id": "mob_dog_1",
@@ -31,7 +32,8 @@
     "MaxMp": null,
     "Atk": null,
     "FieldSpritePath": null,
-    "BattleDialogueId": null
+    "BattleDialogueId": null,
+    "WinDialogueId": null
   },
   {
     "Id": "mob_pigme_1",
@@ -47,7 +49,8 @@
     "MaxMp": null,
     "Atk": null,
     "FieldSpritePath": null,
-    "BattleDialogueId": null
+    "BattleDialogueId": null,
+    "WinDialogueId": null
   },
   {
     "Id": "mob_bear_1",
@@ -66,7 +69,8 @@
     "MaxMp": null,
     "Atk": null,
     "FieldSpritePath": null,
-    "BattleDialogueId": null
+    "BattleDialogueId": null,
+    "WinDialogueId": null
   },
   {
     "Id": "mob_redSnake_1",
@@ -79,12 +83,13 @@
       2
     ],
     "IconPath": "Icon/Icon_redSnake_1",
-    "PrefabPath": "2DObject/Monster_RedSnake_Battle",
+    "PrefabPath": "2DObject/Prefab_BattleRedSnake",
     "MaxHp": 400,
     "MaxMp": 200,
     "Atk": 40,
     "FieldSpritePath": "Monster/image_redSnake_Idle",
-    "BattleDialogueId": "dialogue_enterbattle_1_1"
+    "BattleDialogueId": "dialogue_enterbattle_1_1",
+    "WinDialogueId": "dialogue_clearbattle_1_1"
   },
   {
     "Id": "mob_greenSnake_1",
@@ -98,12 +103,13 @@
       5
     ],
     "IconPath": "Icon/Icon_greenSnake_1",
-    "PrefabPath": "2DObject/Monster_GreenSnake_Battle",
+    "PrefabPath": "2DObject/Prefab_BattleGreenSnake",
     "MaxHp": 250,
     "MaxMp": 200,
     "Atk": 20,
     "FieldSpritePath": null,
-    "BattleDialogueId": null
+    "BattleDialogueId": null,
+    "WinDialogueId": null
   },
   {
     "Id": "mob_redDrgon_1",
@@ -114,11 +120,12 @@
     "NormalAtkMultiple": null,
     "SkillAtkMultipleList": null,
     "IconPath": "Icon/Icon_redDragon_1",
-    "PrefabPath": "2DObject/Monster_RedDrgon_Battle",
+    "PrefabPath": "2DObject/Prefab_BattleRedDragon",
     "MaxHp": 600,
     "MaxMp": 300,
     "Atk": 80,
     "FieldSpritePath": "Monster/image_redDragon_Idle",
-    "BattleDialogueId": "dialogue_enterbattle_2_1"
+    "BattleDialogueId": "dialogue_enterbattle_2_1",
+    "WinDialogueId": "dialogue_clearbattle_2_1"
   }
 ]

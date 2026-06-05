@@ -31,6 +31,7 @@ public class DaniTechGameObjectManager : MonoBehaviour
     private Dictionary<int, GameObject> _createdGameObjectContainer = new Dictionary<int, GameObject>();
     private Dictionary<int, DaniTech_2DFieldObject> _fieldObjectContainer = new Dictionary<int, DaniTech_2DFieldObject>();
     private Dictionary<int, GameMonster> _monsterObjectContainer = new Dictionary<int, GameMonster>();
+    private Dictionary<int, GameObject> _battleUnitContainer = new Dictionary<int, GameObject>();
 
     // 게임 오브젝트 매니저가 살아있는 동안 이 플레이어를 보관(캐싱)해둔다
     private DaniTech_2DPlayer _localPlayer;
@@ -231,19 +232,19 @@ public class DaniTechGameObjectManager : MonoBehaviour
         if (battleUnit != null)
         {
             battleUnit.InitBattleUnit(unitModel);
-            _createdGameObjectContainer.Add(instanceId, unit);
+            _battleUnitContainer.Add(instanceId, unit);
         }
     }
     
     public BattleUnitView GetBattleUnitView(int instanceId)
     {
-        if(_createdGameObjectContainer.ContainsKey(instanceId) == false)
+        if(_battleUnitContainer.ContainsKey(instanceId) == false)
         {
             Debug.LogWarning($"{instanceId} 에 해당하는 유닛 없음");
             return null;
         }
 
-        var gObj = _createdGameObjectContainer[instanceId];
+        var gObj = _battleUnitContainer[instanceId];
         return gObj.GetComponent<BattleUnitView>();
     }
 
@@ -286,5 +287,17 @@ public class DaniTechGameObjectManager : MonoBehaviour
         var monster = _monsterObjectContainer[instanceId];
         _monsterObjectContainer.Remove(instanceId);
         Destroy(monster.gameObject);
+    }
+
+    public void ClearBattleUnit()
+    {
+        foreach (var kv in _battleUnitContainer)
+        {
+            if(kv.Value != null)
+            {
+                Destroy(kv.Value);
+            }
+        }
+        _battleUnitContainer.Clear();
     }
 }

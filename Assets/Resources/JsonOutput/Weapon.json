@@ -7,7 +7,9 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 10,
-    "IconPath": "Icon/Icon_Item_Weapon_1"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_6]",
+    "AtkBonus": 15,
+    "IntBouns": 10
   },
   {
     "Id": "Item_Weapon_2",
@@ -17,7 +19,9 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 50,
-    "IconPath": "Icon/Icon_Item_Weapon_2"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_8]",
+    "AtkBonus": 30,
+    "IntBouns": 20
   },
   {
     "Id": "Item_Weapon_3",
@@ -27,6 +31,8 @@
     "Grade": "Epic",
     "MaxStackCount": 10,
     "SellingPrice": 200,
-    "IconPath": "Icon/Icon_Item_Weapon_3"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_7]",
+    "AtkBonus": 60,
+    "IntBouns": 50
   }
 ]

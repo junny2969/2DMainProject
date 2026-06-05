@@ -7,7 +7,7 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 10,
-    "IconPath": "Icon/Icon_Item_Potion_1"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_3]"
   },
   {
     "Id": "Item_Potion_2",
@@ -17,7 +17,7 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 30,
-    "IconPath": "Icon/Icon_Item_Potion_2"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_4]"
   },
   {
     "Id": "Item_Potion_3",
@@ -27,6 +27,6 @@
     "Grade": "Normal",
     "MaxStackCount": 100,
     "SellingPrice": 100,
-    "IconPath": "Icon/Icon_Item_Potion_3"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_5]"
   }
 ]

@@ -9,12 +9,12 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private GameObject MainCameraObject;
 
     [Header("엔딩 로그")]
-    [SerializeField] private string _winDialogueId;
+    // [SerializeField] private string _winDialogueId;
 
     [Header("전투유닛 위치")]
     [SerializeField] private GameObject Prefab_BattlePlayer;
     [SerializeField] private Transform Root_BattlePlayer;
-    [SerializeField] private GameObject Prefab_BattleMonster;
+    // [SerializeField] private GameObject Prefab_BattleMonster;
     [SerializeField] private Transform Root_BattleMonster;
     [SerializeField] private Transform Transform_BattleCenter;
 
@@ -71,7 +71,14 @@ public class BattleManager : MonoBehaviour
                 mobModel.OnDead += OnMonsterDead;
                 _enemyModels.Add(mobModel);
 
-                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, Prefab_BattleMonster, Root_BattleMonster);
+                var battlePrefab = await DaniTechResourceManager.Inst.LoadAsset<GameObject>(mobData.PrefabPath);
+                if(battlePrefab  == null)
+                {
+                    Debug.LogWarning($"전투 프리팹 로드 실패 {mobData.PrefabPath}");
+                    continue;
+                }
+
+                DaniTechGameObjectManager.Inst.RequestInitBattleUnit(mobModel.InstanceId, mobModel, battlePrefab, Root_BattleMonster);
                 battleUi.SetMonsterUnit(mobModel);
 
             }
@@ -169,8 +176,20 @@ public class BattleManager : MonoBehaviour
 
         SaveBattleResultToPlayerModel();
 
+        string winDialogueId = "";
+        var enemyModel = GetEnemyModel();
+        if (enemyModel != null)
+        {
+            var mobData = DaniTechGameDataManager.Instance.GetDNMonsterData(enemyModel.DataId);
+            if (mobData != null)
+            {
+                winDialogueId = mobData.WinDialogueId;
+                
+            }
+        }
+
         RestoreFromBattle();
-        DaniTechUIManager.Instance.OpenDialogueUI(_winDialogueId, OnWinDialogueEnd);
+        DaniTechUIManager.Instance.OpenDialogueUI(winDialogueId, OnWinDialogueEnd);
        //  DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
 
         //TODO 승리 다이얼로그 > 엔딩
@@ -179,7 +198,8 @@ public class BattleManager : MonoBehaviour
     private void OnWinDialogueEnd()
     {
         DaniTechGameManager.Inst.SaveData();
-        DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
+        //DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
+        DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
     }
 
     public Vector3 GetBattleCenterPosition()
@@ -215,6 +235,7 @@ public class BattleManager : MonoBehaviour
 
         _playerModels.Clear();
         _enemyModels.Clear();
+        DaniTechGameObjectManager.Inst.ClearBattleUnit();
 
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.BattleUI);
         DaniTechGameObjectManager.Inst.ReSpawnLocalPlayer();

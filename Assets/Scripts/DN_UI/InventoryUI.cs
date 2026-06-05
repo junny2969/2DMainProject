@@ -66,6 +66,10 @@ public class InventoryUI : DaniTechUIBase
     [SerializeField] private Text Text_ItemName;
     [SerializeField] private Text Text_Description;
 
+    private string _selectedDataId;
+    private EInventoryCategory _selectedCategory;
+
+
     // [Header("부가정보")] >> 추후 레이아웃을 껏다켰다 할때 사용
     // [SerializeField] private GameObject Layout_SubInfoSkill;
     private Dictionary<string, InventorySlotUI> _slotList = new Dictionary<string, InventorySlotUI>();
@@ -81,6 +85,7 @@ public class InventoryUI : DaniTechUIBase
         Button_OpenPotion.BindOnClickButtonEvent(OnClick_OpenPotion);
         Button_OpenEqupment.BindOnClickButtonEvent(OnClick_OpenEqupment);
         Button_Weapon.BindOnClickButtonEvent(OnClick_Weapon);
+        Button_UseItem.BindOnClickButtonEvent(OnClick_UseItem);
 
         InitCharacterStatus();
         RefreshEquipmentSlot();
@@ -94,7 +99,26 @@ public class InventoryUI : DaniTechUIBase
 
     private void OnClick_UseItem()
     {
+        Debug.LogWarning($"UseItem 클릭. category:{_selectedCategory}, dataId : {_selectedDataId}");
+        switch(_selectedCategory)
+        {
+            case EInventoryCategory.WeaponCategory:
+                DaniTechGameManager.Inst.SetEquippedWeaponId(_selectedDataId);
+                RefreshEquipmentSlot();
+                InitCharacterStatus();
+                break;
+            case EInventoryCategory.EqupmentCategory:
+                DaniTechGameManager.Inst.SetEquippedArmorId(_selectedDataId);
+                RefreshEquipmentSlot();
+                InitCharacterStatus();
 
+                break;
+            case EInventoryCategory.PotionCategory:
+                // TODO 포션사용구현
+                break;
+            default:
+                break;
+        }
     }
 
     private void OnDisable()
@@ -124,11 +148,7 @@ public class InventoryUI : DaniTechUIBase
         SetInventoryLayoutByCategory(EInventoryCategory.WeaponCategory);
 
     }
-    //private void OnClick_UseItem()
-    //{
-        
-
-    //}
+    
 
     private void RequestSelectUseItm()
     {
@@ -143,6 +163,7 @@ public class InventoryUI : DaniTechUIBase
     private void SetInventoryLayoutByCategory(EInventoryCategory category)
     {
         DestroyAndClearSlotList();
+        RefreshUseItemButton(category);
         switch (category)
         {
             case EInventoryCategory.SkillCategory:
@@ -159,6 +180,33 @@ public class InventoryUI : DaniTechUIBase
                 break;
             default:
                 break;
+        }
+    }
+
+    private void RefreshUseItemButton(EInventoryCategory category)
+    {
+        switch (category)
+        {
+            case EInventoryCategory.SkillCategory:
+                Button_UseItem.gameObject.SetActive(false);
+                break;
+            case EInventoryCategory.PotionCategory:
+                Button_UseItem.gameObject.SetActive(true);
+                Button_UseItem.ChangeButtonText("사용");
+                break;
+            case EInventoryCategory.EqupmentCategory:
+                Button_UseItem.gameObject.SetActive(true);
+                Button_UseItem.ChangeButtonText("장착");
+                break;
+            case EInventoryCategory.WeaponCategory:
+                Button_UseItem.gameObject.SetActive(true);
+                Button_UseItem.ChangeButtonText("장착");
+                break;
+            default:
+                Button_UseItem.gameObject.SetActive(false);
+                break;
+
+
         }
     }
 
@@ -268,12 +316,11 @@ public class InventoryUI : DaniTechUIBase
     }
     private void OnClickChildSlotSelected(string slotDataId, EInventoryCategory selectedCatogory)
     {
+        _selectedDataId = slotDataId;
+        _selectedCategory = selectedCatogory;
        
-
         if (selectedCatogory == EInventoryCategory.SkillCategory)
         {
-
-
             var currentSelectedData = DaniTechGameDataManager.Instance.GetSkill(slotDataId);
             if (currentSelectedData == null) return;
 
@@ -286,7 +333,6 @@ public class InventoryUI : DaniTechUIBase
             if (currentSelectedData == null) return;
 
             SetDetailInforUI(currentSelectedData.Name, currentSelectedData.Description, currentSelectedData.IconPath);
-
         }
 
         else if(selectedCatogory == EInventoryCategory.EqupmentCategory)
@@ -310,7 +356,6 @@ public class InventoryUI : DaniTechUIBase
             var slot = slotKv.Value;
             var dataId = slot.GetSlotDataId();
             slot.SetSelectedUI(slotDataId == dataId);
-
         }
     }
 
@@ -331,6 +376,35 @@ public class InventoryUI : DaniTechUIBase
         int currentHp = DaniTechGameManager.Inst.GetPlayerCurrentHp();
         int currentMp = DaniTechGameManager.Inst.GetPlayerCurrentMp();
 
+        int atkBonus = 0;
+        int intBonus = 0;
+        int defBonus = 0;
+        int dexBonus = 0;
+        int lukBonus = 0;
+
+        string weaponId = DaniTechGameManager.Inst.GetEquippedWeaponId();
+        if(string.IsNullOrEmpty(weaponId) == false)
+        {
+            var weaponData = DaniTechGameDataManager.Instance.GetWeaponData(weaponId);
+            if(weaponData != null)
+            {
+                atkBonus += weaponData.AtkBonus;
+                intBonus += weaponData.IntBonus;
+            }
+        }
+
+        string armorId = DaniTechGameManager.Inst.GetEquippedArmorId();
+        if(string.IsNullOrEmpty(armorId) == false)
+        {
+            var armorData = DaniTechGameDataManager.Instance.GetEqupmentData(armorId);
+            if(armorData != null)
+            {
+                defBonus += armorData.DefBonus;
+                dexBonus += armorData.DexBonus;
+                lukBonus += armorData.LukBonus;
+            }
+        }
+
         if(Image_PlayerIcon != null && string.IsNullOrEmpty(charData.IconPath) == false)
         {
             DaniTechGameUtil.LoadAndSetSpriteImage(Image_PlayerIcon, charData.IconPath).Forget();
@@ -340,11 +414,11 @@ public class InventoryUI : DaniTechUIBase
         Text_Level_Stat.text = $"{curLevel}";
         Text_Hp_Stat.text = $"{currentHp} / {charData.MaxHp}";
         Text_Mp_Stat.text = $"{currentMp} / {charData.MaxMp}";
-        Text_Atk_Stat.text = $"{curAtk}";
-        Text_Def_Stat.text = $"{curDef}";
-        Text_Int_Stat.text = $"{curInt}";
-        Text_Dex_Stat.text = $"{curDex}";
-        Text_Luk_Stat.text = $"{curLuk}";
+        Text_Atk_Stat.text = $"{curAtk + atkBonus}";
+        Text_Def_Stat.text = $"{curDef + defBonus}";
+        Text_Int_Stat.text = $"{curInt + intBonus}";
+        Text_Dex_Stat.text = $"{curDex + dexBonus}";
+        Text_Luk_Stat.text = $"{curLuk + lukBonus}";
 
         Text_PlayerName.text = charData.Name;
         Text_PlayerHp.text = $"{currentHp} / {charData.MaxHp}";
@@ -385,11 +459,13 @@ public class InventoryUI : DaniTechUIBase
                 Image_CurEqupment.gameObject.SetActive(true);
             }
 
-            else
-            {
-                Text_CurEqupment.text = "";
-                Image_CurEqupment.gameObject.SetActive(false);
-            }
+        }
+        else
+        {
+            Text_CurEqupment.text = "";
+            Image_CurEqupment.gameObject.SetActive(false);
         }
     }
+
+    
 }

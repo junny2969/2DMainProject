@@ -102,12 +102,12 @@ public class BattleActionPopup : DaniTechUIBase
     private async UniTaskVoid RefreshSpecialSkillAsync()
     {
         var skillIdList = DaniTechGameManager.Inst.GetPlayerSkillListByType("Special");
-        Debug.LogWarning("Special 스킬 개수 : " + skillIdList);
+        // Debug.LogWarning("Special 스킬 개수 : " + skillIdList);
 
         foreach (string skillId in skillIdList)
         {
             var skillData = DaniTechGameDataManager.Instance.GetSkill(skillId);
-            Debug.LogWarning(skillId + "skillType::" + (skillData == null ? "null" : skillData.SkillType));
+            // Debug.LogWarning(skillId + "skillType::" + (skillData == null ? "null" : skillData.SkillType));
             await CreateSkillSlot(skillId);
         }
     }

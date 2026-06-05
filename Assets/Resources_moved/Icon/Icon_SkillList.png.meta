@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72911ee0ac1b37a4594f544a6969bca9
+guid: 0b3f71dbdf4645640bedb6a9f8ed907e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,177 +110,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: image_redDragon_Hit_0
+      name: Icon_SkillList_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 301
-        width: 130
-        height: 143
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 61
+        y: 242
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 13, y: 15, z: 14, w: 16}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d88d5af110fecf6468fd6eed791302d7
-      internalID: -1782620639
+      spriteID: 9c0af714cd00998488d1b785e675a03a
+      internalID: -66275497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_1
+      name: Icon_SkillList_1
       rect:
         serializedVersion: 2
-        x: 135
-        y: 300
-        width: 114
-        height: 147
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 233
+        y: 242
+        width: 113
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 10, z: 0, w: 10}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7f7477d797adc34cb8d565ba13fdb5a
-      internalID: 520317074
+      spriteID: 0c5a2a5f1afdb05418b879d65677231f
+      internalID: 490970777
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_2
+      name: Icon_SkillList_2
       rect:
         serializedVersion: 2
-        x: 250
-        y: 300
-        width: 117
-        height: 151
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 408
+        y: 242
+        width: 121
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 9, y: 7, z: 9, w: 8}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa8572eb190943c4b92565ebb905d76e
-      internalID: 1080599686
+      spriteID: 1af815ca1f8be9f4ca7852e01c5f35e7
+      internalID: 1809249473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_3
+      name: Icon_SkillList_16
       rect:
         serializedVersion: 2
-        x: 369
-        y: 298
-        width: 127
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 147
+        y: 68
+        width: 122
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 10, z: 8, w: 10}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf94d3897e3b3c4da8371304da0f2d1
-      internalID: -446978184
+      spriteID: 132517f61a2f8e34eae3cec3e25288d5
+      internalID: 1929005876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: image_redDragon_Hit_4
+      name: Icon_SkillList_17
       rect:
         serializedVersion: 2
-        x: 0
-        y: 40
-        width: 125
-        height: 129
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 323
+        y: 68
+        width: 121
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 9, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a4c498eaac417742ae44884ebf0306a
-      internalID: -1863333999
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redDragon_Hit_5
-      rect:
-        serializedVersion: 2
-        x: 125
-        y: 38
-        width: 125
-        height: 128
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 14a568bcae154284e8d1d17713692fe7
-      internalID: -1015215168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redDragon_Hit_6
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 37
-        width: 125
-        height: 133
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ef1866b5733a56409835ade7caf5606
-      internalID: -702789291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: image_redDragon_Hit_7
-      rect:
-        serializedVersion: 2
-        x: 375
-        y: 33
-        width: 125
-        height: 130
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b52079a1c717bc41a4c3105095317ed
-      internalID: 217459033
+      spriteID: 2bc0b4eff7e791345b2fd6ab7ab9579d
+      internalID: -791793837
       vertices: []
       indices: 
       edges: []
@@ -289,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9eb518951664eee4a97c3a4bf530040d
+    spriteID: db3bfd6577c72d3409e953c72c40d194
     internalID: 0
     vertices: []
     indices: 
@@ -299,16 +233,29 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":125.0,"y":250.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":193.0,"y":143.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      image_redDragon_Hit_0: -1782620639
-      image_redDragon_Hit_1: 520317074
-      image_redDragon_Hit_2: 1080599686
-      image_redDragon_Hit_3: -446978184
-      image_redDragon_Hit_4: -1863333999
-      image_redDragon_Hit_5: -1015215168
-      image_redDragon_Hit_6: -702789291
-      image_redDragon_Hit_7: 217459033
+      Icon_SkillList_0: -66275497
+      Icon_SkillList_1: 490970777
+      Icon_SkillList_10: 366997644
+      Icon_SkillList_11: -509726984
+      Icon_SkillList_12: -2069972732
+      Icon_SkillList_13: 952865142
+      Icon_SkillList_14: -1394109386
+      Icon_SkillList_15: -2078814630
+      Icon_SkillList_16: 1929005876
+      Icon_SkillList_17: -791793837
+      Icon_SkillList_18: 706385247
+      Icon_SkillList_19: 1601590323
+      Icon_SkillList_2: 1809249473
+      Icon_SkillList_20: 607563140
+      Icon_SkillList_3: 1180331978
+      Icon_SkillList_4: 1511947924
+      Icon_SkillList_5: 1119145683
+      Icon_SkillList_6: 988782996
+      Icon_SkillList_7: 702699641
+      Icon_SkillList_8: 1455317125
+      Icon_SkillList_9: -591250525
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

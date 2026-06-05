@@ -7,7 +7,10 @@
     "Grade": "Normal",
     "MaxStackCount": 10,
     "SellingPrice": 50,
-    "IconPath": "Icon/Icon_Item_Armor_1"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_0]",
+    "DefBonus": 8,
+    "DexBonus": 7,
+    "LukBonus": 11
   },
   {
     "Id": "Item_Armor_2",
@@ -17,7 +20,10 @@
     "Grade": "Rare",
     "MaxStackCount": 10,
     "SellingPrice": 150,
-    "IconPath": "Icon/Icon_Item_Armor_2"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_1]",
+    "DefBonus": 24,
+    "DexBonus": 16,
+    "LukBonus": 23
   },
   {
     "Id": "Item_Armor_3",
@@ -27,6 +33,9 @@
     "Grade": "Epic",
     "MaxStackCount": 10,
     "SellingPrice": 450,
-    "IconPath": "Icon/Icon_Item_Armor_3"
+    "IconPath": "Icon/Icon_ItemList[Icon_ItemList_2]",
+    "DefBonus": 52,
+    "DexBonus": 33,
+    "LukBonus": 42
   }
 ]
