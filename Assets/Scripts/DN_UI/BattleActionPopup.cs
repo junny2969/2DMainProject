@@ -20,6 +20,11 @@ public class BattleActionPopup : DaniTechUIBase
     [SerializeField] private DaniTechUIButton Btn_NormalSkill;
     [SerializeField] private DaniTechUIButton Btn_SpeacialSkill;
     [SerializeField] private DaniTechUIButton Btn_UseItem;
+    [SerializeField] private Image Arrow_NormalSkill;
+    [SerializeField] private Image Arrow_SpecialSkill;
+    [SerializeField] private Image Arrow_Item;
+    [SerializeField] private Text Text_CurCategory;
+
 
     [Header("슬롯 루트")]
     [SerializeField] private Transform Root_SlotList;
@@ -56,6 +61,14 @@ public class BattleActionPopup : DaniTechUIBase
     private void OnClick_NormalSkill()
     {
         if (_curCategory == SkillPopupCategory.NormalSkill) return;
+        if(Arrow_NormalSkill == null || Arrow_SpecialSkill == null || Arrow_Item == null) return;
+
+        Arrow_NormalSkill.gameObject.SetActive(true);
+        Arrow_SpecialSkill.gameObject.SetActive(false);
+        Arrow_Item.gameObject.SetActive(false);
+
+        Text_CurCategory.text = "일반기술";
+
         _curCategory = SkillPopupCategory.NormalSkill;
 
         ClearSlotList();
@@ -65,6 +78,16 @@ public class BattleActionPopup : DaniTechUIBase
     private void OnClick_SpeacialSkill()
     {
         if (_curCategory == SkillPopupCategory.SpeacialSkill) return;
+        if (Arrow_NormalSkill == null || Arrow_SpecialSkill == null || Arrow_Item == null) return;
+
+        Arrow_NormalSkill.gameObject.SetActive(false);
+        Arrow_SpecialSkill.gameObject.SetActive(true);
+        Arrow_Item.gameObject.SetActive(false);
+
+        Text_CurCategory.text = "특수기술";
+
+
+
         _curCategory = SkillPopupCategory.SpeacialSkill;
 
         ClearSlotList();
@@ -72,7 +95,14 @@ public class BattleActionPopup : DaniTechUIBase
     }
     private void OnClick_UseItem()
     {
+        Text_CurCategory.text = "아이템 사용";
+
         Debug.LogWarning("아이템 탭 클릭됨");
+        if (Arrow_NormalSkill == null || Arrow_SpecialSkill == null || Arrow_Item == null) return;
+
+        Arrow_NormalSkill.gameObject.SetActive(false);
+        Arrow_SpecialSkill.gameObject.SetActive(false);
+        Arrow_Item.gameObject.SetActive(true);
 
         if (_curCategory == SkillPopupCategory.UseItem) return;
         _curCategory = SkillPopupCategory.UseItem;

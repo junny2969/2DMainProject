@@ -21,6 +21,8 @@ public class Test_LobbyUI : DaniTechUIBase
         DaniTechGameManager.Inst.StartNewGame();
         DaniTechUIManager.Instance.CloseContentUI(DaniTechUIType.Lobby_UI);
         DaniTechUIManager.Instance.OpenLoadingUI();
+
+        DaniTechSoundManager.Inst.PlayBGM("Sound/Bgm_Field");
     }
 
     public void OnClick_GameQuit()

@@ -1640,8 +1640,8 @@ Transform:
   m_GameObject: {fileID: 1758877450}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -798.9752, y: 115.1341, z: 0}
-  m_LocalScale: {x: 117.8761, y: 152.9327, z: 1}
+  m_LocalPosition: {x: -707.5366, y: -6.9089, z: 0}
+  m_LocalScale: {x: 432.6023, y: 611.64105, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 892546878}
@@ -2495,6 +2495,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 890240900143732114}
+  - component: {fileID: 2649395676237015593}
   m_Layer: 0
   m_Name: ManagerContainer
   m_TagString: Untagged
@@ -2502,6 +2503,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &2649395676237015593
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649395676237015592}
+  m_Enabled: 1
 --- !u!1 &3233525234739485077
 GameObject:
   m_ObjectHideFlags: 0
@@ -256730,7 +256739,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0

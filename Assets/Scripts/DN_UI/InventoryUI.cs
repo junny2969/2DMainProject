@@ -13,6 +13,15 @@ public enum EInventoryCategory
     WeaponCategory,
     QuestItemCategory
 }
+
+public class CalculatedStat
+{
+    public int Atk;
+    public int Def;
+    public int Int;
+    public int Dex;
+    public int Luk;
+}
 public class InventoryUI : DaniTechUIBase
 {
     [Header("동적 생성할 프리팹")]
@@ -47,6 +56,12 @@ public class InventoryUI : DaniTechUIBase
     [SerializeField] private Text Text_Dex_Stat;
     [SerializeField] private Text Text_Luk_Stat;
 
+    [Header("장착시 스탯")]
+    [SerializeField] private Text Text_Atk_AfterStat;
+    [SerializeField] private Text Text_Def_AfterStat;
+    [SerializeField] private Text Text_Int_AfterStat;
+    [SerializeField] private Text Text_Dex_AfterStat;
+    [SerializeField] private Text Text_Luk_AfterStat;
 
     [Header("캐릭터 정보")]
     [SerializeField] private Text Text_PlayerName;
@@ -68,6 +83,9 @@ public class InventoryUI : DaniTechUIBase
 
     private string _selectedDataId;
     private EInventoryCategory _selectedCategory;
+    // private string previewWeapon;
+    // private string previewArmor;
+
 
 
     // [Header("부가정보")] >> 추후 레이아웃을 껏다켰다 할때 사용
@@ -318,7 +336,9 @@ public class InventoryUI : DaniTechUIBase
     {
         _selectedDataId = slotDataId;
         _selectedCategory = selectedCatogory;
-       
+        RefreshStatPreview(slotDataId, selectedCatogory);
+
+
         if (selectedCatogory == EInventoryCategory.SkillCategory)
         {
             var currentSelectedData = DaniTechGameDataManager.Instance.GetSkill(slotDataId);
@@ -467,5 +487,99 @@ public class InventoryUI : DaniTechUIBase
         }
     }
 
+    private CalculatedStat CalculateStats(string weaponId, string armorId)
+    {
+        var stat = new CalculatedStat();
+
+        stat.Atk = DaniTechGameManager.Inst.GetPlayerCurAtk();
+        stat.Def = DaniTechGameManager.Inst.GetPlayerCurDef();
+        stat.Int = DaniTechGameManager.Inst.GetPlayerCurInt();
+        stat.Dex = DaniTechGameManager.Inst.GetPlayerCurDex();
+        stat.Luk = DaniTechGameManager.Inst.GetPlayerCurLuk();
+
+        if (string.IsNullOrEmpty(weaponId) == false)
+        {
+            var weaponData = DaniTechGameDataManager.Instance.GetWeaponData(weaponId);
+            if (weaponData != null)
+            {
+                stat.Atk += weaponData.AtkBonus;
+                stat.Int += weaponData.IntBonus;
+            }
+        }
+
+        if(string.IsNullOrEmpty(armorId) == false)
+        {
+            var armorData = DaniTechGameDataManager.Instance.GetEqupmentData(armorId);
+            if (armorData != null)
+            {
+                stat.Def += armorData.DefBonus;
+                stat.Dex += armorData.DexBonus;
+                stat.Luk += armorData.LukBonus;
+            }
+        }
+
+        return stat;
+    }
     
+    private void RefreshStatPreview(string selectedDataid, EInventoryCategory category)
+    {
+        string curWeapon = DaniTechGameManager.Inst.GetEquippedWeaponId();
+        string curArmor = DaniTechGameManager.Inst.GetEquippedArmorId();
+
+        CalculatedStat current = CalculateStats(curWeapon, curArmor);
+
+        string previewWeapon = curWeapon;
+        string previewArmor = curArmor;
+
+        if(category == EInventoryCategory.WeaponCategory)
+        {
+            previewWeapon = selectedDataid;
+        }
+
+        else if(category == EInventoryCategory.EqupmentCategory)
+        {
+            previewArmor = selectedDataid;
+        }
+
+        CalculatedStat preview = CalculateStats(previewWeapon, previewArmor);
+
+        SetStatPreviewText(Text_Atk_Stat, Text_Atk_AfterStat, current.Atk, preview.Atk);
+        SetStatPreviewText(Text_Int_Stat, Text_Int_AfterStat, current.Int, preview.Int);
+        SetStatPreviewText(Text_Def_Stat, Text_Def_AfterStat, current.Def, preview.Def);
+        SetStatPreviewText(Text_Dex_Stat, Text_Dex_AfterStat, current.Dex, preview.Dex);
+        SetStatPreviewText(Text_Luk_Stat, Text_Luk_AfterStat, current.Luk, preview.Luk);
+
+        //Text_Atk_Stat.text = $"{current.Atk}";
+        //Text_Atk_AfterStat.text = $">      {preview.Atk}";
+        //Text_Int_Stat.text = $"{current.Int}";
+        //Text_Int_AfterStat.text = $">      {preview.Int}";
+        //Text_Def_Stat.text = $"{current.Def}";
+        //Text_Def_AfterStat.text = $">       {preview.Def}";
+        //Text_Dex_Stat.text = $"{current.Dex}";
+        //Text_Dex_AfterStat.text = $">       {preview.Dex}";
+        //Text_Luk_Stat.text = $"{current.Luk}";
+        //Text_Luk_AfterStat.text = $">       {preview.Luk}";
+    }
+
+
+    private void SetStatPreviewText(Text currentText, Text afterText, int current, int preview)
+    {
+        currentText.text = $"{current}";
+        if (preview > current)
+        {
+            // afterText.gameObject.SetActive(true);
+            afterText.text = $">      {preview}";
+            afterText.color = Color.green;
+        }
+        else if (preview < current)
+        {
+            // afterText.gameObject.SetActive(true);
+            afterText.text = $">      {preview}";
+            afterText.color = Color.red;
+        }
+        else
+        {
+            afterText.text = "";
+        }
+    }
 }

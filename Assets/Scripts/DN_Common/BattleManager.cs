@@ -90,6 +90,8 @@ public class BattleManager : MonoBehaviour
     {
         DaniTechUIManager.Instance.CloseUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
         DaniTechGameObjectManager.Inst.HideLocalPlayer();
+        DaniTechSoundManager.Inst.PlayBGM("Sound/Bgm_Battle");
+
 
         
         var cameraFollow = MainCameraObject.GetComponent<CameraFollow>();
@@ -146,6 +148,7 @@ public class BattleManager : MonoBehaviour
     {
         DaniTechUIManager.Instance.OpenBattleResultPopup("패 배");
         await UniTask.Delay(TimeSpan.FromSeconds(1.5));
+        DaniTechSoundManager.Inst.StopBGM();
 
         RecoverPlayerToFull();
 
@@ -198,6 +201,7 @@ public class BattleManager : MonoBehaviour
     private void OnWinDialogueEnd()
     {
         DaniTechGameManager.Inst.SaveData();
+        DaniTechSoundManager.Inst.PlayBGM("Sound/Bgm_Field");
         //DaniTechUIManager.Instance.OpenContentUI(DaniTechUIType.Lobby_UI);
         DaniTechUIManager.Instance.OpenUI(DaniTechUIRootType.MainUI, DaniTechUIType.MainUI);
     }
